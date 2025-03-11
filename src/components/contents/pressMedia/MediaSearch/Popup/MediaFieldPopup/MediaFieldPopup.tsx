@@ -1,0 +1,156 @@
+import { useEffect, useState } from 'react'
+
+import Button from '~/components/common/ui/Button'
+import Popup from '~/components/common/ui/Popup'
+import TagList from '~/components/common/ui/TagList'
+import FieldItem from '~/components/contents/pressMedia/MediaSearch/Popup/MediaFieldPopup/FieldItem'
+import { useMediaSearchOptions } from '~/utils/hooks/contents/pressMedia/useMediaSearchOptions'
+
+const MediaFieldPopup = () => {
+  const {
+    industryList,
+    mediaFieldList,
+    mediaFieldPopup,
+    mediaSearchOption,
+    setMediaFieldKeywordValueAction,
+    setMediaFieldPopupSelectedValue,
+    setMediaFieldPopupDeleteTotalSelect,
+    setSelectedTypeMediaFieldPopup,
+    setDeleteSelectedTypeMediaFieldPopup,
+    setMediaFieldPopupTotalSelect,
+    setMediaFieldPopupAction,
+  } = useMediaSearchOptions()
+  const [isLoading, setIsLoading] = useState(false)
+  const [isMaxGroupSelected, setIsMaxGroupSelected] = useState(false)
+
+  const actionButton = async () => {
+    setIsLoading(() => true)
+    await setMediaFieldKeywordValueAction(mediaFieldPopup.selectedType, mediaSearchOption.keywordParam)
+    setIsLoading(() => false)
+  }
+
+  const calculateAmount = async () => {
+    let res = false
+    if (
+      mediaFieldPopup.selectedType &&
+      mediaFieldList &&
+      mediaFieldPopup.selectedType.length > 0 &&
+      mediaFieldList.length > 0
+    ) {
+      const selectedIdParams = mediaFieldPopup.selectedType.map(e => e.label)
+      const getIdParams = mediaFieldList.map(e => e.name)
+      const difference = selectedIdParams.filter(item => getIdParams.includes(item))
+      if (difference) {
+        res = difference.length >= getIdParams.length
+      }
+    }
+    setIsMaxGroupSelected(() => res)
+  }
+
+  useEffect(() => {
+    calculateAmount()
+  }, [mediaFieldList, mediaFieldPopup.selectedType])
+  return (
+    <>
+      <Popup
+        isOpen={mediaFieldPopup.isOpen}
+        onClose={() => setMediaFieldPopupAction([], false, mediaSearchOption.keywordParam)}
+        hasCloseButton
+        hasCloseButtonLoading={isLoading}
+        title={'매체 분야'}
+        width={800}
+        buttons={
+          <div className="popup-footer__section">
+            <Button
+              label={'확인'}
+              cate={'default'}
+              size={'m'}
+              color={'primary'}
+              isLoading={isLoading}
+              disabled={isLoading}
+              onClick={() => actionButton()}
+            />
+            <Button
+              label={'취소'}
+              cate={'default'}
+              size={'m'}
+              disabled={isLoading}
+              color={'link-dark'}
+              onClick={() => setMediaFieldPopupAction([], false, mediaSearchOption.keywordParam)}
+            />
+          </div>
+        }
+      >
+        <div className="popup-contents__section">
+          <div
+            className="tree-menu__section"
+            style={{ marginBottom: 20 }}
+          >
+            <div className="tree-menu__area">
+              <div className="tree-menu__group type1">
+                <ul className="tree-menu__list">
+                  {industryList &&
+                    industryList.length > 0 &&
+                    industryList.map(e => (
+                      <li key={'tree-menu__button_mediaFieldPopupList' + e}>
+                        <button
+                          className={`tree-menu__button ${
+                            mediaFieldPopup &&
+                            mediaFieldPopup.selectedValue &&
+                            mediaFieldPopup.selectedValue.toString() === e
+                              ? 'is-selected'
+                              : ''
+                          }`}
+                          onClick={() => setMediaFieldPopupSelectedValue(e, mediaFieldPopup)}
+                        >
+                          <span className="tree-menu__button-text">{e}</span>
+                        </button>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+              <div className="tree-menu__group type2">
+                <ul className="tree-menu__list">
+                  {mediaFieldList &&
+                    mediaFieldList.length > 0 &&
+                    mediaFieldList.map(e => (
+                      <FieldItem
+                        key={'tree-menu__button-input_mediaFieldList' + e.name + e.count}
+                        {...e}
+                      />
+                    ))}
+                </ul>
+                <div className="tree-menu-footer__group">
+                  {isMaxGroupSelected ? (
+                    <button
+                      type="button"
+                      className="tree-menu-footer__button"
+                      onClick={() => setMediaFieldPopupDeleteTotalSelect(mediaFieldList, mediaFieldPopup)}
+                    >
+                      전체 선택
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="tree-menu-footer__button"
+                      onClick={() => setMediaFieldPopupTotalSelect(mediaFieldList, mediaFieldPopup)}
+                    >
+                      전체 선택
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+          <TagList
+            tagItems={mediaFieldPopup.selectedType}
+            onTagItemClose={e => setSelectedTypeMediaFieldPopup(e, mediaFieldPopup)}
+            onAllTagItemClose={() => setDeleteSelectedTypeMediaFieldPopup(mediaFieldPopup)}
+          />
+        </div>
+      </Popup>
+    </>
+  )
+}
+
+export default MediaFieldPopup

@@ -1,0 +1,52 @@
+.steps {
+  &__list {
+    @include flexWrap;
+
+    > li {
+      @include flexAlignCen;
+
+      &:not(:last-of-type)::after {
+        @include sizeWH(12px);
+        @include backgroundStyle("svg/chevron-thick-right.svg");
+
+        margin: 0 8px;
+        content: "";
+      }
+
+      &.is-active {
+        .steps__text {
+          color: map-get($colors, primary);
+
+          &::before {
+            color: $white;
+            background: map-get($colors, primary);
+          }
+        }
+      }
+
+      @for $i from 1 through 4 {
+        &:nth-of-type(#{$i}) {
+          .steps__text {
+            &::before {
+              content: "#{$i}";
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__text {
+    @include flexAlignCen;
+    @include fontBodyRegular(400, $gray-500);
+
+    &::before {
+      @include flexCenter;
+      @include sizeWH(24px);
+
+      margin-right: 4px;
+      background: $gray-200;
+      border-radius: 4px;
+    }    
+  }
+}

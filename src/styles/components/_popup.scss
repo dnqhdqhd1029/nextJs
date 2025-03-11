@@ -1,0 +1,580 @@
+.popup {
+  &__section {
+    @include flexColumn;
+    width: calc(100% - 48px);
+    background: $white;
+
+    &:not(.type-list) {
+      @include borderStyle("multi", rgba($black, 0.2));
+      border-radius: 5px;
+    }
+
+    &.type-list {
+      @include borderStyle(left, rgba($black, 0.2));
+
+      width: 100%;
+      max-width: 480px;
+      height: 100vh;
+      height: $full-height;
+      overflow: hidden;
+
+      .popup-contents__section {
+        flex-grow: 1;
+        padding-right: 0;
+        padding-left: 0;
+        overflow: hidden;
+      }
+    }
+
+    &:not(.fix-height, .type-list) {
+      max-height: 90vh;
+    }
+
+    &.fix-height {
+      height: 90vh;
+    }
+
+    &.w800 {
+      @include breakpointMax(m) {
+        min-width: 800px;
+      }
+    }
+
+    &.w1140 {
+      .popup-contents__section {
+        padding: 28px 89px;
+      }
+
+      @include breakpointMax(xl) {
+        min-width: 1140px;
+      }
+    }
+  }
+
+  &-header {
+    &__section {
+      @include flexAlignCen;
+      @include borderStyle(bottom);
+
+      flex-shrink: 0;
+      height: 48px;
+      padding: 0 16px 0 24px;
+    }
+
+    &__title {
+      @include fontHeadings(h5);
+      @include ellipsis;
+      @include flexAlignCen;
+
+      flex-grow: 1;
+
+      &-count {
+        @include inlineFlexCenter;
+        @include fontBodySmall(500);
+
+        height: 18px;
+        padding: 0 6px;
+        background: $gray-200;
+        border-radius: 4px;
+        margin-left: 4px;
+      }
+    }
+
+    &__steps {
+      padding-right: 20px;
+    }
+
+    &__close {
+      flex-shrink: 0;
+    }
+  }
+
+  &-contents {
+    &__section {
+      padding: 14px 24px;
+      overflow-y: auto;
+      @include breakpointMax(m){
+        padding: 14px 14px;
+      }
+
+      .tabs__section.type1-medium {
+        .tabs-menu__list {
+          border-bottom: 0;
+        }
+
+        .tabs-panel__section {
+          &:not(.type-pt14) {
+            padding-top: 28px;
+          }
+
+          &.type-pt14 {
+            padding-top: 14px;
+          }
+        }
+      }
+
+      &.search-condition {
+        background: $gray-150;
+      }
+    }
+
+    &-tabs {
+      &__section {
+        @include flexColumn;
+        height: 100%;
+
+        .tabs {
+          &__section {
+            padding: 0 24px 7px;
+          }
+
+          &-panel {
+            &__section {
+              flex-grow: 1;
+              overflow: hidden;
+            }
+
+            &__group {
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-footer {
+    &__section {
+      @include flexJustEnd;
+      @include borderStyle(top);
+
+      flex-shrink: 0;
+      align-items: center;
+      height: 56px;
+      margin-top: auto;
+      padding: 0 24px;
+
+      &.type1 {
+        justify-content: center;
+      }
+
+      &.type2 {
+        .buttons {
+          @include flexJustBet;
+          width: 100%;
+
+          > li {
+            display: flex;
+
+            &.outline {
+              margin-right: auto;
+            }
+          }
+        }
+      }
+
+      &.type3 {
+        flex-direction: column;
+        height: 92px;
+        padding: 24px 24px 12px 24px;
+
+        .search-result__footer {
+          border-top: unset
+        }
+
+        .buttons {
+          @include flexJustBet;
+          width: 100%;
+
+          > li {
+            display: flex;
+
+            &.outline {
+              margin-right: auto;
+            }
+          }
+        }
+      }
+
+      button + button {
+        margin-left: 7px;
+      }
+    }
+  }
+
+  &-type-list {
+    &__section {
+      @include flexColumn;
+      height: 100%;
+
+      .tooltips__group {
+        position: relative;
+        width: 100%;
+
+        [role="tooltip"] {
+          left: 24px !important;
+        }
+      }
+    }
+
+    &__group {
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    &__search {
+      flex-shrink: 0;
+      padding: 7px 24px 14px;
+
+      &.is-failed {
+        .ipt-search__group {
+          &::after {
+            @include absoluteFull;
+            @include sizeWH(100%);
+
+            border: 1px solid map-get($colors, danger);
+            border-radius: 14px;
+            content: "";
+            pointer-events: none;
+          }
+        }
+      }
+    }
+
+    &__nodata {
+      &-text {
+        padding: 20px 24px 30px;
+      }
+
+      &-button {
+        @include mouseHover {
+          background: $gray-200;
+        }
+
+        @include mouseActive {
+          background: $gray-300;
+        }
+
+        @include mouseDisable {
+          background: $gray-200;
+
+          .label {
+            color: $gray-500;
+          }
+        }
+
+        width: 100%;
+        margin-top: 6px;
+        padding: 13px 25px 15px;
+        background: $gray-100;
+        transition: background 0.3s;
+
+        .label {
+          @include fontBodyRegular(400, map-get($colors, primary));
+
+          &.keyword {
+            font-weight: 500;
+
+            &::before,
+            &::after {
+              font-weight: 400;
+            }
+
+            &::before {
+              content: "\201C";
+            }
+
+            &::after {
+              content: "\201D\00A0";
+            }
+          }
+        }
+      }
+    }
+
+    &__checkbox {
+      height: 100%;
+      overflow: auto;
+
+      > li {
+        @include mouseEffect {
+          background: $gray-100;
+        }
+
+        padding: 3px 24px;
+
+        &:not(:first-of-type) {
+          margin-top: 2px;
+        }
+      }
+
+      &-item {
+        .ipt-checkbox-ico__person {
+          display: none;
+        }
+
+        .tooltips__group > a {
+          cursor: default;
+        }
+
+        &.type-ico {
+          .ipt-checkbox-ico__person {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  &-file-list {
+    &__header {
+      display: flex;
+      
+      .file-uploader-button__header {
+        flex-shrink: 0;
+        margin-left: auto;
+        padding-left: 20px;
+      }
+    }
+
+    &__upload {
+      padding-bottom: 14px;
+    }
+
+    &__pagination {
+      @include flexCenter;
+      margin-top: 20px;
+    }
+  }
+
+  &-template {
+    &__group {
+      h2,
+      p {
+        padding-bottom: 14px;
+      }
+
+      h2 {
+        @include fontBodyLarge(500);
+      }
+
+      h3 {
+        @include fontHeadings(h6);
+        padding: 2px 0;
+      }
+
+      p {
+        @include fontBodyRegular(400);
+
+        a {
+          color: map-get($colors, primary);
+
+          @include mouseEffect {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      p + h2 {
+        padding-top: 14px;
+      }
+
+      h3 + p {
+        padding-top: 4px;
+      }
+
+      .media {
+        @include flexColumn;
+
+        align-items: center;
+        padding: 14px 0;
+
+        img {
+          max-width: 100%;
+        }
+
+        &__movie {
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          background: $gray-100;
+        }
+
+        &__name {
+          @include fontBodyRegular(400);
+          padding-top: 8px;
+        }
+
+        &__download {
+          @include fontBodyRegular(400, map-get($colors, primary));
+          margin-bottom: 14px;
+          
+          @include mouseEffect {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    
+    &__footer {
+      // @include borderStyle(top);
+      @include fontBodySmall(400, map-get($colors, secondary));
+
+      margin-top: 14px;
+      padding-top: 14px;
+
+      a {
+        text-decoration: underline;
+
+        @include mouseEffect {
+          color: currentColor;
+        }
+      }
+    }
+  }
+
+  &-setting-analyze {
+    &__list {
+      padding: 14px 0;
+    }
+  }
+
+  &-gadget {
+    &__list {
+      > li {
+        &:not(:last-of-type) {
+          @include borderStyle(bottom, $gray-200);
+        }
+      }
+    }
+
+    &__group {
+      @include flexAlignCen;
+      padding: 10px 24px;
+    }
+
+    &__text {
+      @include fontBodyRegular(400);
+      @include ellipsis;
+    }
+
+    &__button {
+      flex-shrink: 0;
+      margin-left: auto;
+      padding-left: 16px;
+    }
+  }
+}
+
+.tree-menu {
+  &__section {
+    &.type-w-full {
+      .tree-menu {
+        &__area::after {
+          display: none;
+        }
+
+        &__group {
+          width: 100%;
+        }
+      }
+    }
+
+    .tags__section {
+      margin-top: 14px;
+    }
+  }
+
+  &__area {
+    @include borderStyle("multi", $gray-400);
+
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    background: $white;
+    border-radius: 4px;
+
+    &::after {
+      @include sizeWH(1px, 100%);
+
+      position: absolute;
+      top: 0;
+      left: calc(50% - 1px);
+      z-index: 1;
+      background: $gray-400;
+      content: "";
+    }
+  }
+
+  &__group {
+    flex-shrink: 0;
+    width: 50%;
+    max-height: 355px;
+    padding: 8px 0;
+
+    &.type1 {
+      overflow-y: auto;
+    }
+
+    &.type2 {
+      @include flexColumn;
+
+      .tree-menu__list {
+        max-height: 300px;
+        overflow-y: auto;
+      }
+    }
+  }
+
+  &__button {
+    @include mouseEffect {
+      background: $gray-100;
+    }
+
+    justify-content: flex-start;
+    width: 100%;
+    padding: 2px 12px;
+    overflow: hidden;
+    text-align: left;
+
+    &.is-selected {
+      background: $gray-200;
+
+      .tree-menu__button-text {
+        color: map-get($colors, primary);
+      }
+    }
+
+    &-text {
+      @include fontBodyRegular(400);
+      @include ellipsis;
+    }
+
+    &-input {
+      @include mouseEffect {
+        background: $gray-100;
+      }
+
+      padding: 3px 14px;
+    }
+  }
+
+  &-footer {
+    &__group {
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    &__button {
+      @include buttonTotal;
+    }
+  }
+}
+
+
+.sp-px-0{
+  .popup__section{
+    .popup-contents__section{
+      padding: 0;
+    }
+  }
+}

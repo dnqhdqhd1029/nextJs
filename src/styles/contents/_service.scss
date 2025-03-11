@@ -1,0 +1,247 @@
+/* stylelint-disable */
+// service
+
+@mixin serviceSearchDetailGroup {
+  @include borderStyle("multi");
+  @include shadowStyle(s);
+
+  padding: 24px;
+  background: $white;
+  border-radius: 4px;
+}
+
+/* stylelint-enable */
+
+.service {
+  &-visual {
+    &__section {
+      @include flexCenter;
+      padding: 40px 0 18px;
+      text-align: center;
+    }
+
+    &__title {
+      @include fontBodyLead(400);
+    }
+  }
+
+  &-search {
+    &__header {
+      [class*="button-"] {
+        background: transparent;
+        border-color: transparent;
+      }
+
+      .common-title__buttons.type-search {
+        .ipt-search__group {
+          background: $white;
+        }
+      }
+    }
+
+    &-header {
+      &__section {
+        @include flexJustBet;
+        align-items: center;
+        padding: 22px 0;
+
+        [class*="button-"] {
+          background: transparent
+        }
+      }
+
+      &__title {
+        @include fontBodyLead(500);
+        @include ellipsis;
+
+        .button-ico-only {
+          position: relative;
+          top: 2px;
+          display: inline-flex;
+          margin-right: 10px;
+        }
+      }
+  
+      &__search {
+        flex-shrink: 0;
+        padding-left: 24px;
+      }
+
+      &-search {
+        &__group {
+          @include flexAlignCen;
+
+          .button-ico-only {
+            margin-left: 4px;
+
+            .ico-svg {
+              color: $gray-700;
+            }
+          }
+  
+          .ipt-search__group {
+            background: $white;
+          }
+        }
+      }
+    }
+
+    &-contents {
+      &__detail {
+        display: flex;
+      }
+    }
+
+    &-result {
+      &__msg {
+        @include fontBodyRegular(400);
+        padding-bottom: 6px;
+      }
+    }
+
+    &-detail {
+      &__section {
+        @include serviceSearchDetailGroup;
+
+        flex-grow: 1;
+      }
+
+      &__header {
+        @include flexAlignCen;
+
+        .detail-header {
+          &__thumb {
+            @include sizeWH(100px);
+            @include borderStyle("multi", $gray-200);
+      
+            flex-shrink: 0;
+            background: $white;
+            border-radius: 50%;
+            contain: paint;
+      
+            a {
+              @include sizeWH(100%);
+              display: block;
+            }
+          }
+      
+          &__contents {
+            padding-left: 14px;
+            overflow: hidden;
+          }
+      
+          &__title {
+            @include multiEllipsis(18, 27px, 2, 400, $body-text);
+          }
+      
+          &__date {
+            @include fontBodyRegular(400, $gray-700);
+            margin-top: 7px;
+          }
+        }
+      }
+
+      &__contents {
+        padding-top: 24px;
+
+        p {
+          @include fontBodyRegular(400, $gray-700);
+          padding-bottom: 14px;
+        }
+
+        figure {
+          position: relative;
+          padding-bottom: 28px;
+          
+          img {
+            border: 1px solid $gray-300 !important;
+            border-radius: 4px;
+          }
+
+          figcaption {
+            @include fontBodyRegular(400, $gray-700);
+            margin-top: 4px;
+          }
+        }
+      }
+
+      &__aside {
+        @include serviceSearchDetailGroup;
+
+        flex-shrink: 0;
+        width: 238px;
+        margin-left: 12px;
+      }
+    }
+
+    &-aside {
+      &__list {
+        margin-top: 14px;
+
+        > li {
+          &:not(:first-of-type) {
+            margin-top: 10px;
+          }
+        }
+      }
+
+      &__link {
+        @include multiEllipsis(14, 21px, 3, 400, $body-text);
+        @include mouseEffect {
+          color: currentColor;
+          text-decoration: underline;
+        }
+      }
+
+      &__date {
+        @include fontBodyRegular(400, $gray-700);
+      }
+    }
+  }
+
+  &-addition {
+    &__group {
+      @include flexAlignCen;
+      padding-bottom: 14px;
+    }
+
+    &__title {
+      @include fontBodyRegular(400);
+
+      flex-shrink: 0;
+      margin-right: 12px;
+    }
+
+    &__select {
+      width: min(100%, 480px);
+
+      .select-form__section {
+        padding-bottom: 0;
+      }
+    }
+
+    &__table {
+      padding-bottom: 14px;
+    }
+
+    &__flex {
+      @include flexAlignCen;
+    }
+
+    &__text {
+      @include fontBodyRegular(400);
+
+      > span {
+        padding-right: 12px;
+
+        &.type-bold {
+          font-weight: 500;
+        }
+      }
+
+      &:not(:first-of-type) {
+        margin-top: 7px;
+      }
+    }
+  }
+}

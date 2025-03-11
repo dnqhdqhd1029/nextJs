@@ -1,0 +1,24 @@
+.tooltips {
+  &__group {
+    display: inline-block;
+    //transform: translateY(1px);
+    position: relative;
+    // z-index: 1;
+
+    .ico-tooltip {
+      .ico-svg {
+        margin-top: 2px;
+      }
+    }
+    
+  }
+
+  &__item {
+    @include fontBodySmall(400, $white);
+    z-index: 100;
+    max-width: 300px;
+    padding: 4px 8px;
+    background: map-get($colors, dark);
+    border-radius: 4px;
+  }
+}

@@ -1,0 +1,107 @@
+/* stylelint-disable */
+// tag에서만 사용
+$tag-cate: n1, n2, n3;
+$tag-shape: round, rounded;
+
+@mixin tagGroup($bd, $bg) {
+  @include borderStyle("multi", $color: $bd);
+  background: $bg;
+}
+/* stylelint-enable */
+
+.tag {
+  &__group {
+    @include inlineFlexAlignCen;
+
+    max-width: 100%;
+    height: 20px;
+    padding: 0 8px;
+
+    @each $cate in $tag-cate {
+      &.cate-#{$cate} {
+        // @if $cate == "n1" {
+        //   @include tagGroup($gray-400, $white);
+        // } @else if $cate == "n2" {
+        //   @include tagGroup($gray-400, $gray-100);
+        // } @else if $cate == "n3" {
+        //   @include tagGroup($focused, $alert-bg);
+        // }
+        @if $cate == "n1" {
+          @include tagGroup($gray-400, $white);
+        } @else if $cate == "n2" {
+          @include tagGroup($gray-400, $white);
+        } @else if $cate == "n3" {
+          @include tagGroup($gray-400, $white);
+        }
+      }
+    }
+   
+    @each $shape in $tag-shape {
+      &.shape-#{$shape} {
+        @if $shape == "round" {
+          border-radius: 12px;
+        } @else if $shape == "rounded" {
+          border-radius: 4px;
+        }
+      }
+    }
+
+    &.is-closed {
+      display: none;
+    }
+  }
+
+  &__label {
+    @include fontBodySmall(400);
+    @include ellipsis;
+
+    &-sub {
+      color: map-get($colors, secondary);
+      font-weight: 400;
+    }
+  }
+
+  &__button-close {
+    @include sizeWH(18px);
+
+    flex-shrink: 0;
+    margin-right: -4px;
+    
+    .ico-svg {
+      @include sizeWH(8px);
+    }
+  }
+}
+
+.tags {
+  &__section {
+    overflow: hidden;
+  }
+  
+  &__list {
+    @include flexWrap;
+    margin: 4px -3px 0;
+
+    > li {
+      max-width: calc(100% - 6px);
+      margin: 3px;
+    }
+  }
+
+  &__delete {
+    .tags__list + & {
+      @include flexJustEnd;
+      margin-top: 2px;
+    }
+  }
+}
+
+.tags {
+  &__section {
+    .tags__list {
+      &:empty {
+        display: none;
+      }
+    }
+  }
+}

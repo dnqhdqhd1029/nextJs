@@ -1,0 +1,39 @@
+/* stylelint-disable */
+$base: "/static/fonts/";
+
+@mixin notosans($weight, $file) {
+  @font-face {
+    font-family: "Noto Sans KR";
+    font-weight: $weight;
+    font-style: normal;
+    src: url("#{$base}NotoSansKR-#{$file}.eot?") format("eot"),
+      url("#{$base}NotoSansKR-#{$file}.otf") format("opentype"),
+      url("#{$base}NotoSansKR-#{$file}.woff") format("woff"),
+      url("#{$base}NotoSansKR-#{$file}.woff2") format("woff2");
+  }
+}
+
+/* 
+  100 - Thin
+  300 - Light
+  400 - Regular
+  500 - Medium
+  700 - Bold
+  900 - Black
+ */
+
+// Notosans
+@font-face {
+  font-family: "Noto Sans KR";
+  font-weight: 100;
+  font-style: normal;
+  src: url("#{$base}NotoSansKR-Thin.otf") format("opentype");
+}
+
+@include notosans(300, "Light");
+@include notosans(400, "Regular");
+@include notosans(500, "Medium");
+@include notosans(700, "Bold");
+@include notosans(900, "Black");
+
+/* stylelint-enable */

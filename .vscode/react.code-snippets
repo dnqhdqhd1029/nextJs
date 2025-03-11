@@ -1,0 +1,80 @@
+{
+  "Page Component": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "pct",
+    "body": [
+      "/**",
+      " * @file page.tsx",
+      " * @description 페이지 설명",
+      " */",
+      "",
+      "import PageViewComponent from '~/components/주소'",
+      "",
+      "export const SamplePage = () => {",
+      "  return (",
+      "    <>",
+      "      <PageViewComponent />",
+      "    </>",
+      "  )",
+      "}",
+      "",
+      "export default SamplePage",
+      ""
+    ],
+    "description": "Page용 Component Template"
+  },
+  "Normal Component": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "nct",
+    "body": [
+      "/**",
+      " * @file MyComponent.tsx",
+      " * @description 컴포넌트 기능 설명",
+      " */",
+      "",
+      "const MyComponent = () => {",
+      "  return (",
+      "    <>",
+      "      <div>Component</div>",
+      "    </>",
+      "  )",
+      "}",
+      "",
+      "export default MyComponent"
+    ],
+    "description": "일반 Component Template"
+  },
+  "Storybook template": {
+    "scope": "javascriptreact,typescriptreact",
+    "prefix": "sbt",
+    "body": [
+      "/**",
+      " * @file MyComponent.stories.tsx",
+      " * @description 간단한 이름을 받아 출력하는 컴포넌트",
+      " */",
+      "import type { Meta, Story } from '@storybook/react'",
+      "",
+      "import MyComponent from './MyComponent'",
+      "",
+      "const meta: Meta<typeof MyComponent> = {",
+      "  title: '0.UI/MyComponent',",
+      "  component: MyComponent,",
+      "  tags: ['autodocs'],",
+      "  argTypes: {",
+      "    name: {",
+      "      control: 'text',",
+      "    }",
+      "  }",
+      "}",
+      "",
+      "export const Primary: Story<typeof MyComponent> = {",
+      "  args: {",
+      "    name: 'Jhon',",
+      "  }",
+      "}",
+      "",
+      "export default meta"
+    ],
+    "description": "Storybook snippet for React component"
+  }
+}

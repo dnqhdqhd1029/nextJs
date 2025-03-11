@@ -1,0 +1,561 @@
+/**
+ * @file M01-1.tsx
+ * @description M01-1 페이지
+ */
+
+import Image from 'next/image'
+
+import temp2Img from '/public/assets/png/temp2.jpg'
+import Button from '~/publishing/components/common/ui/Button'
+import IcoSvg from '~/publishing/components/common/ui/IcoSvg'
+import icoSvgData from '~/publishing/components/common/ui/json/icoSvgData.json'
+import { PageType } from '~/types/common'
+
+const Sample: PageType = () => {
+  const tabs = [
+    { name: '전체', count: 20 },
+    { name: '커버리지', count: 20 },
+    { name: '클립북', count: 5 },
+    { name: '보도자료', count: 4 },
+    { name: '이메일', count: 20 },
+    { name: '노트', count: 20 },
+    { name: '약속', count: 20 },
+    { name: '전화', count: 20 },
+    { name: '문의', count: 20 },
+  ]
+
+  return (
+    <>
+      <div className="mb-container">
+        <div className="mb-common-inner type-w1">
+          {/* top, height 값은 header 값에 따라 적용 개발 필요 */}
+          <div
+            className="mb-lnb__section"
+            style={{
+              top: '52px',
+              height: `calc(100% - ${52}px)`,
+            }}
+          >
+            <ul className="interval-mt20">
+              <li>
+                <div className="mb-lnb-control__group">
+                  <div className="mb-lnb-control__arrow">
+                    <Button
+                      label={'arrowLeft'}
+                      cate={'ico-only'}
+                      size={'s'}
+                      color={'body-text'}
+                      icoLeft={true}
+                      icoLeftData={icoSvgData.arrowLeft}
+                      icoSize={24}
+                    />
+                  </div>
+
+                  <div className="mb-lnb-control__select">
+                    <div className="select__section select-type1-small select-ico-only select-align-right">
+                      <button className="select__label ico-size16">
+                        <span className="select__label-text">설정</span>
+                        <IcoSvg data={icoSvgData.threeDotsVertical} />
+                      </button>
+
+                      <div className="select-option__section">
+                        <div className="select-option__area">
+                          <ul className="select-option__group">
+                            <li>
+                              <button className="select-option__item is-selected">
+                                <span className="select-option__item-text">공유하기</span>
+                              </button>
+                            </li>
+                            <li>
+                              <button className="select-option__item">
+                                <span className="select-option__item-text">이메일 발송 차단</span>
+                              </button>
+                            </li>
+                            <li>
+                              <button className="select-option__item">
+                                <span className="select-option__item-text">수정하기</span>
+                              </button>
+                            </li>
+                            <li>
+                              <button className="select-option__item">
+                                <span className="select-option__item-text">삭제하기</span>
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="profile__section">
+                  <ul className="interval-mt20">
+                    <li>
+                      <div className="profile__area">
+                        {/* 기업 프로필 */}
+                        <div className="profile-img__group type-corp">
+                          <div className="profile__img">
+                            <Image
+                              src={temp2Img}
+                              width={500}
+                              height={500}
+                              alt="temp 프로필 이미지"
+                            />
+                          </div>
+
+                          <p className="profile-img__ico">
+                            <span className="hidden">잠금</span>
+                          </p>
+
+                          <div className="select__section select-type1-small select-ico-only is-show">
+                            <Button
+                              label={'에디터'}
+                              cate={'ico-only'}
+                              size={'s32'}
+                              color={'white'}
+                              icoLeft={true}
+                              icoLeftData={icoSvgData.pencilFill2}
+                              icoSize={32}
+                            />
+
+                            <div className="select-option__section">
+                              <div className="select-option__area">
+                                <ul className="select-option__group">
+                                  <li>
+                                    <button className="select-option__item is-selected">
+                                      <span className="select-option__item-text">사진 등록</span>
+                                    </button>
+                                  </li>
+                                  <li>
+                                    <button className="select-option__item">
+                                      <span className="select-option__item-text">사진 삭제</span>
+                                    </button>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="profile__group">
+                          <h3 className="profile__name type-arrow">
+                            <Button
+                              elem="a"
+                              url={'#!'}
+                              label={'중앙일보'}
+                              cate={'link-ico-text'}
+                              size={'h3'}
+                              color={'body-text'}
+                              icoRight={true}
+                              icoRightData={icoSvgData.chevronThickRight}
+                              icoSize={14}
+                            />
+                          </h3>
+                          <p className="profile__team">
+                            <span>미디어 가치</span>
+                            <span>62,510</span>
+                          </p>
+                          <p className="profile__btn">
+                            <Button
+                              label={'목록에 저장'}
+                              cate={'default'}
+                              size={'m'}
+                              color={'primary'}
+                            />
+                            {/* <Button
+                              label={'저장됨'}
+                              cate={'check-number'}
+                              size={'m'}
+                              color={'primary'}
+                              count={10}
+                              icoLeft={true}
+                              icoLeftData={icoSvgData.checkThick}
+                            /> */}
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <dl className="dl-table-type2__section">
+                        <dt className="hidden">
+                          <p className="dl-table-type2__title">정보</p>
+                        </dt>
+                        <dd>
+                          <div className="dl-table-type2__flex">
+                            <div className="dl-table-type2__flex-tit">
+                              <p className="dl-table-type2__text">분야</p>
+                            </div>
+                            <div className="dl-table-type2__flex-txt">
+                              <p className="dl-table-type2__text">전분야</p>
+                            </div>
+                          </div>
+                          <div className="dl-table-type2__flex">
+                            <div className="dl-table-type2__flex-tit">
+                              <p className="dl-table-type2__text">유형</p>
+                            </div>
+                            <div className="dl-table-type2__flex-txt">
+                              <p className="dl-table-type2__text">종합일간신문</p>
+                            </div>
+                          </div>
+                          <div className="dl-table-type2__flex">
+                            <div className="dl-table-type2__flex-tit">
+                              <p className="dl-table-type2__text">발행주기</p>
+                            </div>
+                            <div className="dl-table-type2__flex-txt">
+                              <p className="dl-table-type2__text">일간</p>
+                            </div>
+                          </div>
+                          <div className="dl-table-type2__flex">
+                            <div className="dl-table-type2__flex-tit">
+                              <p className="dl-table-type2__text">언어</p>
+                            </div>
+                            <div className="dl-table-type2__flex-txt">
+                              <p className="dl-table-type2__text">영어</p>
+                            </div>
+                          </div>
+                          <div className="dl-table-type2__flex">
+                            <div className="dl-table-type2__flex-tit">
+                              <p className="dl-table-type2__text">발행처</p>
+                            </div>
+                            <div className="dl-table-type2__flex-txt">
+                              <p className="dl-table-type2__text">
+                                <span className="mr8">중앙일보</span>
+                                <span className="color-gray--600">주식회사</span>
+                              </p>
+                            </div>
+                          </div>
+                          <div className="dl-table-type2__flex">
+                            <div className="dl-table-type2__flex-tit">
+                              <p className="dl-table-type2__text">웹사이트</p>
+                            </div>
+                            <div className="dl-table-type2__flex-txt">
+                              <p className="dl-table-type2__text">
+                                <Button
+                                  elem="a"
+                                  url={'http://joongang.joins.com'}
+                                  label={'http://joongang.joins.com'}
+                                  cate={'link-text'}
+                                  size={'m'}
+                                  color={'body-link'}
+                                />
+                              </p>
+                            </div>
+                          </div>
+                          <div className="dl-table-type2__flex">
+                            <div className="dl-table-type2__flex-tit">
+                              <p className="dl-table-type2__text">포털제휴</p>
+                            </div>
+                            <div className="dl-table-type2__flex-txt">
+                              <p className="dl-table-type2__text">NAVER 뉴스스탠드 제휴</p>
+                            </div>
+                          </div>
+                        </dd>
+                        <dt>
+                          <p className="dl-table-type2__title">소개</p>
+                        </dt>
+                        <dd>
+                          <p className="dl-table-type2__text">
+                            대한민국의 조간 종합 일간 신문. 삼성그룹의 계열사로 출범하였으며, 1999년에 삼성그룹으로부터
+                            계열 분리되었다. 현재는 중앙그룹 계열 중앙일보(주)에서 발행하며, 본사는 서울특별시 중구
+                            서소문로 100 (순화동)에 입주해 있다. 사명은 '중앙일보(주)'. 원래는 '(주)중앙일보'였으나
+                            사명을 2018년 3월에 변경하였다. 원래는 석간 신문이였으나, 1995년 4월부터 조간 신문으로
+                            전환하였다.
+                          </p>
+                        </dd>
+                        <dt>
+                          <p className="dl-table-type2__title">연락처</p>
+                        </dt>
+                        <dd>
+                          <div className="dl-table-type2__flex">
+                            <div className="dl-table-type2__flex-tit">
+                              <p className="dl-table-type2__text">전화</p>
+                            </div>
+                            <div className="dl-table-type2__flex-txt">
+                              <p className="dl-table-type2__text">02-737-3600</p>
+                            </div>
+                          </div>
+                          <div className="dl-table-type2__flex">
+                            <div className="dl-table-type2__flex-tit">
+                              <p className="dl-table-type2__text">팩스</p>
+                            </div>
+                            <div className="dl-table-type2__flex-txt">
+                              <p className="dl-table-type2__text">02-432-6459</p>
+                            </div>
+                          </div>
+                          <div className="dl-table-type2__flex">
+                            <div className="dl-table-type2__flex-tit">
+                              <p className="dl-table-type2__text">이메일</p>
+                            </div>
+                            <div className="dl-table-type2__flex-txt">
+                              <div className="type-email">
+                                <div className="select__section select-type1-small">
+                                  <button className="select__label">
+                                    <span className="select__label-text">jeongmin.seo@joongang.co.kr</span>
+                                    <IcoSvg data={icoSvgData.chevronDown} />
+                                  </button>
+
+                                  <div className="select-option__section">
+                                    <div className="select-option__area">
+                                      <ul className="select-option__group">
+                                        <li>
+                                          <button className="select-option__item">
+                                            <span className="select-option__item-text">이메일 보내기</span>
+                                          </button>
+                                        </li>
+                                        <li>
+                                          <button className="select-option__item">
+                                            <span className="select-option__item-text">보도자료 배포</span>
+                                          </button>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="dl-table-type2__flex">
+                            <div className="dl-table-type2__flex-tit">
+                              <p className="dl-table-type2__text">주소</p>
+                            </div>
+                            <div className="dl-table-type2__flex-txt">
+                              <p className="dl-table-type2__text">서울시 중구 서소문동 서소문로 100 중앙일보 빌딩</p>
+                            </div>
+                          </div>
+                        </dd>
+                        <dt>
+                          <div className="dl-table-type2__title-group">
+                            <p className="dl-table-type2__title">개인적 연락처</p>
+                            <div className="dl-table-type2__title-edit">
+                              <Button
+                                label={'에디터'}
+                                cate={'ico-only'}
+                                size={'es'}
+                                color={'gray-500'}
+                                icoLeft={true}
+                                icoLeftData={icoSvgData.pencilFill2}
+                                icoSize={12}
+                              />
+                            </div>
+                            <p className="dl-table-type2__title-date">홍길동 2022-09-24</p>
+                          </div>
+                        </dt>
+                        <dd>
+                          <div className="dl-table-type2__flex">
+                            <div className="dl-table-type2__flex-tit">
+                              <p className="dl-table-type2__text">이메일</p>
+                            </div>
+                            <div className="dl-table-type2__flex-txt">
+                              <div className="type-email">
+                                <div className="select__section select-type1-small">
+                                  <button className="select__label">
+                                    <span className="select__label-text">jeongmin.seo@joongang.co.kr</span>
+                                    <IcoSvg data={icoSvgData.chevronDown} />
+                                  </button>
+
+                                  <div className="select-option__section">
+                                    <div className="select-option__area">
+                                      <ul className="select-option__group">
+                                        <li>
+                                          <button className="select-option__item">
+                                            <span className="select-option__item-text">이메일 보내기</span>
+                                          </button>
+                                        </li>
+                                        <li>
+                                          <button className="select-option__item">
+                                            <span className="select-option__item-text">보도자료 배포</span>
+                                          </button>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="dl-table-type2__flex">
+                            <div className="dl-table-type2__flex-tit">
+                              <p className="dl-table-type2__text">전화</p>
+                            </div>
+                            <div className="dl-table-type2__flex-txt">
+                              <p className="dl-table-type2__text">02-737-3600</p>
+                            </div>
+                          </div>
+                        </dd>
+                      </dl>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <div className="profile__footer">
+                  <ul className="interval-mt14">
+                    <li>
+                      <Button
+                        label={'정보 업데이트 요청'}
+                        cate={'link-text'}
+                        size={'m'}
+                        color={'body-link'}
+                      />
+                    </li>
+                    <li>
+                      <Button
+                        label={'개인적 연락처 추가'}
+                        cate={'link-text'}
+                        size={'m'}
+                        color={'body-link'}
+                      />
+                    </li>
+                    <li>
+                      <p className="profile__footer-writer">
+                        <Button
+                          label={'홍길동'}
+                          cate={'link-text'}
+                          size={'m'}
+                          color={'body-link'}
+                        />
+                        <span>작성(또는 수정) 2021-10-27</span>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className="mb-contents">
+            <div className="flexible__section type-n1">
+              <div className="flexible__group">
+                <div className="flexible-item__group">
+                  <div className="flexible-item__header">
+                    <h4 className="font-heading--h5">기록</h4>
+                    <div className="select__section select-type1-small select-line">
+                      <button className="select__label">
+                        <span className="select__label-text">활동 추가</span>
+                        <IcoSvg data={icoSvgData.chevronDown} />
+                      </button>
+
+                      <div className="select-option__section">
+                        <div className="select-option__area">
+                          <ul className="select-option__group">
+                            <li>
+                              <button className="select-option__item">
+                                <span className="select-option__item-text">이메일 보내기</span>
+                              </button>
+                            </li>
+                            <li>
+                              <button className="select-option__item">
+                                <span className="select-option__item-text">보도자료 배포</span>
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flexible-item__contents">
+                    <div className="tabs__section type1-small">
+                      <div className="tabs-menu__group">
+                        <ul className="tabs-menu__list">
+                          {tabs.map((tab, i) => {
+                            return (
+                              <li
+                                className={`${i === 0 ? 'is-active' : ''}`}
+                                key={i}
+                              >
+                                <button
+                                  type="button"
+                                  className="tabs-menu__btn"
+                                >
+                                  <span className="tabs-menu__name">{tab.name}</span>
+                                  <span className="tabs-menu__number">{tab.count}</span>
+                                </button>
+                              </li>
+                            )
+                          })}
+                        </ul>
+                      </div>
+                      <div className="tabs-panel__section">
+                        <div className="tabs-panel__group">
+                          <div className="list-type1__result-none">기록이 없습니다.</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="flexible-item__group">
+                  <div className="flexible-item__header">
+                    <h4 className="font-heading--h5">뉴스</h4>
+                    <Button
+                      elem="a"
+                      url={'https://www.naver.com/'}
+                      label={'전체뉴스'}
+                      cate={'link-text-arrow'}
+                      size={'m'}
+                      color={'secondary'}
+                      icoRight={true}
+                      icoRightData={icoSvgData.chevronRight}
+                    />
+                  </div>
+                  <div className="flexible-item__contents">
+                    <div className="list-type1__result-none">뉴스가 없습니다.</div>
+                  </div>
+                </div>
+              </div>
+              <div className="flexible__group">
+                <div className="flexible-item__group">
+                  <div className="flexible-item__header">
+                    <h4 className="font-heading--h5">언론인</h4>
+                    <Button
+                      elem="a"
+                      url={'https://www.naver.com/'}
+                      label={'전체 언론인'}
+                      cate={'link-text-arrow'}
+                      size={'m'}
+                      color={'secondary'}
+                      icoRight={true}
+                      icoRightData={icoSvgData.chevronRight}
+                    />
+                  </div>
+                  <div className="flexible-item__contents">
+                    <div className="tabs__section type1-small">
+                      <div className="tabs-menu__group">
+                        <ul className="tabs-menu__list">
+                          <li className="is-active">
+                            <button
+                              type="button"
+                              className="tabs-menu__btn"
+                            >
+                              <span className="tabs-menu__name">언론인</span>
+                              <span className="tabs-menu__number">240</span>
+                            </button>
+                          </li>
+                          <li>
+                            <button
+                              type="button"
+                              className="tabs-menu__btn"
+                            >
+                              <span className="tabs-menu__name">계열 미디어</span>
+                              <span className="tabs-menu__number">24</span>
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="tabs-panel__section">
+                        <div className="tabs-panel__group">
+                          <div className="list-type1__result-none">언론인이 없습니다.</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default Sample
+Sample.PublishingLayout = 'LAYOUT4'

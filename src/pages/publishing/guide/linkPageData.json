@@ -1,0 +1,2365 @@
+{
+  "_comment": "state => 0:대기 / 1:진행 / 2:수정 / 3:완료 / 4:취소",
+  "data": [
+    {
+      "depth1": "메뉴 (해당 파일 기준)",
+      "depth2": "필터",
+      "url": "J14",
+      "date": "",
+      "state": 3,
+      "etc": "<LnbFilter />"
+    },
+    {
+      "depth1": "",
+      "depth2": "맞춤 검색",
+      "url": "J11-1",
+      "date": "",
+      "state": 3,
+      "etc": "<LnbCustomSearch1 />"
+    },
+    {
+      "depth1": "",
+      "depth2": "맞춤 검색관리",
+      "url": "J11-2",
+      "date": "",
+      "state": 3,
+      "etc": "<LnbCustomSearch2 />"
+    },
+    {
+      "depth1": "",
+      "depth2": "맞춤 검색관리 2",
+      "url": "J23-5",
+      "date": "",
+      "state": 3,
+      "etc": "<LnbCustomSearch3 header={true ? false} />"
+    },
+    {
+      "depth1": "",
+      "depth2": "맞춤 검색 + 필터",
+      "url": "J21-2",
+      "date": "",
+      "state": 3,
+      "etc": "<LnbSearchFilter />"
+    },
+    {
+      "depth1": "",
+      "depth2": "설정 왼쪽메뉴",
+      "url": "SET01-2",
+      "date": "",
+      "state": 3,
+      "etc": "<LnbSetting />"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 검색 결과 > 목록에 저장/만들기/수정",
+      "url": "J15",
+      "date": "",
+      "state": 3,
+      "etc": "<LnbPopupList />"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 검색 결과 > 결과 없음",
+      "url": "J15-2",
+      "date": "",
+      "state": 3,
+      "etc": "<LnbPopupList data={false} />"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 모니터링/클립북/목록 추가 UI",
+      "url": "PJ10",
+      "date": "",
+      "state": 3,
+      "etc": "J15 참고 - 탭구조형태"
+    },
+    {
+      "depth1": "회원정보",
+      "depth2": "회원정보",
+      "url": "USER01",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 내 비밀번호 수정",
+      "url": "",
+      "date": "2023.05.25",
+      "state": 3,
+      "etc": "WUSER01 => popup-type1, No. 1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 비밀번호 확인",
+      "url": "",
+      "date": "2023.05.25",
+      "state": 3,
+      "etc": "WUSER01-1 => popup-type2, No. 1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 내 정보 수정",
+      "url": "",
+      "date": "2023.05.25",
+      "state": 3,
+      "etc": "WUSER02 => popup-type1, No. 2"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 회원 정보",
+      "url": "",
+      "date": "2023.05.25",
+      "state": 3,
+      "etc": "WUSER03 => popup-type4, No. 1"
+    },
+    {
+      "depth1": "로그인",
+      "depth2": "단독) 로그인/비밀번호 찾기",
+      "url": "USER10",
+      "date": "2023.05.25",
+      "state": 3,
+      "etc": "BLANK"
+    },
+    {
+      "depth1": "",
+      "depth2": "비밀번호 재설정",
+      "url": "USER11",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "로그인 임시 차단",
+      "url": "USER12",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "자동 로그아웃",
+      "url": "USER13",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 로그인",
+      "url": "",
+      "date": "2023.05.25",
+      "state": 3,
+      "etc": "WUSER04 => popup-type4, No. 2"
+    },
+    {
+      "depth1": "",
+      "depth2": "회원 가입",
+      "url": "USER20",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "인증 메일 발송 안내",
+      "url": "USER21",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "회원 뉴스레터",
+      "depth2": "뉴스레터 수신 거부",
+      "url": "USER31",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "언론인 프로필",
+      "depth2": "프로필",
+      "url": "J01",
+      "date": "2023.05.31",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "프로필 > 데이터없음",
+      "url": "J01-1",
+      "date": "2023.05.31",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "기록 > 활동",
+      "url": "",
+      "date": "",
+      "state": 3,
+      "etc": "J01-5 => J01, J01-1 동일"
+    },
+    {
+      "depth1": "",
+      "depth2": "기록 > 클립북/커버리지",
+      "url": "",
+      "date": "",
+      "state": 3,
+      "etc": "J01-6 => J01, J01-1 동일"
+    },
+    {
+      "depth1": "",
+      "depth2": "기록 > 검색",
+      "url": "",
+      "date": "",
+      "state": 3,
+      "etc": "J01-7 => J01, J01-1 동일"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 이메일 차단 > 이메일 발송 차단",
+      "url": "",
+      "date": "2023.05.26",
+      "state": 3,
+      "etc": "WJ12 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 이메일 차단 > 이메일 발송 차단 해제",
+      "url": "",
+      "date": "2023.05.26",
+      "state": 3,
+      "etc": "WJ13 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 미디어비 수신 거부 해제 요청",
+      "url": "",
+      "date": "2023.05.26",
+      "state": 3,
+      "etc": "WJ15 => popup-type1, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 정보 업데이트 요청",
+      "url": "",
+      "date": "2023.05.26",
+      "state": 3,
+      "etc": "WJ08 => popup-type2, No. 2"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 개인적 연락처 추가",
+      "url": "",
+      "date": "2023.05.26",
+      "state": 3,
+      "etc": "WJ09 => popup-type2, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "개인 추가 프로필",
+      "url": "J01-8",
+      "date": "2023.05.31",
+      "state": 3,
+      "etc": "BLANK"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 개인 추가 프로필 > 삭제",
+      "url": "",
+      "date": "2023.05.26",
+      "state": 3,
+      "etc": "WJ11 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 개인 추가 프로필 > 수정",
+      "url": "",
+      "date": "2023.05.26",
+      "state": 3,
+      "etc": "WJ10 => popup-type3, No. 1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 개인 추가 프로필 > 사진 등록",
+      "url": "",
+      "date": "2023.05.26",
+      "state": 3,
+      "etc": "WJ14 => popup-type4, No. 4"
+    },
+    {
+      "depth1": "",
+      "depth2": "개인 추가 프로필 > 사진 삭제",
+      "url": "",
+      "date": "",
+      "state": 3,
+      "etc": "J01-10 => J01-8 동일"
+    },
+    {
+      "depth1": "언론인 검색",
+      "depth2": "검색 조건",
+      "url": "J11",
+      "date": "2023.05.31",
+      "state": 3,
+      "etc": "LAYOUT1 / J11-1~5, J13"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 분야/매체 분야",
+      "url": "",
+      "date": "2023.06.01",
+      "state": 3,
+      "etc": "J11-2 => popup-type3, No. 2"
+    },
+    {
+      "depth1": "",
+      "depth2": "검색 결과 > 기본(프로필)",
+      "url": "J12",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "LAYOUT1 / J12-1~6,8 J16"
+    },
+    {
+      "depth1": "",
+      "depth2": "검색 결과 > 기본(프로필) - 뉴스",
+      "url": "J12-t2",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "검색 결과 > 기본(프로필) - 기록",
+      "url": "J12-t3",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "검색 결과 > 내보내기 엑셀",
+      "url": "J12-7",
+      "date": "",
+      "state": 4,
+      "etc": "양식 J12-7"
+    },
+    {
+      "depth1": "",
+      "depth2": "검색 결과 > 결과 없음",
+      "url": "J13",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "언론인 맞춤 검색",
+      "depth2": "홈",
+      "url": "J20",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "LAYOUT1 / J11, J12 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 홈 > 맞춤 검색 만들기",
+      "url": "",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "WJ01 => popup-type1, No. 1"
+    },
+    {
+      "depth1": "",
+      "depth2": "홈 > 필터 열림",
+      "url": "J21",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "홈 > 검색 조건 수정 및 검색",
+      "url": "J22",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "LAYOUT1 / J20, J11 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "관리",
+      "url": "J23",
+      "date": "2023.06.15",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 관리 > 수정",
+      "url": "",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "WJ02 => popup-type1, No. 4"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 관리 > 삭제",
+      "url": "",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "WJ03 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 관리 > 소유자 변경 확인",
+      "url": "",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "WJ16 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "언론인 목록",
+      "depth2": "홈",
+      "url": "J30",
+      "date": "2023.06.15",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 상세정보",
+      "url": "",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "WJ17 => popup-type4, No. 1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 만들기",
+      "url": "",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "WJ04 => popup-type1, No. 5"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 수정",
+      "url": "",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "WJ05 => popup-type1, No. 4"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 삭제",
+      "url": "",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "WJ06 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 복사",
+      "url": "",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "WJ07 => popup-type1, No. 4"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 공유 설정 수정",
+      "url": "",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "WJ05-1, popup-type1, No. 6"
+    },
+    {
+      "depth1": "",
+      "depth2": "개별 목록",
+      "url": "J31",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "LAYOUT1 / J20 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "개별 목록 > 필터 열림",
+      "url": "J32",
+      "date": "2023.06.02",
+      "state": 3,
+      "etc": "LAYOUT1 / J21 참고"
+    },
+    {
+      "depth1": "연락처 추가",
+      "depth2": "",
+      "url": "J50",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "1명씩 추가 > 정보입력",
+      "url": "J51",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "1명씩 추가 > 완료",
+      "url": "J52",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "엑셀로 추가 > 엑셀 업로드",
+      "url": "J60",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "엑셀로 추가 > 엑셀 양식",
+      "url": "",
+      "date": "",
+      "state": 4,
+      "etc": "양식 J60-2"
+    },
+    {
+      "depth1": "",
+      "depth2": "엑셀로 추가 >  목록",
+      "url": "J61",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "엑셀로 추가 > 완료",
+      "url": "J62",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "미디어 프로필",
+      "depth2": "",
+      "url": "M01",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "LAYOUT4 / M01-2~5 동일"
+    },
+    {
+      "depth1": "",
+      "depth2": "데이터 없음",
+      "url": "M01-1",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "LAYOUT4 / M01 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "기록 > 활동",
+      "url": "",
+      "date": "",
+      "state": 3,
+      "etc": "M01-4 => M01 동일"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 이메일 차단 > 이메일 발송 차단",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM18 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 이메일 차단 > 이메일 발송 차단 해제",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM18-1 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 미디어비 수신 거부 해제 요청",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM19 => popup-type1, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 정보 업데이트 요청",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM08 => popup-type2, No. 2"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 개인적 연락처 추가",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM09 => popup-type2, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "개인 추가 프로필",
+      "url": "",
+      "date": "",
+      "state": 3,
+      "etc": "M01-5 => M01 동일"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 개인 추가 프로필 > 삭제",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM11 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 개인 추가 프로필 > 수정",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM10 => popup-type3, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 개인 추가 프로필 > 사진 등록",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM12 => popup-type4, No. 4"
+    },
+    {
+      "depth1": "매체 검색",
+      "depth2": "검색 조건",
+      "url": "M11",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "LAYOUT1 / J11 참고 (M11-1~4)"
+    },
+    {
+      "depth1": "",
+      "depth2": "검색결과 > 기본(프로필)",
+      "url": "M12",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "LAYOUT1 / J12 참고 (M12-1~4)"
+    },
+    {
+      "depth1": "",
+      "depth2": "검색결과 > 결과 없음",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "M13 => J13 동일"
+    },
+    {
+      "depth1": "",
+      "depth2": "검색결과 > 필터",
+      "url": "",
+      "date": "",
+      "state": 3,
+      "etc": "M14 => J14 동일"
+    },
+    {
+      "depth1": "미디어 맞춤 검색",
+      "depth2": "",
+      "url": "M20",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "LAYOUT1 / J20 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 맞춤 검색 만들기",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM01 => popup-type1, No. 1"
+    },
+    {
+      "depth1": "",
+      "depth2": "필터 열림",
+      "url": "M21",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "LAYOUT1 / J21 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "검색 조건 수정 및 검색",
+      "url": "M22",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "LAYOUT1 / J22 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "관리",
+      "url": "",
+      "date": "2023.06.15",
+      "state": 3,
+      "etc": "M23 => J23"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 관리 > 수정",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM02 => popup-type1, No. 4"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 관리 > 삭제",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM03 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 관리 > 소유자 변경 확인",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM16 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "미디어 목록",
+      "depth2": "홈",
+      "url": "",
+      "date": "2023.06.15",
+      "state": 3,
+      "etc": "M30 => J30"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 상세정보",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM17 => popup-type4, No. 1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 만들기",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM04 => popup-type1, No. 5"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 수정",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM05 => popup-type1, No. 4"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 삭제",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM06 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 복사",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM07 => popup-type1, No. 4"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 공유 설정 수정",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WM05-1 => popup-type1, No. 6"
+    },
+    {
+      "depth1": "",
+      "depth2": "개별 목록",
+      "url": "M31",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "LAYOUT1 / J31 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "개별목록 > 필터 열림",
+      "url": "M32",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "LAYOUT1 / J32 참고"
+    },
+    {
+      "depth1": "미디어 추가",
+      "depth2": "",
+      "url": "M50",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / J50 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "1명씩 추가 > 정보 입력",
+      "url": "M51",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / J51 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "1명씩 추가 > 완료",
+      "url": "M52",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / J52 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "엑셀로 추가 > 엑셀 업로드",
+      "url": "M60",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / J60 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "엑셀로 추가 > 엑셀 양식",
+      "url": "M60-2",
+      "date": "",
+      "state": 4,
+      "etc": "양식 M60-2"
+    },
+    {
+      "depth1": "",
+      "depth2": "엑셀로 추가 > 목록",
+      "url": "M61",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / J61 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "엑셀로 추가 > 완료",
+      "url": "M62",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / J62 참고"
+    },
+    {
+      "depth1": "활동 목록/내용",
+      "depth2": "홈",
+      "url": "ACT02",
+      "date": "2023.06.16",
+      "state": 3,
+      "etc": "LAYOUT1 / ACT04, ACT04-1, ACT04-2, ACT05, ACT05-1"
+    },
+    {
+      "depth1": "",
+      "depth2": "필터",
+      "url": "",
+      "date": "2023.06.14",
+      "state": 3,
+      "etc": "ACT02-1 => J14"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 프로젝트 수정",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WACT01, WACT01-1, WACT01-2, WACT01-3 => popup-type1, No. 7"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 태그 수정",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WACT02, WACT02-1, WACT02-2 => popup-type1, No. 7"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 전체 태그",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WACT02-3 => popup-type1, No. 8"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 댓글 삭제",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WACT04 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "활동 내용 > 전체",
+      "url": "ACT05-2",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "활동 > 이메일",
+      "url": "ACT06",
+      "date": "2023.06.16",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 템플릿으로 저장",
+      "url": "",
+      "date": "2023.06.14",
+      "state": 3,
+      "etc": "WACT12 => popup-type1, No. 2"
+    },
+    {
+      "depth1": "",
+      "depth2": "활동 > 이메일, 내용",
+      "url": "ACT06-1",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / ACT06-2~5, ACT32-1"
+    },
+    {
+      "depth1": "",
+      "depth2": "활동 > 보도자료",
+      "url": "",
+      "date": "2023.06.16",
+      "state": 3,
+      "etc": "ACT07 => ACT06"
+    },
+    {
+      "depth1": "",
+      "depth2": "보도자료 배포 > 내용",
+      "url": "",
+      "date": "2023.06.16",
+      "state": 3,
+      "etc": "ACT07-1, ACT07-2 => ACT06-1"
+    },
+    {
+      "depth1": "",
+      "depth2": "활동 > 뉴스와이어",
+      "url": "",
+      "date": "2023.06.16",
+      "state": 3,
+      "etc": "ACT08 => ACT06"
+    },
+    {
+      "depth1": "",
+      "depth2": "활동 > 뉴스와이어, 내용",
+      "url": "ACT08-1",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / ACT08-2~5"
+    },
+    {
+      "depth1": "활동 만들기/수정",
+      "depth2": "팝업) 활동 만들기",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WACT05 => popup-type1, No. 9"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 활동 수정",
+      "url": "",
+      "date": "2023.06.05",
+      "state": 3,
+      "etc": "WACT06 => popup-type1, No. 9"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 이메일 보내기",
+      "url": "",
+      "date": "2023.06.07",
+      "state": 3,
+      "etc": "WACT07 => popup-type3, No. 4"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 이메일 보내기",
+      "url": "",
+      "date": "2023.06.14",
+      "state": 3,
+      "etc": "WACT07-1 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "발송 후 이메일 전체 페이지",
+      "url": "",
+      "date": "2023.06.21",
+      "state": 3,
+      "etc": "ACT32-1 => ACT06-1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 이메일 수정",
+      "url": "",
+      "date": "2023.06.07",
+      "state": 3,
+      "etc": "WACT08 => popup-type3, No. 4"
+    },
+    {
+      "depth1": "활동 태그",
+      "depth2": "",
+      "url": "ACT40",
+      "date": "",
+      "state": 3,
+      "etc": "LAYOUT1 / ACT41 / J23 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 태그 만들기",
+      "url": "",
+      "date": "2023.06.07",
+      "state": 3,
+      "etc": "WACT11 => popup-type1, No. 1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 태그 삭제",
+      "url": "",
+      "date": "2023.06.07",
+      "state": 3,
+      "etc": "WACT11-2 => popup-type4, No. 4"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 태그 수정",
+      "url": "",
+      "date": "2023.06.07",
+      "state": 3,
+      "etc": "WACT11-1 => popup-type1, No. 1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 소유자 변경 확인",
+      "url": "",
+      "date": "2023.06.07",
+      "state": 3,
+      "etc": "WACT11-3 => popup-type4, No. 4"
+    },
+    {
+      "depth1": "모니터링 뉴스 검색",
+      "depth2": "",
+      "url": "N01",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "LAYOUT1 / J11 참고 / N01-1~4"
+    },
+    {
+      "depth1": "",
+      "depth2": "필터",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "N02 => J14"
+    },
+    {
+      "depth1": "",
+      "depth2": "모니터링 기능 없는 상품일 경우",
+      "url": "N03",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "모니터링 검색 결과",
+      "depth2": "기본(프로필)",
+      "url": "N10",
+      "date": "2023.06.20",
+      "state": 3,
+      "etc": "LAYOUT1 / N10-1, N11"
+    },
+    {
+      "depth1": "",
+      "depth2": "뉴스 내용",
+      "url": "N10-2",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / N11-1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 잘못 수집된 뉴스 신고",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WN02 => popup-type2, No. 2"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 뉴스 삭제",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WN03 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 개인 추가 뉴스 수정",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WN15 => popup-type3, No. 5"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 뉴스 태그 수정",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WN05, WN05-1, WN05-2 => popup-type1, No. 10"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 논조 수정",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WN06, WN06-1 => popup-type1, No. 6"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 클립북에 저장",
+      "url": "",
+      "date": "2023.06.14",
+      "state": 3,
+      "etc": "N14 => J15"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 파일 다운로드",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WN11 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "모니터링 보고서",
+      "depth2": "팝업) 보고서 만들기, STEP 1",
+      "url": "",
+      "date": "2023.06.21",
+      "state": 3,
+      "etc": "WN09 => popup-type5, No. 4"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 보고서 만들기, STEP 2",
+      "url": "",
+      "date": "2023.06.21",
+      "state": 3,
+      "etc": "WN09-1 => popup-type5, No. 5"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 보고서 만들기, STEP 3",
+      "url": "",
+      "date": "2023.06.21",
+      "state": 3,
+      "etc": "WN09-2 => popup-type5, No. 6"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 보고서 만들기 취소",
+      "url": "",
+      "date": "2023.06.14",
+      "state": 3,
+      "etc": "WN09-3 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "보고서 양식 > 문서 제목형",
+      "url": "N21-2",
+      "date": "",
+      "state": 0,
+      "etc": "양식: PDF, DOC"
+    },
+    {
+      "depth1": "",
+      "depth2": "보고서 양식 > 문서 제목 본문형",
+      "url": "N21-3",
+      "date": "",
+      "state": 0,
+      "etc": "양식: PDF, DOC"
+    },
+    {
+      "depth1": "모니터링",
+      "depth2": "",
+      "url": "",
+      "date": "2023.06.21",
+      "state": 3,
+      "etc": "N30, N30-1~2 => N10"
+    },
+    {
+      "depth1": "",
+      "depth2": "필터열림",
+      "url": "",
+      "date": "2023.06.21",
+      "state": 3,
+      "etc": "N31 => N10 (lnb J21-2 참고)"
+    },
+    {
+      "depth1": "",
+      "depth2": "검색 조건 수정 및 검색하기",
+      "url": "N32",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "LAYOUT1 / M22 / N01 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 모니터링 분석",
+      "url": "",
+      "date": "2023.07.12",
+      "state": 3,
+      "etc": "WN21 => popup-type1, No. 16 그래프 영역"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 모니터링 분석 다운로드",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WN18 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 모니터링 분석 공유하기",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WN18-1 => popup-type1, No. 11"
+    },
+    {
+      "depth1": "",
+      "depth2": "분석 PDF 파일 양식",
+      "url": "N33-2",
+      "date": "",
+      "state": 0,
+      "etc": "양식: PDF "
+    },
+    {
+      "depth1": "",
+      "depth2": "관리",
+      "url": "N34",
+      "date": "2023.06.15",
+      "state": 3,
+      "etc": "LAYOUT1 / N34-1,3 / J23 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 모니터링 삭제",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WN12 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 뉴스 알리미 삭제",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WN12-1 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 소유자 변경 확인",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WN12-3 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 모니터링 만들기 STEP 1",
+      "url": "",
+      "date": "2023.06.14",
+      "state": 3,
+      "etc": "WN13 => popup-type5, No. 1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 모니터링 만들기 취소",
+      "url": "",
+      "date": "2023.06.14",
+      "state": 3,
+      "etc": "WN16 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 모니터링 만들기 STEP 2",
+      "url": "",
+      "date": "2023.06.21",
+      "state": 3,
+      "etc": "WN13-1 => popup-type5, No. 4 (이미지 template-ipt-btn_03.png, 04 번 변경)"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 모니터링 만들기 STEP 3",
+      "url": "",
+      "date": "2023.06.14",
+      "state": 3,
+      "etc": "WN13-2 => popup-type5, No. 2"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 모니터링 만들기 STEP 4",
+      "url": "",
+      "date": "2023.06.14",
+      "state": 3,
+      "etc": "WN13-3 => popup-type5, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 모니터링 설정 STEP 1",
+      "url": "",
+      "date": "2023.06.14",
+      "state": 3,
+      "etc": "WN14 => popup-type5, No. 1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 모니터링 설정 취소",
+      "url": "",
+      "date": "2023.06.14",
+      "state": 3,
+      "etc": "WN17 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "클립북",
+      "depth2": "",
+      "url": "R01",
+      "date": "2023.06.15",
+      "state": 3,
+      "etc": "LAYOUT1 / R01-2 / J23 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 상세 정보",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WR01 => popup-type4, No. 1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 클립북 만들기",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WR02 => popup-type1, No. 12"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 클립북 수정",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WR03 => popup-type1, No. 12"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 클립북 삭제",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WR04 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 클립북 복사",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WR05 => popup-type1, No. 4"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 소유자 변경 확인",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WR06 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "개별목록",
+      "url": "",
+      "date": "2023.06.21",
+      "state": 3,
+      "etc": "R03 => N10 (lnb J11-1 참고)"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 파일 다운로드",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WR07 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "필터 열림",
+      "url": "",
+      "date": "2023.06.21",
+      "state": 3,
+      "etc": "R04 => N10 (lnb J21-2 참고)"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 휴대폰 시장 동향 클립북 분석",
+      "url": "",
+      "date": "2023.07.12",
+      "state": 3,
+      "etc": "WR08 => popup-type1, No. 16 그래프 영역"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 클립북 분석 다운로드",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WR09 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 클립북 분석 공유하기",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WR09-1 => popup-type1, No. 11"
+    },
+    {
+      "depth1": "",
+      "depth2": "클립북 분석",
+      "url": "R05-2",
+      "date": "",
+      "state": 0,
+      "etc": "양식: PDF"
+    },
+    {
+      "depth1": "모니터링 뉴스 추가",
+      "depth2": "추가 방법 선택",
+      "url": "N60",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / J50 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "1개씩 추가",
+      "url": "N61",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / J51 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "1개씩 추가 완료",
+      "url": "N62",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / J52 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "대량 추가 STEP1",
+      "url": "",
+      "date": "2023.06.14",
+      "state": 3,
+      "etc": "N65, N65-1 => J60"
+    },
+    {
+      "depth1": "",
+      "depth2": "대량 추가 STEP2",
+      "url": "",
+      "date": "2023.06.14",
+      "state": 3,
+      "etc": "N66 => J61"
+    },
+    {
+      "depth1": "",
+      "depth2": "대량 추가 STEP3",
+      "url": "",
+      "date": "2023.06.14",
+      "state": 3,
+      "etc": "N67 => J62"
+    },
+    {
+      "depth1": "모니터링 뉴스 태그",
+      "depth2": "",
+      "url": "N70",
+      "date": "2023.06.15",
+      "state": 3,
+      "etc": "LAYOUT1 / N71 / J23 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 태그 만들기",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WN20 => popup-type1, No. 2"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 태그 수정",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WN20-1 => popup-type1, No. 2"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 태그 삭제",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WN20-2 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 소유자 변경 확인",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WN20-3 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "프로젝트",
+      "depth2": "",
+      "url": "",
+      "date": "2023.06.20",
+      "state": 3,
+      "etc": "PJ01 => N03"
+    },
+    {
+      "depth1": "",
+      "depth2": "프로젝트 생성 전",
+      "url": "PJ02",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / N03 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "프로젝트 추가",
+      "url": "PJ02-1",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "전체 프로젝트",
+      "url": "PJ03",
+      "date": "2023.06.29",
+      "state": 3,
+      "etc": "LAYOUT1 / PJ03-2"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 프로젝트 수정",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WPJ02 => popup-type1, No. 4"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 프로젝트 삭제",
+      "url": "",
+      "date": "2023.06.15",
+      "state": 3,
+      "etc": "WPJ03 => popup-type4, No.3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 소유자 변경 확인",
+      "url": "",
+      "date": "2023.06.15",
+      "state": 3,
+      "etc": "WPJ05 => popup-type4, No.3"
+    },
+    {
+      "depth1": "",
+      "depth2": "개별 프로젝트 > 개요",
+      "url": "PJ04",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / PJ04-1"
+    },
+    {
+      "depth1": "",
+      "depth2": "개별 프로젝트 > 모니터링",
+      "url": "PJ05",
+      "date": "2023.07.07",
+      "state": 3,
+      "etc": "LAYOUT2 / N10 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "개별 프로젝트 > 모니터링",
+      "url": "PJ05-1",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / PJ05-2 동일 / N01 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "개별 프로젝트 > 클립북",
+      "url": "PJ06",
+      "date": "2023.07.07",
+      "state": 3,
+      "etc": "LAYOUT2 / PJ08 - 리스트 list-type4 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "개별 프로젝트 > 활동",
+      "url": "PJ07",
+      "date": "2023.07.07",
+      "state": 3,
+      "etc": "LAYOUT2 / PJ07-1 / ACT02 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "개별 프로젝트 > 활동",
+      "url": "PJ09",
+      "date": "2023.07.07",
+      "state": 3,
+      "etc": "LAYOUT2 / PJ09-1, PJ10, PJ10-1 / J12 참고"
+    },
+    {
+      "depth1": "보도자료 배표",
+      "depth2": "설정",
+      "url": "ND01",
+      "date": "2023.07.13",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 저장하기",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WND01 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 보도자료 배포 초안",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WND02 => popup-type4, No. 5"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 삭제하기",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WND03 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 치환태그 사용법",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WND11 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "보도자료 배포 > 템플릿",
+      "url": "ND02",
+      "date": "2023.07.13",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 템플릿 변경",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WND04 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 템플릿 삭제",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WND05 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "내용",
+      "url": "ND03",
+      "date": "2023.07.13",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 워드파일에서 불러오기",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WND06 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 템플릿 저장",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WND07 => popup-type1, No. 2"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 미디어 자료실 > 이미지",
+      "url": "",
+      "date": "2023.07.03",
+      "state": 3,
+      "etc": "WND08 => popup-type5, No. 7"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 보도자료 배포 > 미리보기",
+      "url": "",
+      "date": "2023.07.03",
+      "state": 3,
+      "etc": "ND03-3, ND03-4 => popup-type4, No. 6"
+    },
+    {
+      "depth1": "",
+      "depth2": "확인",
+      "url": "ND04",
+      "date": "2023.07.13",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 테스트 메일 발송",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WND09 => popup-type1, No. 2"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업)배포하기",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WND10 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "보도자료 배포 > 전체페이지",
+      "url": "",
+      "date": "2023.06.23",
+      "state": 3,
+      "etc": "ND05 => ACT06-1"
+    },
+    {
+      "depth1": "",
+      "depth2": "분산된 배포 기능",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "ND06 => J12-t2"
+    },
+    {
+      "depth1": "뉴스와이어 배포",
+      "depth2": "",
+      "url": "",
+      "date": "2023.06.23",
+      "state": 3,
+      "etc": "NW01 => ND01"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 뉴스와이어 배포 보도자료 초안",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WNW02 => popup-type4, No. 5"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 저장하기",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WNW01 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 삭제하기",
+      "url": "",
+      "date": "2023.06.13",
+      "state": 3,
+      "etc": "WNW03 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "내용",
+      "url": "NW02",
+      "date": "2023.07.13",
+      "state": 3,
+      "etc": "LAYOUT1 / NW02-1"
+    },
+    {
+      "depth1": "",
+      "depth2": "설정",
+      "url": "NW03",
+      "date": "2023.07.13",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "확인",
+      "url": "NW04",
+      "date": "2023.07.13",
+      "state": 3,
+      "etc": "LAYOUT1 / NW04-1"
+    },
+    {
+      "depth1": "",
+      "depth2": "전체페이지",
+      "url": "",
+      "date": "2023.06.23",
+      "state": 3,
+      "etc": "NW05 => ACT08-1"
+    },
+    {
+      "depth1": "설정 회원",
+      "depth2": "",
+      "url": "SET01",
+      "date": "2023.07.04",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "시스템 알림",
+      "url": "SET02",
+      "date": "2023.07.04",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "뉴스 알리미",
+      "url": "SET03",
+      "date": "2023.07.04",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 뉴스 알리미  삭제",
+      "url": "",
+      "date": "2023.07.04",
+      "state": 3,
+      "etc": "WSET01 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "설정",
+      "url": "SET04",
+      "date": "2023.07.04",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "설정  사용권",
+      "depth2": "",
+      "url": "SET20",
+      "date": "2023.07.04",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "내 구매",
+      "url": "SET21",
+      "date": "2023.07.04",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "내 구매 > 구매내용",
+      "url": "SET21-1",
+      "date": "2023.07.04",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 사용권 정보",
+      "url": "",
+      "date": "2023.06.29",
+      "state": 3,
+      "etc": "WSET16 => popup-type4, No. 1"
+    },
+    {
+      "depth1": "설정 회사",
+      "depth2": "회사 정보",
+      "url": "SET30",
+      "date": "2023.07.04",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "설정 관리자",
+      "depth2": "사용자 관리",
+      "url": "SET50",
+      "date": "2023.07.04",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 비밀번호 재설정",
+      "url": "",
+      "date": "2023.06.29",
+      "state": 3,
+      "etc": "WSET05 => popup-type2, No. 1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 회원 삭제",
+      "url": "",
+      "date": "2023.06.29",
+      "state": 3,
+      "etc": "WSET06 => popup-type1, No. 14"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 회원 정보 수정",
+      "url": "",
+      "date": "2023.06.29",
+      "state": 3,
+      "etc": "WSET04 => popup-type1, No. 13"
+    },
+    {
+      "depth1": "",
+      "depth2": "회원 추가 > 1단계",
+      "url": "SET50-4",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "회원 추가 > 2단계",
+      "url": "SET50-5",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "회원 인증",
+      "url": "SET50-6",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / USER20 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "회원인증 > 서비스 안내",
+      "url": "SET50-7",
+      "date": "",
+      "state": 0,
+      "etc": "기획 미정"
+    },
+    {
+      "depth1": "",
+      "depth2": "회원인증 > 서비스 안내(2)",
+      "url": "SET50-8",
+      "date": "",
+      "state": 0,
+      "etc": "기획 미정"
+    },
+    {
+      "depth1": "",
+      "depth2": "그룹관리",
+      "url": "SET51",
+      "date": "2023.07.05",
+      "state": 3,
+      "etc": "LAYOUT1 / SET50 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 그룹 추가",
+      "url": "",
+      "date": "2023.06.29",
+      "state": 3,
+      "etc": "WSET07 => popup-type2, No. 5"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 그룹명 수정",
+      "url": "",
+      "date": "2023.06.29",
+      "state": 3,
+      "etc": "WSET08 => popup-type1, No. 2"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 그룹 회원 관리",
+      "url": "",
+      "date": "2023.06.29",
+      "state": 3,
+      "etc": "WSET02 => popup-type1, No. 13"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 그룹 삭제",
+      "url": "",
+      "date": "2023.06.29",
+      "state": 3,
+      "etc": "WSET09 => popup-type2, No. 1"
+    },
+    {
+      "depth1": "",
+      "depth2": "연관도 분석",
+      "url": "SET52",
+      "date": "2023.07.05",
+      "state": 3,
+      "etc": "LAYOUT1"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 연관도 분석 수정",
+      "url": "",
+      "date": "2023.07.05",
+      "state": 3,
+      "etc": "WSET10 => popup-type2, No. 6"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 소셜 미디어 계정 삭제",
+      "url": "",
+      "date": "2023.06.29",
+      "state": 3,
+      "etc": "WSET15 => popup-type4, No. 3"
+    },
+    {
+      "depth1": "",
+      "depth2": "관리자 OTP 인증",
+      "url": "SET60",
+      "date": "2023.07.05",
+      "state": 3,
+      "etc": "USER10 참고"
+    },
+    {
+      "depth1": "대시보드",
+      "depth2": "",
+      "url": "DB01",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / DB01-1 / DB02 / DB03 / DB03-1 ~ 7"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 가젯추가",
+      "url": "",
+      "date": "2023.07.10",
+      "state": 3,
+      "etc": "WDB01 => popup-type1, No. 15"
+    },
+    {
+      "depth1": "서비스",
+      "depth2": "",
+      "url": "SVC01",
+      "date": "",
+      "state": 0,
+      "etc": ""
+    },
+    {
+      "depth1": "서비스 데모신청",
+      "depth2": "",
+      "url": "",
+      "date": "",
+      "state": 4,
+      "etc": "기획 없음"
+    },
+    {
+      "depth1": "서비스 구매상담/구매 신청",
+      "depth2": "구매 상담 입력",
+      "url": "SR01",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "구매 상담 완료",
+      "url": "SR02",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "구매 신청 입력",
+      "url": "SR10",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "구매 신청 완료",
+      "url": "",
+      "date": "2023.07.05",
+      "state": 3,
+      "etc": "SR11 => SR02 동일"
+    },
+    {
+      "depth1": "서비스 미디어 브리핑",
+      "depth2": "로그인",
+      "url": "MB01",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "로그인 > 검색결과",
+      "url": "",
+      "date": "2023.07.06",
+      "state": 3,
+      "etc": "MB02 => MB01"
+    },
+    {
+      "depth1": "",
+      "depth2": "로그인 > 상세",
+      "url": "MB03",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4"
+    },
+    {
+      "depth1": "",
+      "depth2": "로그아웃",
+      "url": "",
+      "date": "2023.07.06",
+      "state": 3,
+      "etc": "MB11 => MB01"
+    },
+    {
+      "depth1": "",
+      "depth2": "로그아웃 > 상세",
+      "url": "",
+      "date": "2023.07.06",
+      "state": 3,
+      "etc": "MB12, MB13 => MB03"
+    },
+    {
+      "depth1": "서비스 데모",
+      "depth2": "신청 > 입력",
+      "url": "",
+      "date": "2023.07.05",
+      "state": 3,
+      "etc": "DM01 => SR01 동일"
+    },
+    {
+      "depth1": "",
+      "depth2": "신청 > 완료",
+      "url": "",
+      "date": "2023.07.05",
+      "state": 3,
+      "etc": "DM02 => SR02 동일"
+    },
+    {
+      "depth1": "",
+      "depth2": "체험 > 로그인",
+      "url": "DM20",
+      "date": "2023.06.29",
+      "state": 3,
+      "etc": "USER10 참고"
+    },
+    {
+      "depth1": "",
+      "depth2": "데모 회사(샘플)",
+      "url": "",
+      "date": "2023.07.11",
+      "state": 3,
+      "etc": "DM30 => DB01 동일"
+    },
+    {
+      "depth1": "서비스 활용 사례",
+      "depth2": "",
+      "url": "",
+      "date": "",
+      "state": 4,
+      "etc": "기획 없음"
+    },
+    {
+      "depth1": "고객센터 도움말",
+      "depth2": "",
+      "url": "CS01",
+      "date": "2023.07.11",
+      "state": 3,
+      "etc": "LAYOUT6 / CS01-1 ~ 2"
+    },
+    {
+      "depth1": "",
+      "depth2": "도움말 검색 결과",
+      "url": "CS02",
+      "date": "2023.07.11",
+      "state": 3,
+      "etc": "LAYOUT6"
+    },
+    {
+      "depth1": "",
+      "depth2": "도움말 내용",
+      "url": "CS02-1",
+      "date": "2023.07.11",
+      "state": 3,
+      "etc": "LAYOUT6"
+    },
+    {
+      "depth1": "고객센터",
+      "depth2": "내 문의 > 목록",
+      "url": "CS03",
+      "date": "2023.07.11",
+      "state": 3,
+      "etc": "LAYOUT6"
+    },
+    {
+      "depth1": "",
+      "depth2": "내 문의 > 로그인",
+      "url": "CS03-1",
+      "date": "2023.07.11",
+      "state": 3,
+      "etc": "LAYOUT6"
+    },
+    {
+      "depth1": "",
+      "depth2": "내 문의 > 상세",
+      "url": "CS03-2",
+      "date": "2023.07.11",
+      "state": 3,
+      "etc": "LAYOUT6"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 문의하기 (회원)",
+      "url": "",
+      "date": "2023.07.06",
+      "state": 3,
+      "etc": "WCS01 => popup-type1, No. 9"
+    },
+    {
+      "depth1": "",
+      "depth2": "팝업) 문의하기 (비회원)",
+      "url": "",
+      "date": "2023.07.06",
+      "state": 3,
+      "etc": "WCS01-1 => popup-type3, No. 6"
+    },
+    {
+      "depth1": "결제하기",
+      "depth2": "",
+      "url": "PG01",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT5 / PG01-1"
+    },
+    {
+      "depth1": "",
+      "depth2": "견적서",
+      "url": "PG01-2",
+      "date": "",
+      "state": 0,
+      "etc": "서비스 견적서 PDF 보류"
+    },
+    {
+      "depth1": "",
+      "depth2": "카드 결제",
+      "url": "PG02",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT5"
+    },
+    {
+      "depth1": "",
+      "depth2": "구매 신청 완료",
+      "url": "PG03",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT5"
+    },
+    {
+      "depth1": "",
+      "depth2": "부가서비스 선택",
+      "url": "PG30",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT5 / PG31, PG32"
+    },
+    {
+      "depth1": "",
+      "depth2": "부가서비스 선택 > 사용자 수 추가",
+      "url": "PG33",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT5"
+    },
+    {
+      "depth1": "이메일 > 회원 발송",
+      "depth2": "비회원 이메일 수신 거부",
+      "url": "EM40",
+      "date": "2023.07.14",
+      "state": 3,
+      "etc": "LAYOUT4 / EM42"
+    },
+    {
+      "depth1": "에러페이지",
+      "depth2": "샘플 (404)",
+      "url": "ER404",
+      "date": "2023.07.18",
+      "state": 1,
+      "etc": "LAYOUT4"
+    }
+  ]
+}

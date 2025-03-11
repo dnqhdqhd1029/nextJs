@@ -1,0 +1,30 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<div id="preview"></div>
+<script>
+  window.addEventListener(
+    'load',
+    function () {
+      window.addEventListener('message', function(e) {
+        const origin = e.origin || e.originalEvent.origin
+
+        console.log('>> origin', origin)
+
+        if (origin !== 'https://local.svc.d.mediabee.kr:4189' && origin !== 'https://svc.d.mediabee.kr') {
+          return
+        }
+
+        const { html } = e.data
+
+        if (html !== undefined) {
+          document.getElementById('preview').innerHTML = html
+        }
+      }, false)
+    }
+  )
+</script>
+</body>
+</html>

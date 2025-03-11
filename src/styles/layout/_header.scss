@@ -1,0 +1,817 @@
+/* stylelint-disable */
+// header 용
+
+@mixin hamburgerDepth1 {
+  width: 100%;
+  padding: 8px 24px;
+  text-align: left;
+  will-change: transform;
+
+  .label {
+    @include fontBodyRegular(500);
+    flex-grow: 1;
+  }
+
+  &.is-opened {
+    .ico {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@mixin hamburgerDepth2 {
+  width: 100%;
+  padding: 5px 24px 5px 38px;
+  text-align: left;
+
+  .label {
+    @include fontBodyRegular(400);
+    flex-grow: 1;
+  }
+}
+
+@mixin hamburgerButton {
+  @include sizeWH(22px);
+  @include backgroundStyle("svg/icon-hamburger.svg");
+}
+
+/* stylelint-enable */
+
+.header {
+  &__section {
+    @include borderStyle(bottom);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-shrink: 0;
+
+    //@include breakpointMax(l) {
+    //  position: fixed;
+    //  left: 0;
+    //  width: 100%;
+    //}
+
+  }
+
+
+
+
+  &-gnb {
+    &__section {
+      height: 51px;
+      background: $white;
+      @include flexJustBet;
+      padding: 0 14px 0 14px;
+
+      @include breakpointMax(l) {
+        position: relative;
+        padding: 0 0 0 54px;
+      }
+
+      &.is-opened {
+        .hamburger-menu {
+          transform: translateX(0);
+
+          .header-customer__hamburger {
+            left: 0;
+            top: 0;
+          }
+
+          &-list {
+            opacity: 1;
+          }
+        }
+      }
+
+      &-center{
+        width: 100%;
+        @include flexCenter;
+        align-items: center;
+      }
+    }
+    &__group {
+      @include flexAlignCen;
+    }
+    &__menu {
+      @include breakpointMax(l) {
+        display: none;
+      }
+
+      &-list {
+        @include flexAlignCen;
+
+        > li.is-active {
+          .select__label {
+            background: $body-selected;
+          }
+
+          .select-option__section {
+            display: block;
+          }
+        }
+      }
+    }
+    /*상단햄버거 메뉴*/
+    &__hamburger {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+
+      @include breakpointMax(l) {
+        display: block;
+      }
+      .hamburger-buttons {
+        @include flexCenter;
+        width: 47px;
+        height: 51px;
+        padding: 0 10px;
+        @include flexAlignCen;
+        position: relative;
+        z-index: 1000;
+        cursor: pointer;
+
+        &:hover {
+          @include mouseHover {
+            background: $body-selected;
+          }
+        }
+      }
+    }
+    &-hamburger {
+      &__button {
+        @include hamburgerButton;
+        transition: background 0.3s;
+      }
+
+      &__menu {
+        @include flexColumn;
+        @include sizeWH(min(100%, 300px), 100vh);
+        @include shadowStyle(r);
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        height: $full-height;
+        padding: 0 0 24px;
+        background: $white;
+        transform: translateX(-120%);
+        transition: transform 0.3s;
+
+        &__header{
+          position: relative;
+          @include flexJustStart;
+          align-items: center;
+          height: 75px;
+          border-bottom: 1px solid $gray-200;
+          .ico-svg{
+            width: 55px;
+            height: 55px;
+            @include flexCenter;
+          }
+
+          .member-info__txt{
+            flex: 1;
+            strong{
+              //display: block;
+              font-weight: 500;
+            }
+            em{
+              font-style: normal;
+              margin-top: 5px;
+              display: block;
+            }
+          }
+
+          .login_button{
+            position: absolute ;
+            right:10px;
+            top: 26px;
+           }
+        }
+        &__list {
+          opacity: 0;
+          transition: opacity 0.3s 0.15s;
+
+          &:nth-of-type(2) {
+            margin-top: auto;
+          }
+
+          &__button {
+
+            @include mouseEffect {
+             /// background: $gray-200;
+              background: $body-selected;
+            }
+
+            justify-content: space-between;
+            width: 100%;
+            padding: 12px 24px;
+            transition: background 0.3s;
+
+            @include breakpointMax(s) {
+              padding: 12px 10px;
+            }
+
+            &.is-active{
+              background: $body-selected;
+            }
+
+
+          }
+          .header-hamburger-menu__depth2{
+
+            & > li{
+              .header-hamburger-menu__depth2-button {
+                background: $gray-100;
+                @include mouseEffect {
+                  background: $gray-200;
+                }
+
+                justify-content: flex-start;
+                width: 100%;
+                padding: 12px 34px !important;
+                transition: background 0.3s;
+                //border-bottom: 1px solid $gray-400;
+
+
+
+                @include breakpointMax(s) {
+                  padding: 12px 10px;
+                }
+
+
+              }
+            }
+
+          }
+
+        }
+
+
+      }
+
+    }
+
+  }
+
+  &-logo {
+    @include flexWrap;
+    margin-right: 28px;
+    position: relative;
+    .logo-mediabee {
+      color: $body-text;
+
+      @include breakpointMax(m) {
+        width: 100px;
+      }
+    }
+    .tag__group {
+      // margin-top: -2px;
+      padding: 0 8px 1px;
+      // background: $body-selected !important;
+      // border: none !important;
+      .tag__label {
+        font-size: 10px;
+      }
+    }
+  }
+
+  &-search {
+    padding-right: 28px;
+
+    &__button {
+      @include sizeWH(180px, 28px);
+      @include borderStyle("multi", $gray-400);
+
+      @include mouseEffect {
+        background: $gray-100;
+      }
+
+      justify-content: flex-start;
+      padding: 0 10px;
+      // background: $gray-100;
+      border-radius: 14px;
+
+      .text {
+        @include fontBodySmall(400, $gray-500);
+        padding-left: 7px;
+      }
+    }
+
+    @include breakpointMax(xl) {
+      display: none;
+    }
+  }
+
+  &-corp {
+    &__name {
+      padding-left: 12px;
+    }
+
+    @include breakpointMax(l) {
+      &__group,
+      &__name {
+        display: none;
+      }
+    }
+  }
+
+  &-cs {
+    padding-left: 12px;
+
+    @include breakpointMax(l) {
+      display: none;
+    }
+    .button-link-ico {
+      .ico-svg {
+        width: 27px;
+        height: 27px;
+      }
+    }
+  }
+
+  &-my {
+    @include breakpointMax(m) {
+      //position: absolute;
+      //top: 0;
+      //right: 14px;
+
+      .select-option__section {
+        z-index: 1000;
+      }
+    }
+    .select__label {
+      .ico-svg {
+        width: 27.8px !important;
+        height: 27.8px !important;
+      }
+    }
+  }
+
+  &-pay {
+    @include breakpointMax(m) {
+      position: absolute;
+      top: calc(($navbar-height - 28px) / 2);
+      right: 14px;
+
+      .button-default.size-m {
+        height: 28px;
+        padding: 0 8px;
+        border-radius: 3px;
+
+        .button__label {
+          @include fontSize(12);
+        }
+      }
+    }
+  }
+
+  &-demo{
+
+    margin-right: 14px;
+  }
+
+  /*기존꺼 곧지울것*/
+  &-hamburger {
+
+
+    &__menu {
+      @include flexColumn;
+      @include sizeWH(min(100%, 300px), 100vh);
+      @include shadowStyle(r);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      height: $full-height;
+      padding: 0 0 24px;
+      background: $white;
+      transform: translateX(-120%);
+      transition: transform 0.3s;
+    }
+
+  }
+
+
+}
+
+// breadcrumb 영역
+.header-breadcrumb {
+  &__section {
+    background: $white;
+
+    &.type-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      width: 100%;
+    }
+  }
+
+  &__group {
+    &.type-flex {
+      @include flexAlignCen;
+
+      .header-breadcrumb__title {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+.breadcrumb-title-type2 {
+  .header-breadcrumb {
+    &__group {
+      @include borderStyle(bottom);
+      padding: 12px 20px;
+    }
+
+    &__title {
+      @include fontBodySemiLarge(500);
+    }
+  }
+}
+
+// header-search
+.header-search-result {
+  &__section {
+    @include borderStyle("multi", rgba(0, 0, 0, 0.2));
+    @include shadowStyle(r);
+
+    z-index: 1000;
+    background: $white;
+    border-radius: 4.8px;
+
+    @include breakpointMin(m) {
+      position: relative;
+      width: 100%;
+      max-width: 960px;
+    }
+
+    @include breakpointMax(m) {
+      width: 100%;
+      max-width: calc(100% - 24px);
+      max-height: calc($full-height - 112px);
+      overflow-y: auto;
+    }
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    min-height: 200px;
+    background: #fff;
+  }
+
+  &__area {
+    position: relative;
+
+    @include breakpointMin(m) {
+      display: flex;
+
+      &::after {
+        @include sizeWH(1px, calc(100% - 48px));
+
+        position: absolute;
+        top: 48px;
+        left: calc(50% - 1px);
+        z-index: 10;
+        background: $gray-300;
+        content: "";
+      }
+    }
+
+    @include breakpointMax(m) {
+      @include flexWrap;
+    }
+  }
+
+  &__group {
+    flex-shrink: 0;
+
+    @include breakpointMin(m) {
+      width: 50%;
+    }
+
+    @include breakpointMax(m) {
+      width: 100%;
+
+      &:not(:first-of-type) {
+        @include borderStyle(top);
+      }
+    }
+  }
+
+  &__input {
+    position: relative;
+    padding: 24px 80px 12px;
+
+    @include breakpointMax(m) {
+      display: none;
+    }
+
+    &-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      z-index: 10;
+    }
+    .ipt-search__group {
+      // border-radius: 0;
+      .ipt-search {
+        background: $white;
+        border-radius: 14px;
+        @include borderStyle("multi", $gray-400);
+        @include mouseEffect {
+          background: $gray-100;
+        }
+      }
+    }
+  }
+
+  &__title {
+    @include borderStyle(bottom);
+    @include fontHeadings(h5);
+
+    height: 48px;
+    padding: 14px 28px;
+  }
+
+  &__none {
+    @include fontBodyRegular(400);
+    padding: 28px 28px 56px;
+  }
+
+  &__list {
+    > li {
+      @include borderStyle(bottom, $gray-200);
+    }
+  }
+
+  &__item {
+    display: flex;
+    width: 100%;
+    padding: 14px 28px;
+
+    &-img {
+      @include sizeWH(48px);
+      @include borderStyle("multi", $gray-200);
+
+      flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 50%;
+
+      img {
+        @include objFitCover;
+      }
+    }
+
+    &-txt {
+      padding-left: 14px;
+      overflow: hidden;
+
+      p {
+        @include ellipsis;
+
+        &.name {
+          @include fontBodyLarge(400, map-get($colors, primary));
+        }
+
+        &.corp {
+          @include fontBodyRegular(400);
+        }
+      }
+    }
+
+    &:hover {
+      background: $gray-100;
+    }
+
+    .ico-avatar__group {
+      flex-shrink: 0;
+    }
+  }
+
+  &__btn {
+    padding: 28px;
+
+    > button {
+      width: 183px;
+    }
+
+    .select-search-option__none + & {
+      @include flexJustEnd;
+
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+  }
+}
+
+// 고객센터용
+.header-customer {
+  &__section {
+    //padding: 0  10px 0 10px;
+    padding: 0;
+    background: $white;
+
+    @include breakpointMax(l) {
+      padding: 0;
+    }
+
+    &.is-opened {
+      .hamburger-menu {
+        transform: translateX(0);
+
+        .header-customer__hamburger {
+          left: 0;
+          top: 0;
+        }
+
+        &-list {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &__group {
+    @include flexCenter;
+
+    position: relative;
+    height: 51px;
+  }
+  &__hamburger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+
+    @include breakpointMax(l) {
+        display: block;
+    }
+    .hamburger-buttons {
+      @include flexCenter;
+      width: 47px;
+      height: 51px;
+      padding: 0 10px;
+      @include flexAlignCen;
+      position: relative;
+      z-index: 1000;
+      cursor: pointer;
+
+      &:hover{
+        @include mouseHover {
+          background: $body-selected;
+        }
+      }
+    }
+  }
+  &-hamburger {
+    &__button {
+      @include hamburgerButton;
+
+      transition: background 0.3s;
+    }
+
+    &__menu {
+      @include flexColumn;
+      @include sizeWH(min(100%, 300px), 100vh);
+      @include shadowStyle(r);
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      height: $full-height;
+      padding: 50px 0 24px;
+      background: $white;
+      transform: translateX(-120%);
+      transition: transform 0.3s;
+
+      .header-customer__hamburger {
+        position: absolute;
+        top: 14px;
+        left: 24px;
+
+        @include breakpointMax(s) {
+          left: 10px;
+        }
+      }
+    }
+
+    &-menu {
+      &__list {
+        opacity: 0;
+        transition: opacity 0.3s 0.15s;
+
+        &:nth-of-type(2) {
+          margin-top: auto;
+        }
+      }
+
+      &__button {
+        @include mouseEffect {
+          background: $gray-200;
+        }
+
+        justify-content: flex-start;
+        width: 100%;
+        padding: 12px 24px;
+        transition: background 0.3s;
+
+        @include breakpointMax(s) {
+          padding: 12px 10px;
+        }
+      }
+    }
+  }
+  &__inquiry {
+    position: absolute;
+    top: 13px;
+    right: 50px;
+
+    @include breakpointMax(l) {
+      right: 50px;
+      display: none;
+    }
+  }
+  &__my {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  &-home {
+    &__link {
+      padding-left: 14px;
+    }
+
+    &__logo {
+      @include flexAlignStart;
+
+      .logo-mediabee {
+        width: auto;
+      }
+
+      @include breakpointMax(s) {
+        .logo-mediabee + .button-link-text {
+          display: none;
+        }
+      }
+    }
+  }
+
+}
+
+
+
+// 공통 title bar
+.common-title {
+  &__group {
+    @include flexAlignCen;
+    padding: 0 0 22px 0;
+  }
+
+  &__path {
+    flex-shrink: 0;
+    padding-right: 10px;
+  }
+
+  &__ico {
+    &.type-check {
+      flex-shrink: 0;
+      margin-right: 12px;
+
+      .ico-svg {
+        @include sizeWH(28px);
+        color: map-get($colors, primary);
+      }
+    }
+  }
+
+  &__title {
+    @include fontBodyLead(700);
+    @include ellipsis;
+  }
+
+  &__buttons {
+    flex-shrink: 0;
+    margin-left: auto;
+    padding-left: 24px;
+
+    &.type-search {
+      @include flexAlignCen;
+
+      .ipt-search__area {
+        margin-right: 4px;
+      }
+    }
+  }
+}

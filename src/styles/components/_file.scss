@@ -1,0 +1,628 @@
+/* stylelint-disable */
+// 
+
+@mixin fileUploaderInput {
+  @include absoluteFull;
+  opacity: 0;
+  
+  &::file-selector-button {
+    cursor: pointer;
+    @include absoluteFull;
+  }
+}
+
+@mixin fileUploaderButton {
+  @include borderStyle("multi", map-get($colors, secondary));
+  background: $white;
+  transition: background 0.3s;
+  
+  @content;
+
+  &.type {
+    &-over {
+      background: $gray-100
+    }
+    
+    &-press {
+      background: $gray-200
+    }
+  }
+}
+
+@mixin fileUploaderDelete {
+  @include mouseHover {
+    background: $gray-100; 
+  }
+  
+  @include mouseActive {
+    background: $gray-200; 
+  }
+
+  @include sizeWH(28px);
+
+  background: transparent;
+  border-radius: 3px;
+  transition: background 0.3s;
+
+  @content;
+
+  .ico-svg {
+    @include sizeWH(16px);
+  }
+}
+
+@mixin fileUploaderListItem {
+  @include borderStyle("multi");
+
+  aspect-ratio: 172/114;
+  width: 100%;
+  border-radius: 4px;
+  contain: paint;
+}
+
+@mixin fileUploaderButtonTypeOnly {
+  .file-uploader-button__section.type-only & {
+    @content;
+  }
+}
+
+/* stylelint-enable */
+
+.file-uploader {
+  &__section {
+    // 라이브러리 수정
+    .material-button {
+      font-family: "Noto Sans KR", sans-serif;
+
+      &.contained {
+        @include borderStyle("multi", map-get($colors, secondary));
+
+        height: map-get($sizes, m);
+        padding: 0 20px;
+        background: $white;
+        border-radius: 4px;
+        box-shadow: none;
+
+        &:hover {
+          background: $gray-100;
+          box-shadow: none;
+        }
+
+        &:active,
+        &:focus-visible {
+          background: $gray-200;
+        }
+      }
+
+      &-label {
+        @include fontBodyRegular(500);
+      }
+    }
+
+    .filesui-base-ripple-absolute {
+      border-radius: 2px;
+
+      .filesui-base-ripple-relative span.ripple {
+        background-color: rgba($black, .05) !important;
+      }
+    }
+
+    .dropzone-layer-default{
+      background-color: rgba($black, .05) !important;
+      border : 0 !important;
+      border-radius : 2px !important;
+    }
+    .dropzone-layer-drag{
+      border-width : 0 !important;
+    }
+
+    .files-ui-file-card-main-container {
+      width: 100%;
+      min-height: 0;
+      font-family: "Noto Sans KR", sans-serif;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none !important;
+
+      &:hover {
+        background: $gray-100;
+      }
+
+      .files-ui-file-card-main-layer-container {
+        @include sizeWH(100%, 21px);
+        border-radius: 0;
+
+        .file-card-main-layer {
+          .file-card-icon-plus-data {
+            gap: 0;
+            width: 100%;
+
+            .file-card-data {
+              width: 100%;
+              padding-right: 0;
+
+              .file-card {
+                &-name {
+                  @include fontBodyRegular(
+                    400,
+                    $color: map-get($colors, primary)
+                  );
+
+                  width: 100%;
+                  padding: 0 22px 0 4px;
+                }
+
+                &-size {
+                  @include screenOut;
+                }
+              }
+            }
+
+            .file-card-icon-container {
+              @include screenOut;
+            }
+          }
+        }
+      }
+    }
+
+    .file-card-right-layer-header {
+      @include sizeWH(22px, 21px);
+      @include backgroundStyle("svg/icon-delete.svg", $size: 14px);
+
+      gap: 0;
+      margin: 0;
+    }
+
+    .files-ui-file-icon {
+      display: none;
+    }
+
+    .files-ui-tooltip.card {
+      .files-ui-tooltiptext {
+        display: none;
+      }
+    }
+
+    .file-card-right-layer-footer {
+      @include screenOut;
+    }
+  }
+
+  &__list {
+    > li {
+      margin-top: 8px;
+    }
+  }
+
+  &__title {
+    @include fontBodyRegular(400);
+    padding-bottom: 6px;
+  }
+
+  &__desc {
+    @include fontBodyRegular(400, map-get($colors, secondary));
+    padding-top: 8px;
+  }
+}
+
+// 에러일 때
+.file-uploader__list > li.file-status-error {
+  .file-card-name {
+    color: map-get($colors, danger) !important;
+  }
+
+  .file-card-right-layer-header {
+    @include backgroundImg("svg/icon-delete-error.svg")
+  }
+}
+
+.file-uploader__section.file-type2 {
+  // 라이브러리 커스텀
+  .fui-dropzone-root {
+    // @include borderStyle("multi", $gray-400);
+
+    // min-height: 102px;
+    padding: 7px 7px 10px;
+    background: $gray-50;
+    border-radius: 2px;
+    border: 1px dashed $gray-400;
+  }
+
+  .files-ui-dropzone-children-container {
+    gap: 0;
+    padding: 0;
+
+    label {
+      @include flexColumn;
+      @include fontBodyRegular(400);
+      text-align: center;
+      font-family: "Noto Sans KR", sans-serif;
+
+      &::before {
+        @include sizeWH(map-get($sizes, s32));
+        @include backgroundStyle("svg/icon-file-uploader.svg");
+
+        margin: 0 auto 6px;
+        content: "";
+      }
+
+      &::after {
+        display: none;
+        @include fontBodySmall(400, map-get($colors, secondary));
+
+        // margin-top: 2px;
+        content: "여러 개를 한꺼번에 첨부할 수 있습니다. 최대 파일 크기는 5MB.";
+      }
+      span {
+        @include fontBodySmall(400, map-get($colors, secondary));
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .files-ui-header,
+  .files-ui-footer {
+    @include screenOut;
+
+    padding: 0;
+    background: transparent;
+    border: 0;
+  }
+}
+
+// 사진 등록
+.file-uploader-thumb {
+  &__section {
+    padding: 10px 0;
+  }
+
+  &__area {
+    @include flexJustCen;
+
+    align-items: center;
+    padding-bottom: 14px;
+
+    // 라이브러리 커스텀
+    .material-button {
+      font-family: "Noto Sans KR", sans-serif;
+
+      &.contained {
+        @include borderStyle("multi", map-get($colors, secondary));
+
+        height: map-get($sizes, m);
+        padding: 0 20px;
+        background: $white;
+        border-radius: 4px;
+        box-shadow: none;
+
+        &:hover {
+          background: $gray-100;
+          box-shadow: none;
+        }
+
+        &:active,
+        &:focus-visible {
+          background: $gray-200;
+        }
+      }
+
+      &-label {
+        @include fontBodyRegular(500);
+      }
+    }
+  }
+
+  &__group {
+    @include sizeWH(112px);
+    
+    flex-shrink: 0;
+    margin-right: min(12%, 60px);
+    overflow: hidden;
+    background: $gray-300;
+    border-radius: 50%;
+
+    // 라이브러리 커스텀
+    .files-ui-file-card-main-container {
+      @include sizeWH(112px);
+
+      min-height: auto;
+      border-radius: 0;
+      box-shadow: none !important;
+    }
+    
+    .file-card-right-layer-header,
+    .file-card-right-layer-footer,
+    .files-ui-file-card-main-container .files-ui-file-card-main-layer-container .file-card-main-layer .file-card-icon-plus-data .file-card-data {
+      @include screenOut;
+    }
+
+    .files-ui-file-card-main-container .files-ui-file-card-main-layer-container {
+      @include sizeWH(112px);
+      border-radius: 0;
+    }
+
+    .files-ui-file-card-main-container .files-ui-file-card-main-layer-container .file-card-main-layer {
+      position: static;
+    }
+
+    .files-ui-file-card-main-container .files-ui-file-card-main-layer-container .file-card-main-layer .file-card-icon-plus-data {
+      @include sizeWH(112px);
+      gap: 0;
+    }
+
+    .files-ui-file-card-main-container .files-ui-file-card-main-layer-container .file-card-main-layer .file-card-icon-plus-data .file-card-icon-container,
+    .files-ui-file-card-main-container .files-ui-file-card-main-layer-container .file-card-main-layer .file-card-icon-plus-data .file-card-icon-container .file-card-icon-layer {
+      @include sizeWH(112px);
+    }
+
+    .files-ui-file-card-main-container .files-ui-file-card-main-layer-container .file-card-main-layer .file-card-icon-plus-data .file-card-icon-container .file-card-status-layer {
+      @include screenOut;
+      padding: 0;
+    }
+
+    .files-ui-file-card-main-container .files-ui-file-card-main-layer-container .file-card-main-layer .file-card-icon-plus-data .file-card-icon-container .file-card-icon-layer.blur img {
+      @include screenOut;
+    }
+
+    .files-ui-file-card-main-container .files-ui-file-card-main-layer-container .file-card-main-layer .file-card-icon-plus-data .file-card-icon-container .file-card-icon-layer img {
+      @include objFitCover;
+    }
+  }
+}
+
+// 파일 업로드
+.file-uploader-button {
+  &__section {
+    &:not(.type-only) {
+      .file-uploader-button-list__item.is-selected {
+        .file-uploader-button-item__delete {
+          @include mouseHover {
+            background: transparent;
+          }
+
+          @include mouseActive {
+            background: transparent;
+          }
+        }  
+      }
+
+      .file-uploader-button-item__delete {
+        @include fileUploaderDelete {
+          flex-shrink: 0;
+          margin: 0 20px;
+        };
+        
+        .text {
+          @include screenOut;
+        }
+      }
+    }
+
+    &.type-only {
+      .file-uploader-button-item__delete {
+        @include mouseEffect(false) {
+          .text {
+            text-decoration: underline;
+          }
+        }
+
+        flex-shrink: 0;
+        padding-left: 8px;
+
+        .ico-svg {
+          display: none;
+        }
+
+        .text {
+          @include fontBodyRegular(400, map-get($colors, primary));
+        }
+      }
+    }
+  }
+
+  &__group {
+    position: relative;
+    display: inline-block;
+  }
+
+  &__header {
+    @include flexAlignCen;
+
+    .file-uploader-button__group + .file-uploader-button__text {
+      padding-left: 8px;
+      color: map-get($colors, secondary);
+      font-weight: 400;
+    }
+  }
+
+  &__upload {
+    @include fileUploaderButton {
+      height: 35px;
+      padding: 0 20px;
+      border-radius: 4px;
+    }
+  }
+
+  &__text {
+    @include fontBodyRegular(500);
+  }
+
+  &__input {
+    @include fileUploaderInput;
+  }
+
+  &__list {
+    @include fileUploaderButtonTypeOnly {
+      padding-top: 8px;
+    }
+  }
+
+  &-list {
+    &__group {
+      > li {
+        @include borderStyle(bottom);
+
+        @include fileUploaderButtonTypeOnly {
+          border-bottom: 0;
+        }
+      }
+    }
+    
+    &__item {
+      @include mouseEffect {
+        background: $gray-100;
+      }
+
+      @include flexAlignCen;
+      padding: 8px 0;
+      transition: background 0.3s;
+
+
+      &.is-selected {
+        background: $body-selected;
+      }
+
+      .file-uploader-button-item__delete {
+        background: transparent;
+      }
+
+      @include fileUploaderButtonTypeOnly {
+        @include mouseEffect {
+          background: transparent;
+        }
+
+        padding: 0;
+      }
+    }
+  }
+
+  &-item {
+    &__name {
+      @include fontBodyRegular(400, map-get($colors, primary));
+      @include ellipsis;
+
+      flex-grow: 1;
+      padding: 0 12px;
+
+      @include fileUploaderButtonTypeOnly {
+        flex-grow: 0;
+        padding: 0;
+        color: $body-text;
+      }
+    }
+
+    &__size {
+      @include fontBodyRegular(400);
+       
+      flex-shrink: 0;
+      width: 124px;
+      padding: 0 12px;
+    }
+  }
+}
+
+// 파일 리스트
+.file-uploader-list {
+  &__area {
+    @include flexWrap;
+    margin: -7px -12px;
+
+    > li {
+      width: calc((100% - (24px * 5)) / 5);
+      margin: 7px 12px;
+    }
+  }
+
+  &__group {
+    position: relative;
+    padding-top: 28px;
+
+    &.no-padding {
+      padding-top: unset;
+    }
+  }
+
+  &-button {
+    &__section {
+      @include fileUploaderListItem;
+      @include flexCenter;
+      flex-direction: column;
+    }
+
+    &__group {
+      position: relative;
+    }
+
+    &__header {
+      padding-bottom: 10px;
+      text-align: center;
+    }
+
+    &__title {
+      @include fontBodyRegular(400)
+    }
+
+    &__desc {
+      @include fontBodySmall(400, map-get($colors, secondary));
+      margin-top: 2px;
+    }
+
+    &__upload {
+      @include fileUploaderButton {
+        height: 28px;
+        padding: 0 8px;
+        border-radius: 3px;
+      }
+    }
+
+    &__text {
+      @include fontBodySmall(400);
+    }
+
+    &__input {
+      @include fileUploaderInput;
+    }
+  }
+
+  &-item {
+    &__delete {
+      @include fileUploaderDelete {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
+      };
+    }
+
+    &__thumb {
+      @include fileUploaderListItem;
+
+      position: relative;
+      margin-bottom: 8px;
+
+      > img {
+        @include objFitCover;
+      }
+      
+      &::after {
+        @include absoluteFull;
+
+        display: none;
+        //background: rgba($black, .5) url(#{$img-path}+"svg/check-circle-fill-white.svg") no-repeat center / 28px;
+        content: "";
+      }
+
+      &.is-selected {
+        &::after {
+          display: block;
+        }
+      }
+    }
+
+    &__text {
+      @include fontBodySmall(400);
+      text-align: center;
+    }
+  }
+}

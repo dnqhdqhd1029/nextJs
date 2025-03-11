@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/* stylelint-disable */
+/*
+  100 - Thin
+  300 - Light
+  400 - Regular
+  500 - Medium
+  700 - Bold
+  900 - Black
+ */
+@font-face {
+    font-family: "Noto Sans KR";
+    font-weight: 100;
+    font-style: normal;
+    src: url("/static/fonts/NotoSansKR-Thin.otf") format("opentype");
+}
+@font-face {
+    font-family: "Noto Sans KR";
+    font-weight: 300;
+    font-style: normal;
+    src: url("/static/fonts/NotoSansKR-Light.eot?") format("eot"), url("/static/fonts/NotoSansKR-Light.otf") format("opentype"), url("/static/fonts/NotoSansKR-Light.woff") format("woff"), url("/static/fonts/NotoSansKR-Light.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Noto Sans KR";
+    font-weight: 400;
+    font-style: normal;
+    src: url("/static/fonts/NotoSansKR-Regular.eot?") format("eot"), url("/static/fonts/NotoSansKR-Regular.otf") format("opentype"), url("/static/fonts/NotoSansKR-Regular.woff") format("woff"), url("/static/fonts/NotoSansKR-Regular.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Noto Sans KR";
+    font-weight: 500;
+    font-style: normal;
+    src: url("/static/fonts/NotoSansKR-Medium.eot?") format("eot"), url("/static/fonts/NotoSansKR-Medium.otf") format("opentype"), url("/static/fonts/NotoSansKR-Medium.woff") format("woff"), url("/static/fonts/NotoSansKR-Medium.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Noto Sans KR";
+    font-weight: 700;
+    font-style: normal;
+    src: url("/static/fonts/NotoSansKR-Bold.eot?") format("eot"), url("/static/fonts/NotoSansKR-Bold.otf") format("opentype"), url("/static/fonts/NotoSansKR-Bold.woff") format("woff"), url("/static/fonts/NotoSansKR-Bold.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Noto Sans KR";
+    font-weight: 900;
+    font-style: normal;
+    src: url("/static/fonts/NotoSansKR-Black.eot?") format("eot"), url("/static/fonts/NotoSansKR-Black.otf") format("opentype"), url("/static/fonts/NotoSansKR-Black.woff") format("woff"), url("/static/fonts/NotoSansKR-Black.woff2") format("woff2");
+}

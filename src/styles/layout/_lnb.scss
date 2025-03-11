@@ -1,0 +1,460 @@
+/* stylelint-disable */
+// lnb 용
+
+@mixin submenuMouseEffect {
+  border-radius: 3px;
+
+  @include mouseHover {
+    background: $gray-100;
+  }
+
+  @include mouseActive {
+    background: $gray-200;
+  }
+
+  @include mouseDisable {
+    @content;
+  }
+}
+
+@mixin submenuTextPadding {
+  justify-content: flex-start;
+  width: 100%;
+  padding: 4px 14px;
+  transition: background 0.3s;
+}
+
+@mixin submenuCkboxPadding {
+  border-radius: 4px;
+
+  @include mouseHover {
+    background: $gray-100;
+  }
+
+  @include mouseActive {
+    background: $gray-100;
+  }
+
+  display: flex;
+  padding: 3px 14px;
+}
+
+@mixin submenuList {
+  display: none;
+  margin-top: 2px;
+
+  @content;
+}
+
+@mixin submenuSelected {
+  transition: background 0.3s;
+
+  // &:not(.type-text, .is-selected) {
+    &:not(.type-text) {
+    @include mouseEffect {
+      // background: $gray-100;
+      background: $gray-150;
+      // font-weight: 500;
+    }
+  }
+
+  &.is-selected {
+    background: $gray-200;
+    @content;
+  }
+}
+
+/* stylelint-enable */
+
+[class*="mb-lnb-control__"] {
+  flex-shrink: 0;
+}
+
+.mb-lnb-control {
+  &__group {
+    display: flex;
+    padding: 12px 16px 0 21px;
+  }
+
+  &__select {
+    margin-left: auto;
+  }
+}
+
+.lnb-filter {
+  &__section {
+    height: 100%;
+    overflow-y: auto;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+
+    .datepicker__group.type-range .react-datepicker-wrapper {
+      width: calc((100% - 8px) / 2);
+    }
+    .datepicker__group.type-range .react-datepicker-wrapper ~ .react-datepicker-wrapper {
+      margin-left: 8px;
+    }
+  }
+
+  &__header {
+    @include flexAlignCen;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 6px 16px 6px 24px;
+    background: $white;
+
+    &-title {
+      @include fontHeadings(h5);
+      @include ellipsis;
+      
+      padding: 8px 4px 8px 0;
+    }
+
+    &-buttons {
+      @include flexAlignCen;
+
+      flex-shrink: 0;
+      margin-left: auto;
+
+      button {
+        // &.button-ico-only.size-s32 {
+        //   transform: translate(8px, -8px);
+        // }
+
+        &:not(:last-of-type) {
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+
+  &__menu {
+    flex-grow: 1;
+    padding: 0 24px 72px;
+
+    &-list {
+      > li + li {
+        margin-top: 2px;
+      }
+    }
+
+    &-depth1 {
+      width: 100%;
+      padding: 5px 0;
+
+      &.is-opened {
+        > .lnb-filter__menu-ico {
+          &.type-close {
+            display: block;
+          }
+
+          &.type-chevron {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+
+    &-txt {
+      @include fontBodyRegular(400);
+      @include ellipsis;
+
+      position: relative;
+      z-index: 1;
+      padding-right: 4px;
+
+      &.type {
+        flex-shrink: 0;
+
+        &-count {
+          color: map-get($colors, primary);
+        }
+
+        &-submenu {
+          color: $gray-500;
+        }
+      }
+    }
+
+    &-ico {
+      flex-shrink: 0;
+
+      &.type {
+        &-close {
+          display: none;
+          margin: -4px;
+          padding: 4px;
+        }
+
+        &-chevron {
+          margin-left: auto;
+          will-change: transform;
+        }
+      }
+
+      .ico-svg {
+        @include sizeWH(12px);
+      }
+    }
+  }
+
+  &__search {
+    padding: 7px 0;
+  }
+
+  &-depth2 {
+    &__list {
+      @include submenuList {
+        .lnb-filter__menu-depth1.is-opened + & {
+          display: block;
+        }
+      }
+
+      &.type-submenu {
+        > li:not(:first-of-type) {
+          margin-top: 2px;
+        }
+      }
+    }
+
+    &__button {
+      @include mouseEffect {
+        background: $gray-100;
+      }
+
+      justify-content: flex-start;
+      width: 100%;
+      padding: 4px 14px;
+      border-radius: 4px;
+
+      &.is-opened {
+        .lnb-filter__menu-ico.type-chevron {
+          transform: rotate(180deg);
+        }
+      }
+
+      .lnb-filter-depth2__list.type-date & {
+        @include submenuMouseEffect {
+          .lnb-filter__menu-txt {
+            color: $gray-400;
+          }
+        }
+
+        &.is-selected {
+          background: $gray-200;
+  
+          .lnb-filter__menu-txt {
+            color: $body-link;
+          }
+        }
+      }
+    }
+
+    &__option {
+      @include submenuTextPadding;
+      @include submenuMouseEffect {
+        .lnb-filter-depth2__option-text {
+          color: $gray-400;
+        }
+      }
+
+      &-text {
+        @include fontBodyRegular(400);
+      }
+
+      &.is-selected {
+        background: $gray-200;
+
+        .lnb-filter-depth2__option-text {
+          color: $body-link;
+        }
+      }
+    }
+
+    &__checkbox {
+      @include submenuCkboxPadding;
+    }
+
+    &.type-submenu {
+      > li {
+        &:not(:first-of-type) {
+          margin-top: 2px;
+        }
+      }
+    }
+  }
+
+  &-depth3 {
+    &__list {
+      @include submenuList {
+        .lnb-filter-depth2__button.is-opened + & {
+          display: block;
+        }
+      }
+    }
+
+    &__checkbox {
+      @include submenuCkboxPadding;
+    }
+  }
+}
+
+.lnb-search__section {
+  height: 100%;
+  .hidden + .lnb-search-result__list {
+    margin-top: 14px;
+  }
+
+  .lnb-search-result {
+    &__header {
+      @include flexAlignCen;
+
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 20px 24px;
+      background: $white;
+
+      .ipt-btn__section {
+        margin-left: auto;
+        padding-bottom: 0;
+      }
+    }
+
+    &__title {
+      @include fontHeadings(h5);
+    }
+
+    &__list {
+      padding-bottom: 24px;
+
+      > li {
+        &:not(:first-of-type) {
+          margin-top: 2px;
+        }
+      }
+    }
+
+    &__menu {
+      @include submenuSelected {
+        .lnb-search-result__menu-text {
+          color: map-get($colors, body-text);
+          // font-weight: 500;
+        }
+      }
+
+      justify-content: flex-start;
+      width: 100%;
+      padding: 5px 24px;
+      text-align: left;
+
+      @include mouseHover {
+        background: $gray-150;
+      }
+  
+      @include mouseActive {
+        background: $gray-150;
+      }
+
+      @at-root a.lnb-search-result__menu {
+        @include flexAlignCen;
+      }
+      
+      &-text {
+        @include fontBodyRegular(400);
+
+        &:first-of-type {
+          flex-grow: 1;
+        }
+        &:nth-of-type(2) {
+          font-weight: normal !important;
+          color: map-get($colors , gray-500) !important;
+        }
+      }
+    }
+  }
+
+  .lnb-filter {
+    &__section {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: visible;
+    }
+
+    &__header {
+      top: 110px;
+    }
+  }
+
+  .aside-search__section.type-sticky {
+    @include borderStyle(bottom);
+    padding-bottom: 18px;
+  }
+}
+
+.lnb-search-setting {
+  &__section {
+    @include flexColumn;
+    height: 100%;
+
+    button {
+      justify-content: flex-start;
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  &__title {
+    @include fontHeadings(h5);
+    padding: 14px 20px;
+  }
+
+  &__sub-title {
+    @include fontBodyRegular(500);
+    padding: 5px 20px;
+
+    &:not(:first-child) {
+      margin-top: 2px;
+    }
+  }
+
+  &__cs {
+    margin-top: auto;
+    padding: 20px 0;
+
+    .lnb-search-setting__sub-title:not(:first-of-type) {
+      margin-top: 20px;
+    }
+  }
+
+  &__menu {
+    flex-grow: 1;
+    contain: paint;
+    overflow-y: auto;
+  }
+
+  &-menu {
+    &__list {
+      margin-top: 2px;
+      padding: 0 20px;
+    }
+
+    &__text {
+      @include submenuSelected {
+        color: map-get($colors, body-text);
+      }
+
+      @include fontBodyRegular(400);
+      padding: 4px 14px 5px;
+      border-radius: 4px;
+    }
+
+    &__text2 {
+      @include fontBodyRegular(400);
+      padding: 2px 0 2px;
+    }
+  }
+}

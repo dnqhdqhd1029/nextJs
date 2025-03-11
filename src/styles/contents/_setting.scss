@@ -1,0 +1,150 @@
+.setting {
+  .mb-contents-layout__section {
+    background: $white;
+  }
+
+  &__headings6 {
+    @include fontHeadings(h6);
+    font-weight: 400;
+  }
+
+  &__header {
+    padding: 0 24px;
+  }
+
+  &-contents {
+    &__section {
+      padding: 0 24px 24px;
+    }
+
+    &__desc {
+      padding-bottom: 28px;
+
+      > p {
+        @include fontBodyRegular(400);
+      }
+    }
+
+    &__sub {
+      .setting-contents__sub-desc + .button-default {
+        margin-top: 12px;
+      }
+
+      &-title {
+        @include fontBodyRegular(700);
+      }
+
+      &-desc {
+        @include fontBodyRegular(400);
+
+        .setting-contents__sub-title + & {
+          padding-top: 6px;
+        }
+      }
+    }
+
+    &-list {
+      &__section {
+        &.type-table {
+          width: calc(100% + 48px);
+          margin: 0 -24px;
+        }
+
+        &.type-analyze {
+          padding-top: 28px;
+        }
+      }
+
+      &__header {
+        @include flexJustBet;
+
+        .ipt-btn__section {
+          padding-bottom: 0;
+        }
+
+        .control-list {
+          @include flexAlignCen;
+
+          > li {
+            flex-shrink: 0;
+
+            &.search {
+              width: 250px;
+            }
+
+            &:not(:last-of-type) {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+
+      &__title {
+        @include fontBodyRegular(400);
+        padding: 8px 0;
+      }
+
+      &__button {
+        padding: 0 24px;
+
+        &.type-pl0 {
+          padding-left: 0;
+        }
+      }
+
+      &__footer {
+        @include flexJustEnd;
+        padding: 20px 24px;
+
+        .pagination__group {
+          &:not(:last-of-type) {
+            margin-right: 14px;
+          }
+        }
+      }
+    }
+
+    &-form {
+      &__section {
+        max-width: 960px;
+      }
+    }
+  }
+
+  &-analyze {
+    &__list {
+      @include flexAlignCen;
+
+      > li {
+        .ipt-text__area {
+          max-width: 60px;
+
+          input[type="number"] {
+            padding-right: 12px;
+          }
+
+          .ipt-text__delete {
+            display: none;
+          }
+        }
+
+        &:not(:last-of-type) {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    &__text {
+      @include fontBodyRegular(400);
+
+      &--bold {
+        @extend .setting-analyze__text;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.setting__headings6 + .font-body__regular {
+  padding-top: 4px;
+}

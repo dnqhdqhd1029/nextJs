@@ -1,0 +1,269 @@
+/* stylelint-disable */
+// aside
+
+$aside-sec-pd: 12px 24px 24px;
+
+@mixin asideHeader {
+  @include flexJustEnd;
+  padding: 3.5px 24px;
+}
+
+/* stylelint-enable */
+
+.aside-search {
+  &__section {
+    padding-bottom: 14px;
+
+    .select-form__section {
+      padding-bottom: 0;
+    }
+
+    &.type-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 101;
+      background: $white;
+    }
+  }
+
+  &__header {
+    @include flexAlignCen;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 14px 24px;
+    background: $white;
+
+    &-title {
+      @include flexAlignCen;
+
+      flex-grow: 1;
+      overflow: hidden;
+    }
+
+    &-text {
+      @include fontHeadings(h5);
+      @include ellipsis;
+    }
+
+    &-ico {
+      flex-shrink: 0;
+
+      .ico-svg {
+        @include sizeWH(20px);
+        margin: 0 8px;
+      }
+    }
+
+    .ipt-btn__section {
+      flex-shrink: 0;
+      margin-left: auto;
+      padding-bottom: 0;
+    }
+  }
+
+  &__contents {
+    padding: 0 24px;
+  }
+
+  &__accordion {
+    &:not(:first-of-type) {
+      margin-top: 14px;
+    }
+  }
+
+  &__search-select {
+    @include flexAlignCen;
+    justify-content: flex-end;
+
+    .search {
+      flex-grow: 1;
+      padding-right: 7px;
+    }
+
+    .select {
+      flex-shrink: 0;
+    }
+  }
+
+  &-header {
+    &__group {
+      @include flexAlignCen;
+
+      flex-grow: 1;
+      height: 28px;
+      // overflow: hidden;
+    }
+
+    &__title {
+      @include fontHeadings(h5);
+      @include ellipsis;
+    }
+
+    &__button {
+      @include sizeWH(map-get($sizes, s));
+
+      background: $white;
+      border-radius: 3px;
+      transition: background 0.3s;
+
+      .ico-svg {
+        @include sizeWH(20px);
+        color: $gray-700;
+      }
+
+      @include mouseHover {
+        background: $gray-200
+      }
+
+      @include mouseActive {
+        background: $gray-300
+      }
+
+      @include mouseDisable {
+        background: $white;
+
+        .ico-svg {
+          color: $gray-400;
+        }
+      }
+
+      &-group {
+        flex-shrink: 0;
+        padding: 0 24px 0 4px;
+      }
+    }
+  }
+}
+
+.aside-profile {
+  &__section {
+    padding: 12px 0 0;
+  }
+
+  &__header {
+    @include asideHeader;
+  }
+
+  &__tabs {
+    .tabs-menu__group {
+      padding: 0 24px;
+    }
+
+    .profile {
+      &__section {
+        padding-top: 10px;
+      }
+
+      &__footer {
+        padding-top: 34px;
+      }
+    }
+
+    .list-type1 {
+      &__section {
+        padding: 10px 24px 0;
+      }
+
+      &__group:not(.before-none) > li::before {
+        display: none;
+      }
+
+      &__footer {
+        padding: 34px 24px 24px;
+      }
+    }
+  }
+}
+
+.aside-activity {
+  &__section {
+    padding: $aside-sec-pd;
+  }
+
+  &__header {
+    @include asideHeader;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.aside-monitoring {
+  &__section {
+    padding: $aside-sec-pd;
+    height: 100%;
+
+    .dl-table-type1__section {
+      dt,
+      dd {
+        &:not(:first-of-type) {
+          margin-top: 0;
+        }
+      }
+
+      dt {
+        width: 100px;
+      }
+
+      dd {
+        width: calc(100% - 100px);
+      }
+    }
+
+    .dl-table-type2__section {
+      dt {
+        &:not(.hidden) ~ dt {
+          margin-top: 28px;
+        }
+      }
+    }
+
+    .aside-monitoring-table__title + .dl-table-type1__section {
+      dt,
+      dd {
+        &:not(:first-of-type) {
+          margin-top: 3px;
+        }
+      }
+    }
+
+    .aside-monitoring-table__title + .tags__section {
+      margin-top: 4px;
+    }
+  }
+
+  &__header {
+    @include asideHeader;
+
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  &__title {
+    @include fontBodyLarge(400);
+  }
+
+  &__buttons {
+    display: flex;
+
+    > li {
+      &:not(:last-of-type) {
+        margin-right: 7px;
+      }
+    }
+  }
+
+  &-table {
+    &__title {
+      @include fontHeadings(h6);
+      padding-bottom: 4px;
+    }
+  }
+}
+
+.table-type2__section {
+  table {
+    table-layout: fixed;
+  }
+}

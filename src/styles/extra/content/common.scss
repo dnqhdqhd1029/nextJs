@@ -1,0 +1,444 @@
+
+::-webkit-scrollbar {
+  // height: 12px;
+  // width: 8px;
+  height: 12px;
+  width: 4px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: $gray-400;
+}
+
+.scroll-hidden {
+  &::-webkit-scrollbar {
+    opacity: 0;
+  }
+}
+
+@for $i from $start-value through ($end-value / $step) {
+  .min-width {
+    &-#{$i * $step} {
+      min-width: #{$i * $step}px;
+    }
+  }
+}
+
+:root {
+  --toastify-toast-width: auto;
+}
+
+.full-width {
+  width: 100% !important;
+}
+
+@for $i from 0 through 200 {
+  .pt-#{$i} {
+    padding-top: #{$i}px !important;
+  }
+  .pb-#{$i} {
+    padding-bottom: #{$i}px !important;
+  }
+  .pl-#{$i} {
+    padding-left: #{$i}px !important;
+  }
+  .pr-#{$i} {
+    padding-right: #{$i}px !important;
+  }
+
+  .mt-#{$i} {
+    margin-top: #{$i}px !important;
+  }
+  .mb-#{$i} {
+    margin-bottom: #{$i}px !important;
+  }
+  .ml-#{$i} {
+    margin-left: #{$i}px !important;
+  }
+  .mr-#{$i} {
+    margin-right: #{$i}px !important;
+  }
+
+  .top-#{$i} {
+    top: #{$i}px !important;
+  }
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-padding-l {
+  padding-left: 0 !important;
+}
+
+.no-padding-r {
+  padding-right: 0 !important;
+}
+
+.no-padding-t {
+  padding-top: 0 !important;
+}
+
+.no-padding-b {
+  padding-bottom: 0 !important;
+}
+
+.no-padding-tb {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.no-padding-lr {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.no-border {
+  border: 0 !important;
+}
+
+.no-underline {
+  text-decoration: none !important;
+}
+
+.hover-text-decoration__underline {
+  &:hover {
+      text-decoration: underline !important;
+  }
+}
+
+.color {
+  &-disabled {
+    color:#d4d7d7;
+  }
+}
+
+.border-color {
+  &__error {
+    border-color: #dc3545 !important;
+  }
+}
+
+
+.display {
+  &-none {
+    display: none !important;
+  }
+  &-block {
+    display: block !important;
+  }
+  &-inline-block {
+    display: inline-block !important;
+  }
+  &-inline {
+    display: inline !important;
+  }
+  &-flex {
+    display: flex !important;
+  }
+  &-inline-flex {
+    display: inline-flex !important;
+  }
+}
+
+.justify-content {
+  &__center {
+    justify-content: center !important;
+  }
+  &__flex-start {
+    justify-content: flex-start !important;
+  }
+  &__flex-end {
+    justify-content: flex-end !important;
+  }
+  &__space-between {
+    justify-content: space-between !important;
+  }
+  &__space-around {
+    justify-content: space-around !important;
+  }
+  &__space-evenly {
+    justify-content: space-evenly !important;
+  }
+}
+
+.align-items {
+  &__center {
+    align-items: center !important;
+  }
+  &__flex-start {
+    align-items: flex-start !important;
+  }
+  &__flex-end {
+    align-items: flex-end !important;
+  }
+  &__stretch {
+    align-items: stretch !important;
+  }
+  &__baseline {
+    align-items: baseline !important;
+  }
+}
+
+.flex-direction {
+  &__row {
+    flex-direction: row !important;
+  }
+  &__row-reverse {
+    flex-direction: row-reverse !important;
+  }
+  &__column {
+    flex-direction: column !important;
+
+  }
+  &__column-reverse {
+    flex-direction: column-reverse !important;
+  }
+}
+
+.position {
+  &-static {
+    position: static !important;
+  }
+  &-relative {
+    position: relative !important;
+  }
+  &-absolute {
+    position: absolute !important;
+  }
+  &-fixed {
+    position: fixed !important;
+  }
+}
+
+.text-overflow {
+  &__ellipsis {
+    text-overflow: ellipsis !important;
+  }
+  &__clip {
+    text-overflow: clip !important;
+  }
+}
+
+.white-space {
+  &__nowrap {
+    white-space: nowrap !important;
+  }
+  &__normal {
+    white-space: normal !important;
+  }
+  &__pre {
+    white-space: pre !important;
+  }
+  &__pre-line {
+    white-space: pre-line !important;
+  }
+  &__pre-wrap {
+    white-space: pre-wrap !important;
+  }
+}
+.height {
+  &__auto {
+    height: auto !important;
+  }
+}
+
+.width {
+  &__auto {
+    width: auto !important;
+  }
+}
+
+.border {
+  &__rounded {
+    border-radius: 4px !important;
+  }
+}
+
+.text-align {
+  &__left {
+    text-align: left !important;
+  }
+  &__right {
+    text-align: right !important;
+  }
+  &__center {
+    text-align: center !important;
+  }
+  &__justify {
+    text-align: justify !important;
+  }
+}
+
+.transition {
+  &-opacity {
+    transition: opacity $motion-duration $motion-easing !important;
+  }
+  &-all {
+    transition: all $motion-duration $motion-easing !important;
+  }
+  &-width {
+    transition: width $motion-duration $motion-easing !important;
+  }
+  &-height {
+    transition: height $motion-duration $motion-easing !important;
+  }
+  &-transform {
+    transition: transform $motion-duration $motion-easing !important;
+  }
+  &-background-color {
+    transition: background-color $motion-duration $motion-easing !important;
+  }
+  &-color {
+    transition: color $motion-duration $motion-easing !important;
+  }
+  &-border {
+    transition: border $motion-duration $motion-easing !important;
+  }
+  &-box-shadow {
+    transition: box-shadow $motion-duration $motion-easing !important;
+  }
+  &-opacity {
+    transition: opacity $motion-duration $motion-easing !important;
+  }
+}
+
+.overflow {
+  &-visible {
+    overflow: visible !important;
+  }
+  &-scroll {
+    overflow: scroll !important;
+  }
+  &-auto {
+    overflow: auto !important;
+  }
+  &-hidden {
+    overflow: hidden !important;
+  }
+}
+
+.cursor {
+  &-pointer {
+    cursor: pointer !important;
+  }
+  &-default {
+    cursor: default !important;
+  }
+  &-not-allowed {
+    cursor: not-allowed !important;
+  }
+  &-move {
+    cursor: move !important;
+  }
+  &-grab {
+    cursor: grab !important;
+  }
+  &-grabbing {
+    cursor: grabbing !important;
+  }
+  &-text {
+    cursor: text !important;
+  }
+  &-wait {
+    cursor: wait !important;
+  }
+  &-zoom-in {
+    cursor: zoom-in !important;
+  }
+  &-zoom-out {
+    cursor: zoom-out !important;
+  }
+  &-help {
+    cursor: help !important;
+  }
+  &-crosshair {
+    cursor: crosshair !important;
+  }
+  &-cell {
+    cursor: cell !important;
+  }
+  &-vertical-text {
+    cursor: vertical-text !important;
+  }
+  &-all-scroll {
+    cursor: all-scroll !important;
+  }
+  &-col-resize {
+    cursor: col-resize !important;
+  }
+  &-row-resize {
+    cursor: row-resize !important;
+  }
+  &-n-resize {
+    cursor: n-resize !important;
+  }
+  &-e-resize {
+    cursor: e-resize !important;
+  }
+  &-s-resize {
+    cursor: s-resize !important;
+  }
+  &-w-resize {
+    cursor: w-resize !important;
+  }
+  &-ne-resize {
+    cursor: ne-resize !important;
+  }
+  &-nw-resize {
+    cursor: nw-resize !important;
+  }
+  &-se-resize {
+    cursor: se-resize !important;
+  }
+  &-sw-resize {
+    cursor: sw-resize !important;
+  }
+  &-ew-resize {
+    cursor: ew-resize !important;
+  }
+  &-ns-resize {
+    cursor: ns-resize !important;
+  }
+  &-nesw-resize {
+    cursor: nesw-resize !important;
+  }
+  &-nwse-resize {
+    cursor: nwse-resize !important;
+  }
+}
+
+.opacity-0 {
+  opacity: 0 !important;
+}
+
+.box-shadow {
+  &-none {
+    box-shadow: none !important;
+  }
+}
+
+.pre-wrap {
+  white-space: pre-wrap !important;
+}
+
+.loader-ref {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: -1;
+  &.show {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 0;
+  }
+}
+
+.max-width {
+  &__m {
+    max-width: 960px !important;
+  }
+}

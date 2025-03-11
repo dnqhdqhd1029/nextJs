@@ -1,0 +1,1597 @@
+// 셀렉트 시간
+.select-time {
+  &__group {
+    position: relative;
+    min-width: 110px;
+
+    &.is-selected {
+      .select-time__label-text {
+        color: $black;
+      }
+    }
+
+    &.is-focused {
+      .select-time__label {
+        @include shadowStyle(focus);
+      }
+
+      .select-time-option__section {
+        height: 276px;
+        border-top-width: 1px;
+      }
+    }
+  }
+
+  &__label {
+    @include flexJustBet;
+    @include sizeWH(100%, 35px);
+    @include borderStyle("multi", $gray-400);
+
+    padding: 0 13px;
+    border-radius: 4px;
+
+    &-text {
+      @include fontBodyRegular(400);
+      color: map-get($colors, secondary);
+    }
+
+    &-ico {
+      @include flexCenter;
+      @include sizeWH(16px);
+    }
+  }
+
+  &-option {
+    &__section {
+      @include flexColumn;
+      @include borderStyle(top);
+
+      position: absolute;
+      top: 41px;
+      left: 0;
+      z-index: 100;
+      height: 0;
+      overflow: hidden;
+      background: $white;
+      border-top: 0;
+      border-radius: 0 0 4px 4px;
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+    }
+
+    &__group {
+      display: flex;
+      height: calc(100% - 46px);
+    }
+
+    &__list {
+      overflow-y: auto;
+
+      > li {
+        @include flexAlignCen;
+      }
+
+      &:not(:first-of-type) {
+        @include borderStyle(left);
+      }
+    }
+
+    &__item {
+      @include sizeWH(56px, 28px);
+      @include fontBodySmall(400);
+
+      justify-content: flex-start;
+      padding-left: 14px;
+
+      &.is-selected {
+        background: $body-selected;
+      }
+
+      &:hover,
+      &:focus-visible {
+        background: $gray-200;
+      }
+    }
+  }
+
+  &-control {
+    &__group {
+      @include flexJustBet;
+      @include borderStyle(top);
+
+      flex-shrink: 0;
+      align-items: center;
+      height: 46px;
+      padding: 0 12px;
+    }
+
+    &__btn-date {
+      @include fontBodyRegular(400, map-get($colors, primary));
+    }
+  }
+}
+
+// 셀렉트
+.select {
+  &__section {
+    position: relative;
+    display: inline-flex;
+
+    &.is-show {
+      .select-option__section {
+        display: block;
+      }
+    }
+
+    &.select-ico-only {
+      .select__label {
+        &-text {
+          @include screenOut;
+        }
+      }
+    }
+
+    &.positon-inherit {
+      position: inherit;
+    }
+
+    &.select-align-right {
+      .select-option__section {
+        right: 0;
+        left: initial;
+      }
+    }
+    &.select-align-center {
+      .select-option__section {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    &.select-align-left {
+      .select-option__section {
+        left: 0;
+        right: initial;
+      }
+    }
+  }
+
+  &__label {
+    .ico-svg {
+      will-change: transform;
+    }
+  }
+
+  &-option {
+    &__section {
+      position: absolute;
+      left: 0;
+      z-index: 100;
+      display: none;
+    }
+
+    &__area {
+      max-height: 306px;
+      overflow-y: auto;
+      background: $white;
+    }
+
+    &__item {
+      justify-content: flex-start;
+      width: 100%;
+      white-space: nowrap;
+    }
+  }
+}
+
+// type1
+[class*="select-type1-"] {
+  &.select {
+    &__section {
+      &.is-show {
+        &:not(.select-ico-only) {
+          .select__label {
+            .ico-svg {
+              > svg {
+                transform: rotate(180deg);
+              }
+            }
+          }
+        }
+
+        &:not(.select-type1-pd) {
+          .select__label {
+            background: $gray-350;
+            @include mouseHover {
+              background: $gray-350;
+            }
+          }
+        }
+
+        &.select-show-reverse {
+          .select-option__section {
+            top: -2px;
+            transform: translateY(-100%);
+          }
+        }
+      }
+      // .select__label {
+      //   background: $gray-150;
+      // }
+      &:not(.select-type1-pd) {
+        .select__label {
+          @include mouseHover {
+            background: $gray-250;
+          }
+    
+          @include mouseActive {
+            background: $gray-350;
+          }
+    
+          @include mouseDisable {
+            background: $white;
+            box-shadow: inset 0 0 0 1px $gray-400;
+    
+            .select__label-text,
+            .ico-svg {
+              color: $gray-400 !important;
+            }
+          }
+        }
+      }
+    }
+
+    &-line {
+      .select__label {
+        background: $gray-150;
+        box-shadow: inset 0 0 0 1px map-get($colors, secondary);
+      }
+    }
+  }
+
+  .select {
+    &__label {
+      @include flexCenter;
+
+      background: $white;
+      // transition: background 0.3s;
+      transition: all 0.25s;
+
+      .ico-svg {
+        color: $body-text;
+      }
+    }
+
+    &-option {
+      &__area {
+        @include borderStyle("multi", rgba($black, 0.15));
+        @include shadowStyle(r);
+
+        border-radius: 4px;
+      }
+
+      &__group {
+        padding: 7px 0;
+
+        > li {
+          &:not(:last-of-type) {
+            @include borderStyle(bottom, $gray-200);
+          }
+        }
+      }
+
+      &__item {
+        @include mouseHover {
+          background: $gray-200;
+        }
+
+        @include mouseActive {
+          background: $gray-200;
+        }
+
+        padding: 4px 14px;
+        transition: all 0.3s;
+
+        &-text {
+          @include fontBodyRegular(400);
+          padding-right: 24px;
+        }
+
+        &-ico {
+          margin-left: auto;
+          visibility: hidden;
+
+          .ico-svg {
+            @include sizeWH(16px);
+            color: $body-text;
+          }
+        }
+
+        &.is-selected {
+          .select-option__item-ico {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+}
+
+.select__section.select-type1-small {
+  &.select-ico-only {
+    .select__label {
+      width: 28px;
+      padding: 0;
+
+      .ico-svg {
+        margin-left: 0;
+      }
+
+      $sizes: 16, 24;
+      @each $size in $sizes {
+        &.ico-size#{$size} {
+          .ico-svg {
+            @include sizeWH(#{$size}px);
+          }
+        }
+      }
+    }
+  }
+
+  .select {
+    &__label {
+      height: 28px;
+      padding: 0 8px 0 11px;
+      border-radius: 3px;
+
+      &-text {
+        @include fontBodyRegular(400);
+      }
+
+      .ico-svg {
+        @include sizeWH(10px);
+        margin-left: 3px;
+      }
+    }
+
+    &-option {
+      &__section {
+        top: 30px;
+
+        .select-option__group-title + .select-option__group {
+          &:not(:only-of-type) {
+            padding-top: 0;
+            padding-bottom: 0;
+          }
+
+          &:last-of-type:not(:only-of-type) {
+            padding-bottom: 7px;
+          }
+
+          .select-option__item {
+            padding-left: 28px;
+          }
+        }
+      }
+
+      &__group {
+        &-title {
+          @include borderStyle(bottom, $gray-200);
+          @include fontBodyRegular(400);
+
+          padding: 4px 14px;
+
+          &:first-of-type {
+            margin-top: 7px;
+          }
+
+          &:not(:first-of-type) {
+            @include borderStyle(top, $gray-200);
+          }
+        }
+      }
+    }
+  }
+}
+
+.select__section.select-type1-medium {
+
+  &.no-icon-list {
+    .select {
+      &__label {
+        padding: 0 15px;
+      }
+    }
+  }
+
+  .select {
+    &__label {
+      height: 35px;
+      padding: 0 11px 0 15px;
+      border-radius: 4px;
+
+      &.same-padding {
+        padding: 0 15px;
+      }
+
+      &-text {
+        @include fontBodyRegular(500);
+      }
+
+      .ico-svg {
+        @include sizeWH(12px);
+        margin-left: 4px;
+      }
+    }
+
+    &-option {
+      &__section {
+        top: 37px;
+      }
+    }
+  }
+}
+
+.select__section.select-type1-pd {
+  &.is-show {
+    .select__label {
+      background: transparent;
+    }
+  }
+
+  .select {
+    &__label {
+      height: 21px;
+      padding: 0;
+
+      &-text {
+        @include mouseEffect {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &-option__section {
+      top: 21px;
+    }
+  }
+}
+
+.select__section.select-type1-button {
+  &.is-show {
+    .select {
+      &__label {
+        background: $teal-700 !important;
+      }
+    }
+  }
+
+  .select {
+    &__label {
+      @include mouseHover {
+        background: $teal-700 !important;
+      }
+
+      @include mouseActive {
+        background: $teal-700 !important;
+      }
+
+      background: map-get($colors, primary);
+
+      &-text,
+      .ico-svg {
+        color: $white;
+      }
+    }
+  }
+
+  &.select-type1-small {
+    .select {
+      &__label {
+        padding: 0 9px 0 12px;
+
+        &-text {
+          @include fontSize(12);
+        }
+      }
+    }
+  }
+
+  &.select-type1-medium {
+    .select {
+      &__label {
+        padding: 0 16px 0 20px;
+      }
+    }
+  }
+}
+.select__section.select-type1-tertiary {
+  &.is-show {
+    .select {
+      &__label {
+        @include mouseHover {
+          background: $gray-450 !important;
+        }
+  
+        @include mouseActive {
+          background: $gray-450 !important;
+        }
+
+        background: $gray-450 !important;
+        
+      }
+    }
+  }
+
+  .select {
+    &__label {
+      @include mouseHover {
+        background: $gray-400 !important;
+      }
+
+      @include mouseActive {
+        background: $gray-450 !important;
+      }
+
+      background: map-get($colors, tertiary);
+
+      &-text,
+      .ico-svg {
+        color: $gray-900;
+      }
+    }
+  }
+
+  &.select-type1-small {
+    .select {
+      &__label {
+        padding: 0 9px 0 12px;
+
+        &-text {
+          @include fontSize(13);
+        }
+      }
+    }
+  }
+
+  &.select-type1-medium {
+    .select {
+      &__label {
+        padding: 0 16px 0 20px;
+      }
+    }
+  }
+}
+
+// type2
+[class*="select-type2-"] {
+  &.is-show {
+    .select__label {
+      background: $gray-200;
+
+      .ico-svg {
+        > svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &.select__section {
+    &:not(.select-type2-pd) {
+      .select__label {
+        height: 28px;
+        padding: 0 9px 0 11px;
+      }
+    }
+  }
+
+  .select {
+    &__label {
+      @include mouseHover {
+        background: $gray-100;
+      }
+
+      @include mouseActive {
+        background: $gray-200;
+      }
+
+      @include mouseDisable {
+        background: $white;
+
+        .select__label-text,
+        .ico-svg {
+          color: $gray-400 !important;
+        }
+      }
+
+      border-radius: 3px;
+      transition: background 0.3s;
+
+      &-text {
+        padding-right: 4px;
+      }
+
+      .ico-svg {
+        @include sizeWH(10px);
+      }
+    }
+
+    &-option {
+      &__section {
+        @include borderStyle("multi", $gray-500);
+        @include shadowStyle(r);
+
+        top: 30px;
+        min-width: 200px;
+        max-width: 260px;
+      }
+
+      &__group {
+        & > li {
+          &:not(:last-of-type) {
+            @include borderStyle(bottom, $gray-200);
+          }
+        }
+      }
+
+      &__item {
+        @include mouseHover {
+          background: $gray-100;
+        }
+
+        @include mouseActive {
+          background: $gray-100;
+        }
+
+        padding: 4px 14px;
+        transition: background 0.3s;
+
+        &-ico {
+          display: none;
+        }
+
+        &-text {
+          @include fontBodyRegular(400);
+          @include ellipsis;
+        }
+
+        &.is-selected {
+          background: $gray-200;
+
+          .select-option__item-text {
+            color: $body-link;
+          }
+
+          .select-option__item-ico {
+            display: inline-block;
+          }
+        }
+      }
+
+      &-search__section {
+        padding: 14px 12px 0;
+        background-color: $white;
+      }
+    }
+  }
+}
+
+.select__section.select-type2-primary {
+  .select {
+    &__label {
+      &-text {
+        color: map-get($colors, primary);
+      }
+
+      .ico-svg {
+        color: map-get($colors, primary);
+      }
+    }
+  }
+}
+
+.select__section.select-type2-secondary {
+  .select {
+    &__label {
+      &-text {
+        color: map-get($colors, secondary);
+      }
+
+      .ico-svg {
+        color: map-get($colors, secondary);
+      }
+    }
+  }
+}
+
+.select__section.select-type2-pd {
+  .select {
+    &__label {
+      @include selectLabelCustom("button");
+      background: transparent;
+    }
+
+    &-option__section {
+      top: 21px;
+    }
+  }
+}
+
+// type3
+[class*="select-type3-"] {
+  &.select__section.is-show {
+    .select__label {
+      background: $body-selected;
+
+      .ico-svg {
+        color: map-get($colors, primary);
+      }
+    }
+  }
+
+  .select {
+    &__label {
+      @include mouseHover {
+        background: $body-selected;
+      }
+
+      @include mouseActive {
+        background: $body-selected;
+      }
+
+      height: 51px;
+      padding: 0 21px;
+      background: $white;
+      transition: background 0.3s;
+
+      &-text {
+        @include fontBodyRegular(400);
+        padding-right: 4px;
+      }
+    }
+
+    &-option {
+      &__area {
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+.select__section.select-type3-n1 {
+  .select {
+    &-option {
+      &__section {
+        @include borderStyle("multi", map-get($colors, primary));
+        @include shadowStyle(r);
+
+        top: 51px;
+      }
+
+      &__group {
+        > li:not(:last-of-type) {
+          @include borderStyle(bottom, rgba($black, 0.125));
+        }
+      }
+
+      &__item {
+        @include mouseHover {
+          // background: $gray-100;
+          background: darken($color: $gray-100, $amount: 2);
+        }
+
+        @include mouseActive {
+          background: darken($color: $gray-100, $amount: 2);
+        }
+
+        min-width: 182px;
+        padding: 11px 21px;
+        transition: background 0.3s;
+
+        &-text {
+          @include fontBodyRegular(400);
+
+          .item-group {
+            @include flexAlignStart;
+            .ico {
+              @include sizeWH(14px);
+              margin-left: 6px;
+              align-self: center;
+              .ico-svg {
+                @include sizeWH(100%);
+                color: $gray-700;
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.select__section.select-type3-n2 {
+  .select {
+    &-option {
+      &__section {
+        @include borderStyle("multi", rgba($black, 0.175));
+        @include shadowStyle(r);
+
+        top: 51px;
+      }
+
+      &__area {
+        padding: 14px 21px 21px;
+
+        .button-default {
+          padding: 0 14px;
+          border-radius: 14px;
+        }
+      }
+
+      &__notice-text {
+        @include fontBodyRegular(400);
+
+        min-width: 188px;
+        padding-bottom: 7px;
+      }
+    }
+  }
+}
+
+.select__section.select-type3-n3,
+.select__section.select-type3-n4 {
+  .select {
+    &-option {
+      &__section {
+        @include borderStyle("multi", rgba($black, 0.15));
+        @include shadowStyle(r);
+
+        top: 48px;
+        right: 0;
+        left: initial;
+        border-radius: 4px;
+      }
+
+      &__area {
+        padding: 4px 0;
+      }
+
+      &__group {
+        > li {
+          &:not(:last-of-type) {
+            @include borderStyle(bottom, $gray-200);
+          }
+        }
+      }
+
+      &__item {
+        @include mouseHover {
+          background: $gray-100;
+        }
+
+        @include mouseActive {
+          background: $gray-100;
+        }
+
+        min-width: 132px;
+        margin-right: 8px;
+        padding: 4px 14px;
+        transition: background 0.3s;
+
+        &-text {
+          @include fontBodyRegular(400);
+        }
+      }
+    }
+  }
+
+  .is-submenu {
+    &::after {
+      @include sizeWH(12px);
+      @include backgroundStyle("svg/chevron-right.svg");
+      position: absolute;
+      top: 50%;
+      right: 14px;
+      transform: translateY(-50%);
+      content: "";
+    }
+  }
+}
+
+.select__section.select-type3-n3 {
+  .select {
+    &__label {
+      padding: 0 10px;
+
+      &-text {
+        @include screenOut;
+      }
+
+      .ico-svg {
+        @include sizeWH(28px);
+
+        img {
+          @include sizeWH(100%);
+          display: block;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
+
+.select__section.select-type3-n4 {
+  &.select__section.is-show {
+    .select__label {
+      .ico-svg {
+        color: $body-text;
+      }
+    }
+  }
+
+  .select {
+    &__label {
+      padding: 0 12px;
+
+      &-text {
+        @include fontBodyRegular(400);
+        padding-right: 3px;
+      }
+
+      .ico-svg {
+        @include sizeWH(10px);
+      }
+    }
+
+    &-option {
+      &__group {
+        &-title {
+          @include borderStyle(bottom, $gray-200);
+          @include fontBodyRegular(400);
+
+          &:not(.type-text) {
+            @include mouseHover {
+              background: $gray-100;
+            }
+  
+            @include mouseActive {
+              background: $gray-100;
+            }
+          }
+
+          position: relative;
+          display: block;
+          min-width: 132px;
+          padding: 4px 14px;
+          transition: background 0.3s;
+        }
+      }
+
+      &__item {
+        padding-left: 28px;
+        &-ico {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+}
+
+// select-form
+.select-form {
+  &__section,
+  &__group {
+    position: relative;
+    @include formPaddingBottom;
+
+    .ipt-text__area {
+      padding-bottom: 0;
+    }
+
+    .ipt-search {
+      &__area {
+        padding: 14px 12px 7px;
+      }
+
+      &__group {
+        height: 28px;
+      }
+    }
+
+    .ipt-search__area + .select-form-option__area {
+      padding-top: 0;
+    }
+
+    &.is-show {
+      .select-form__label {
+        @include shadowStyle(focus);
+
+        .ico-svg {
+          transform: rotate(180deg);
+        }
+      }
+      .ipt-text__group {
+        @include shadowStyle(focus);
+      }
+
+      .select-form-option__section {
+        display: block;
+      }
+    }
+
+    &.is-selected,
+    &.is-filtered {
+      .select-form__label-text {
+        color: $body-text;
+        &.not-selected {
+          color: unset;
+        }
+      }
+    }
+
+    &.is-success {
+      .select-form__label {
+        border-color: map-get($colors, success);
+
+        @include mouseActive {
+          @include shadowStyle(success);
+        }
+      }
+
+      .form-msg {
+        color: map-get($colors, success);
+      }
+    }
+
+    &.is-danger {
+
+      .select-form__label {
+        border-color: map-get($colors, danger);
+
+        @include mouseActive {
+          @include shadowStyle(danger);
+        }
+      }
+
+      & + .form-msg__group {
+        .form-msg{
+          color: map-get($colors, danger);
+        }
+
+      }
+    }
+  }
+
+  &__group {
+    padding-bottom: 0;
+    .select-form__title + & {
+      position: relative;
+    }
+
+  }
+
+  &__title {
+    @include flexAlignCen;
+    padding-bottom: 6px;
+
+    .form-title__group {
+      padding-bottom: 0;
+    }
+
+    .button-default {
+      margin-left: 8px;
+    }
+  }
+
+  &__label {
+    @include sizeWH(100%, map-get($sizes, m));
+    @include borderStyle("multi", $gray-450);
+    @include fontBodyRegular(400, map-get($colors, secondary));
+
+    padding: 6px 12px;
+    border-radius: 4px;
+
+    &-text {
+      @include ellipsis;
+
+      flex-grow: 1;
+      padding-right: 10px;
+      text-align: left;
+    }
+
+    .ico-svg {
+      @include sizeWH(12px);
+      flex-shrink: 0;
+      color: $body-text;
+    }
+
+    @include mouseActive {
+      @include shadowStyle(focus);
+    }
+
+    @include mouseDisable {
+      background: $gray-200;
+      pointer-events: none;
+
+      .select-form__label-text {
+        color: $gray-500;
+      }
+    }
+  }
+
+  &-option {
+    &__section {
+      position: absolute;
+      top: 36px;
+      left: 0;
+      z-index: 20;
+      display: none;
+      width: 100%;
+      background-color: $white;
+
+      &.reverse-type {
+        top: -2px !important;
+        transform: translateY(-100%);
+        padding-bottom: 42px;
+
+        .input-search__header {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+        .input-search__result-list {
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    &__area {
+      // max-height: 316px;
+      max-height: 254px;
+      padding: 7px 0;
+      overflow-y: auto;
+      background: $white;
+
+      &.height-auto {
+        max-height: inherit;
+      }
+    }
+
+    &__item {
+      justify-content: flex-start;
+      width: 100%;
+      transition: background 0.3s;
+
+      &-text {
+        @include fontBodyRegular(400);
+        @include ellipsis;
+
+        padding-right: 4px;
+      }
+
+      &-count {
+        @include fontBodyRegular(400, $gray-500);
+        flex-shrink: 0;
+      }
+
+      &:hover,
+      &:active {
+        background: $gray-200;
+      }
+
+      &:disabled {
+        pointer-events: none;
+
+        .select-form-option__item-text {
+          color: $gray-400;
+        }
+      }
+
+      &.is-selected {
+        background: $gray-200;
+
+        .select-form-option__item-text {
+          color: map-get($colors, primary);
+        }
+      }
+
+      &-input {
+        transition: background 0.3s;
+
+        &:hover {
+          background: $gray-200;
+        }
+      }
+
+      &-date {
+        padding: 6px 12px 0;
+
+        .datepicker__group.type-range .react-datepicker-wrapper {
+          width: calc((100% - 6px) / 2);
+        }
+
+        .datepicker__group.type-range .react-datepicker-wrapper ~ .react-datepicker-wrapper {
+          margin-left: 6px;
+        }
+      }
+    }
+  }
+}
+
+.select-form__section.select-form-btn {
+  .form-title__group + .select-form__group {
+    .select-form-option__section {
+      top: 63px;
+    }
+  }
+
+  .select-form {
+    &-option {
+      &__section {
+        @include borderStyle("multi", $gray-500);
+        @include shadowStyle(r);
+
+        .select-form-option__group-title + .select-form-option__group {
+          .select-form-option__item {
+            padding-left: 24px;
+          }
+        }
+      }
+
+      &__group {
+        &-title {
+          @include fontBodyRegular(400);
+          padding: 2px 12px;
+        }
+      }
+
+      &__item {
+        padding: 4.5px 12px;
+
+        &-input {
+          padding: 3px 12px;
+        }
+      }
+    }
+  }
+}
+
+.select-form__section.select-form-input {
+  &.is-show {
+    .ipt-text__group {
+      @include shadowStyle(focus);
+    }
+  }
+
+  .ipt-text__area:not(.type-no-title) + .select-form-option__section {
+    top: 63px;
+  }
+
+  .select-form {
+    &-option {
+      &__section {
+        @include borderStyle("multi", rgba($black, 0.15));
+        @include shadowStyle(s);
+
+        border-radius: 4px;
+      }
+
+      &__area {
+        border-radius: 4px;
+      }
+
+      &__item {
+        padding: 4px 14px;
+
+        &-input {
+          padding: 3px 14px;
+        }
+      }
+
+      &__none {
+        @include fontBodyRegular(400);
+        padding: 12px 14px 16px;
+      }
+    }
+
+    &-footer {
+      &__group {
+        margin-top: 4px;
+      }
+
+      &__button {
+        @include buttonTotal;
+
+        &.button-tag {
+          justify-content: flex-start;
+        }
+
+        &:not(:first-of-type) {
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+}
+
+.select-form__section.select-form-editor {
+  .select__label {
+    @include mouseHover {
+      background: $gray-100;
+    }
+
+    @include mouseActive {
+      background: $gray-200;
+    }
+
+    @include mouseDisable {
+      background: $white;
+
+      .select__label-text,
+      .ico-svg {
+        color: $gray-400 !important;
+      }
+    }
+
+    @include inlineFlexAlignEnd;
+
+    padding: 0 3px 0 0;
+    border-radius: 3px;
+
+    .ico {
+      @include inlineFlexCenter;
+      @include sizeWH(21px);
+
+      .ico-svg {
+        @include sizeWH(12px);
+        color: $gray-500;
+      }
+    }
+
+    .arrow {
+      @include sizeWH(10px);
+      margin: 0 0 2px -2px;
+
+      .ico-svg {
+        @include sizeWH(100%);
+        color: $gray-500;
+
+        > svg {
+          will-change: transform;
+        }
+      }
+    }
+  }
+
+  &.is-show {
+    .select__label {
+      background: $gray-200;
+
+      .arrow .ico-svg > svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .select-form {
+    &-option {
+      &__section {
+        @include borderStyle("multi", rgba($black, 0.15));
+        @include shadowStyle(s);
+
+        top: 23px;
+        border-radius: 3px;
+      }
+
+      &__area {
+        border-radius: 3px;
+      }
+
+      &__item {
+        padding: 4px 14px;
+
+        &-input {
+          padding: 3px 14px;
+        }
+      }
+
+      &__none {
+        @include fontBodyRegular(400);
+        padding: 12px 14px 16px;
+      }
+    }
+
+    &-footer {
+      &__group {
+        margin-top: 4px;
+      }
+
+      &__button {
+        @include buttonTotal;
+
+        &.button-tag {
+          justify-content: flex-start;
+        }
+
+        &:not(:first-of-type) {
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+
+  &.flat-type {
+    padding-bottom: 0;
+
+    .select-form {
+      &-option {
+        &__section {
+          border: 0 none;
+          box-shadow: none;
+        }
+        &__area {
+          @include borderStyle("multi", rgba($black, 0.15));
+          position: absolute;
+          top: 35px;
+          width: 100%;
+          z-index: 10;
+        }
+      }
+    }
+  }
+}
+
+// select-search
+.select-search {
+  &-option {
+    &__section {
+      @include borderStyle("multi", rgba(0, 0, 0, 0.2));
+      @include shadowStyle(r);
+      
+      z-index: 1000;
+      background: $white;
+      border-radius: 4.8px;
+
+      @include breakpointMin(m) {
+        position: relative;
+        width: 960px;
+      }
+    }
+
+    &__area {
+      position: relative;
+      
+      @include breakpointMin(m) {
+        display: flex;
+
+        &::after {
+          @include absoluteLeftCen;
+          @include sizeWH(1px, 100%);
+
+          top: 0;
+          z-index: 10;
+          background: $gray-300;
+          content: "";
+        }
+      }
+
+      @include breakpointMax(m) {
+        @include flexWrap;
+      }
+    }
+
+    &__group {
+      flex-shrink: 0;
+      
+      @include breakpointMin(m) {
+        width: 50%;
+      }
+
+      @include breakpointMax(m) {
+        width: 100%;
+
+        &:not(:first-of-type) {
+          @include borderStyle(top);
+        }
+      }
+    }
+
+    &__title {
+      @include borderStyle(bottom);
+      @include fontHeadings(h5);
+      padding: 14px 28px;
+    }
+
+    &__none {
+      @include fontBodyRegular(400);
+      padding: 28px 28px 56px;
+    }
+
+    &__list {
+      > li {
+        @include borderStyle(bottom, $gray-200);
+      }
+    }
+
+    &__item {
+      display: flex;
+      width: 100%;
+      padding: 14px 28px;
+
+      &-img {
+        @include sizeWH(48px);
+        @include borderStyle("multi", $gray-200);
+        
+        flex-shrink: 0;
+        overflow: hidden;
+        border-radius: 50%;
+
+        img {
+          @include objFitCover;
+        }
+      }
+
+      &-txt {
+        padding-left: 14px;
+        overflow: hidden;
+
+        p {
+          @include ellipsis;
+
+          &.name {
+            @include fontBodyLarge(400, map-get($colors, primary));
+          }
+
+          &.corp {
+            @include fontBodyRegular(400);
+          }
+        }
+      }
+
+      &:hover {
+        background: $gray-100;
+      }
+
+      .ico-avatar__group {
+        flex-shrink: 0;
+      }
+    }
+
+    &__btn {
+      padding: 28px;
+
+      > button {
+        width: 183px;
+      }
+
+      .select-search-option__none + & {
+        @include flexJustEnd;
+
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+    }
+  }
+}
+
+.title-select {
+  &__header {
+    @include flexAlignCen;
+    position: relative;
+
+    .select-form__section,
+    .aside-monitoring-table__title {
+      padding-bottom: 0;
+    }
+
+    .select-form__section {
+      position: static;
+      margin-left: 4px;
+    }
+  }
+
+  &__tags {
+    padding-top: 8px;
+  }
+}

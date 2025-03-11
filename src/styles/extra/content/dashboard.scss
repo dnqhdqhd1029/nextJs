@@ -1,0 +1,240 @@
+
+.draggable__container {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  margin: 0;
+  height: 100% !important;
+  margin: 0 0 20px !important;
+  padding-top: 30px;
+
+  .draggable__header {
+    cursor: move;
+  }
+
+  .draggable__contents {
+    // position: absolute;
+    // left: 0;
+    // right :0;
+    // top: 32px;
+    // bottom: 0;
+    // z-index: 0;
+    position: relative;
+    background: #fff;
+    // border: 1px solid $gray-300;
+    @include borderStyle("left", $gray-300);
+    @include borderStyle("top", $gray-250);
+    @include borderStyle("right", $gray-300);
+    @include borderStyle("bottom", $gray-300);
+    // border-top: 1px solid darken($color: $block-header, $amount: 1);
+    border-radius: 0 0 4px 4px;
+    padding-top: 5px;
+    min-height: 100px;
+    // padding-bottom: 50px;
+    transition: height 250ms ease;
+
+
+    &.graph-content {
+      padding-bottom: 0;
+
+      .monitoring-content__container {
+      }
+    }
+
+    .draggable-table__section {
+      display: flex;
+      flex-flow: column;
+      flex: 1 1 auto;
+      justify-content: space-between;
+      box-shadow: none;
+      border: 0 none;
+
+      // .table-type5__section {
+      //   table {
+    
+      //     tbody {
+      //       th,
+      //       td {
+      //         @include borderStyle(none);
+      //         line-height: 1.0;
+      //         padding-top: 7px;
+      //         padding-bottom: 7px;
+      //       }
+      //     }
+    
+      //   }
+      // }
+
+    }
+  }
+  .table-type5__tfoot {
+    // position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 42px;
+    background: #fff;
+    border-radius: 0 0 4px 4px;
+
+    .tfoot-right {
+      right: 8px;
+      top: 3px;
+    }
+  }
+  .tfoot-center {
+    margin: auto;
+  }
+}
+
+.drag-drop__group {
+  margin: 0;
+}
+
+.grid-stack-item-content {
+  background: #ccc;
+}
+
+.preload-area {
+  position: fixed;
+  visibility: hidden;
+  left: -10000px;
+  top: -10000px;
+}
+
+.drag-drop__area {
+  position: relative;
+  gap: 30px !important;
+}
+.dashbaord__loader-area {
+  position: absolute;
+  left:0;
+  right:0;
+  top: 0;
+  bottom:0;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  height: 100vh;
+  z-index: 3;
+  border-radius: 4px;
+  padding: 5px 0 0 5px;
+
+  .loader-wrap {
+    width: calc(50% - 2px);
+  }
+}
+
+.drop-zone__container {
+  position: absolute;
+  margin: 0;
+  width: calc((100% - 30px) / 2);
+  height: 200px;
+  top: 10px;
+  z-index: 0;
+  border-radius: 4px;
+
+  &.first {
+    left: 10px;
+    right: auto;
+  }
+
+  &.second {
+    left: auto;
+    right: 10px;
+  }
+}
+
+.draggable__header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 1;
+
+  &-mover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 41px;
+  }
+}
+
+.draggable-select__section {
+  &-container {
+    position: relative;
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+    // right: 0;
+    // bottom: 0;
+
+    .draggable-select__section {
+      // position: absolute;
+      // left: 0;
+      // right :0;
+      // top: 0;
+      // bottom: 0;
+      border: 0 none;
+      box-shadow: none;
+      > ul {
+        .draggable-select__save {
+          padding-bottom: 65px;
+        }
+      }
+    }
+  }
+
+  &-dimm {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    background: #fff;
+    opacity: 0;
+  }
+
+  & {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.table-type5__section {
+  &.gadget-table {
+    table {
+      table-layout: auto;
+    }
+  }
+}
+
+.monitoring-content__container {
+  .draggable-graph__section {
+    box-shadow: none;
+    border: 0 none;
+
+    .draggable-graph__area {
+
+    }
+  }
+}
+
+.draggable-graph__footer {
+  position: absolute;
+  left: 0;
+  right :0;
+  bottom: 0;
+}
+
+.draggable__contents-dimm {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+}

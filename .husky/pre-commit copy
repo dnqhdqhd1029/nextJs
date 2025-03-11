@@ -1,0 +1,42 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Load environment variables from .env file
+# shellcheck disable=SC2046
+export $(grep -v '^#' .env.local | xargs)
+
+#pid1=$(lsof -i :4189 -t) || true
+#pid2=$(lsof -i :4561 -t) || true
+#
+#if [ ! -z "$pid1" ]; then
+#  echo "Killing process on port 4561 with PID: $pid1"
+#  kill -9 $pid1
+#fi
+#
+#if [ ! -z "$pid2" ]; then
+#  echo "Killing process on port 4561 with PID: $pid2"
+#  kill -9 $pid2
+#fi
+
+#test
+git pull
+npm run lint-staged
+npm run gulp
+#yarn build
+#yarn storybook:build
+
+# shellcheck disable=SC2046
+#image_ids=$(docker images repo.mediapass.kr/mediabee/frontend/mediabee-front -q)
+#if [ -n "$image_ids" ]; then
+#    docker rmi $image_ids -f || true
+#fi
+
+## shellcheck disable=SC2086
+#echo $DOCKER_USER_PASSWORD | docker login repo.mediapass.kr -u $DOCKER_USER_NAME --password-stdin
+#docker build -t repo.mediapass.kr/mediabee/frontend/mediabee-front .
+#docker push repo.mediapass.kr/mediabee/frontend/mediabee-front
+
+#docker-compose down --rmi all || true
+#docker-compose -f "docker-compose.yaml" build
+#docker-compose -f "docker-compose.yaml" up -d
+#docker-compose down --rmi all || true

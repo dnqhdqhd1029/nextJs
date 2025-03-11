@@ -1,0 +1,147 @@
+.mb-common-inner.sp-px-0{
+  @include breakpointMax(l){
+    .mb-contents{
+        padding: 24px 20px;
+    }
+  }
+}
+
+.media-wrap{
+  padding-bottom: 80px;
+  @include breakpointMax(l){
+    @include fontBodySemiLarge(400);
+  }
+
+  .common-title__title__description{
+    @include breakpointMax(l){
+      display: none;
+    }
+  }
+
+  .tabs__section{
+    @include breakpointMax(l){
+      .tabs-menu__name{
+        @include fontBodySemiLarge(400);
+      }
+
+    }
+  }
+
+
+  .search-section{
+    margin-bottom: 20px;
+
+    @include breakpointMax(l){
+      flex-direction: column;
+    }
+
+    .result__txt{
+      @include fontBodyRegular(500);
+
+      @include breakpointMax(l){
+        @include fontBodySemiLarge(500);
+      }
+    }
+
+    .ipt-search__area {
+      width: 40%;
+      @include breakpointMax(l){
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .ipt-search__group{
+          width: 90%;
+        }
+      }
+    }
+    &.flex-just-between div{
+      flex:none;
+    }
+  }
+  .search-result{
+    margin-bottom: 20px;
+  }
+  .list-card-type2__list{
+
+  }
+}
+
+.detail-section{
+  &__title{
+
+    .category{
+
+      .button-link-text__label.size-m{
+        @include breakpointMax(l){
+          @include fontBodySemiLarge(400 ,primary);
+        }
+      }
+
+    }
+
+  }
+
+  dl{
+    dt{
+      @include fontBodyHeadline(700);
+      margin-bottom: 10px;
+
+      @include breakpointMax(l){
+        @include fontBodySemiHeadline(500);
+      }
+    }
+  }
+
+  &__contents{
+    padding: 20px 0;
+    margin-top: 40px;
+    @include fontBodySemiLarge(400);
+    figure{
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    @include breakpointMax(l){
+      @include fontBodyLarge(400);
+    }
+  }
+
+  &__profile{
+    border: 1px solid #d9dbdb;
+    box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.075);
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 4px;
+    margin: 20px 0;
+    text-align: center;
+    line-height: 1.5;
+    .title{
+      @include fontBodyLead(500);
+
+      @include breakpointMax(l){
+        @include fontBodySemiLead(500);
+      }
+    }
+  }
+
+
+}
+
+.share-section{
+  gap: 20px;
+  .button-ico-only,.button-link-text{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $gray-100;
+    @include borderStyle('multi');
+    @include flexJustCen;
+    font-weight: 700;
+  }
+}
+.navigation{
+  flex: none !important;
+}
+
+

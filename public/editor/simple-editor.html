@@ -1,0 +1,25 @@
+<!DOCTYPE html><!--
+	Copyright (c) 2014-2023, CKSource Holding sp. z o.o. All rights reserved.
+	This file is licensed under the terms of the MIT License (see LICENSE.md).
+-->
+
+<html lang="en" dir="ltr">
+<head>
+	<title>Editor</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--	<link rel="icon" type="image/png" href="https://c.cksource.com/a/1/logos/ckeditor5.png">-->
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<!--	<link href="configuration-dialog/configuration-dialog.css" rel="stylesheet" type="text/css">-->
+</head>
+<body data-editor="ClassicEditor" data-collaboration="false" data-revision-history="false" style="overflow: hidden; position: relative;">
+<div id="content">
+	<div id="editor"></div>
+	<div style="height: 60px"></div>
+</div>
+<div id="editor-html" style="position: fixed; left:-99999px; top: -99999px;"></div>
+<script src='/editor/plugins/html2canvas.min.js'></script>
+<script src='/editor/simple-bundle.js'></script>
+<script src="script.js"></script>
+</body>
+</html>

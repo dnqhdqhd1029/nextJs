@@ -1,0 +1,55 @@
+.monitoring {
+  &__section {
+    .aside-monitoring__section {
+      padding-top: 8px;
+      padding-bottom: 0;
+
+      .dl-table-type1__section {
+        dt,
+        dd {
+          &:not(:first-of-type) {
+            margin-top: 7px
+          }
+        }
+
+        dt {
+          width: 90px;
+        }
+
+        dd {
+          width: calc(100% - 90px);
+        }
+      }
+    }
+  }
+
+  &-header {
+    &__title {
+      display: flex;
+
+      .tooltips__group {
+        margin-right: 14px;
+        font-style: 0;
+      }
+
+      .ico-svg {
+        display: inline-block;
+        align-self: center;
+        width: 18px;
+        height: 18px;
+        margin-left: 6px;
+        color: $gray-700;
+      }
+    }
+  }
+}
+
+.monitoring-sample {
+  &__group {
+    @include borderStyle("multi");
+    @include shadowStyle(s);
+
+    overflow: hidden;
+    border-radius: 4px;
+  }
+}

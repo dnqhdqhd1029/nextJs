@@ -1,0 +1,1360 @@
+/* stylelint-disable */
+// button에서만 사용
+$btn-sizes: m, l, s, es, navbar, s16, s24, s32, s48, h3;
+$btn-colors: primary, outline-primary, invisible-primary, tertiary, secondary,
+  outline-secondary, invisible-secondary, link, link-dark, success,
+  outline-success, danger, outline-danger, light, dark, outline-dark,
+  outline-form, gray, body-text, body-selected, body-link, alert, gray-500, gray-600, gray-700, gray-800, white, transparent;
+$btn-icoSize: 12, 14, 16, 18, 24, 32;
+
+@mixin buttonReset {
+  @include borderStyle("multi", $gray-400);
+  white-space: nowrap;
+  // transition: background 0.3s, borderColor 0.3s;
+  transition: all 0.25s;
+
+  @each $size in $btn-sizes {
+    &.size-#{$size} {
+      height: map-get($sizes, $size);
+
+      @if $size == "m" {
+        border-radius: 4px;
+      } @else if $size == "l" {
+        border-radius: 5px;
+      } @else if $size == "s" {
+        border-radius: 3px;
+      } @else if $size == "es" {
+        border-radius: 3px;
+      }
+    }
+  }
+}
+
+@mixin buttonLabelReset {
+  @each $size in $btn-sizes {
+    &.size-#{$size} {
+      @if $size == "m" {
+        @include fontBodyRegular(400);
+      } @else if $size == "l" {
+        @include fontBodyLarge(400);
+      } @else if $size == "s" {
+        @include fontBodySmall(400);
+      } @else if $size == "es" {
+        @include fontBodyExtraSmall;
+      }
+    }
+  }
+}
+
+@mixin buttonDefaultState(
+  $bg,
+  $bd,
+  $ft,
+  $hover-bg,
+  $hover-bd,
+  $focus-bg,
+  $focus-bd,
+  $dis-bg,
+  $dis-bd,
+  $dis-ft
+) {
+  background: $bg;
+  border-color: $bd;
+
+  .ico-svg,
+  .button__label {
+    color: $ft;
+  }
+
+  &:hover:not(:disabled, :active) {
+    background: $hover-bg;
+
+    @if $bd != $hover-bd {
+      border-color: $hover-bd;
+    }
+  }
+
+  &:active,
+  &:focus-visible {
+    background: $focus-bg;
+
+    @if $bd != $focus-bd {
+      border-color: $focus-bd;
+    }
+  }
+
+  &:disabled {
+    background: $dis-bg;
+
+    @if $bd != $dis-bd {
+      border-color: $dis-bd;
+    }
+
+    .ico-svg,
+    .button__label {
+      color: $dis-ft;
+    }
+  }
+}
+/* stylelint-enable */
+
+.buttons__group {
+  @include flexJustCen;
+  
+  &.type-left {
+    justify-content: flex-start;
+  }
+
+  &.type-between {
+    justify-content: space-between;
+  }
+
+  &.type-right {
+    justify-content: flex-end;
+  }
+
+  button,
+  a {
+    &:not(:first-child) {
+      margin-left: 7px;
+    }
+  }
+
+  &.button-min-w120 {
+    button,
+    a {
+      min-width: 120px;
+    } 
+  }
+}
+
+.button {
+  &-default {
+    @include buttonReset;
+
+    @each $size in $btn-sizes {
+      &.size-#{$size} {
+        @if $size == "m" {
+          padding: 0 20px;
+        } @else if $size == "l" {
+          padding: 0 24px;
+        } @else if $size == "s" {
+          padding: 0 8px;
+        } @else if $size == "es" {
+          padding: 0 6px;
+        }
+      }
+    }
+
+    @each $btn-color in $btn-colors {
+      &.colors-#{$btn-color} {
+        @if $btn-color == "primary" {
+          @include buttonDefaultState(
+            map-get($colors, primary),
+            map-get($colors, primary),
+            $white,
+            $teal-500,
+            $teal-500,
+            $teal-700,
+            $teal-700,
+            $teal-200,
+            $teal-200,
+            $white
+            // $bg,
+            // $bd,
+            // $ft,
+            // $hover-bg,
+            // $hover-bd,
+            // $focus-bg,
+            // $focus-bd,
+            // $dis-bg,
+            // $dis-bd,
+            // $dis-ft
+          );
+        } @else if $btn-color == "outline-primary" {
+          @include buttonDefaultState(
+            $white,
+            map-get($colors, primary),
+            map-get($colors, primary),
+            $teal-100,
+            map-get($colors, primary),
+            $teal-200,
+            map-get($colors, primary),
+            $white,
+            $gray-400,
+            $gray-400
+          );
+        } @else if $btn-color == "tertiary" {
+          @include buttonDefaultState(
+            map-get($colors, tertiary),
+            map-get($colors, tertiary),
+            $gray-900,
+            $gray-400,
+            $gray-400,
+            $gray-450,
+            $gray-450,
+            $gray-200,
+            $gray-200,
+            $gray-450
+            // $bg,
+            // $bd,
+            // $ft,
+            // $hover-bg,
+            // $hover-bd,
+            // $focus-bg,
+            // $focus-bd,
+            // $dis-bg,
+            // $dis-bd,
+            // $dis-ft
+          );
+        } @else if $btn-color == "secondary" {
+          @include buttonDefaultState(
+                          map-get($colors, dark),
+                          map-get($colors, dark),
+                          $white,
+                          $gray-700,
+                          $gray-700,
+                          $black,
+                          $black,
+                          $gray-200,
+                          $gray-200,
+                          $gray-500
+          );
+        } @else if $btn-color == "outline-secondary" {
+          @include buttonDefaultState(
+                          $white,
+                          map-get($colors, dark),
+                          map-get($colors, dark),
+                          $gray-100,
+                          map-get($colors, dark),
+                          $gray-200,
+                          map-get($colors, dark),
+                          $white,
+                          $gray-400,
+                          $gray-400
+            // $bg,
+            // $bd,
+            // $ft,
+            // $hover-bg,
+            // $hover-bd,
+            // $focus-bg,
+            // $focus-bd,
+            // $dis-bg,
+            // $dis-bd,
+            // $dis-ft
+          );
+        } @else if $btn-color == "link" {
+          @include buttonDefaultState(
+            $white,
+            $white,
+            // map-get($colors, body-link),
+            $body-link,
+            $teal-150,
+            $teal-150,
+            $teal-200,
+            $teal-200,
+            $white,
+            $white,
+            $gray-400
+          );
+        } @else if $btn-color == "link-dark" {
+          @include buttonDefaultState(
+            $white,
+            $white,
+            $body-text,
+            $gray-200,
+            $gray-200,
+            $gray-300,
+            $gray-300,
+            $white,
+            $white,
+            $gray-400
+          );
+        } @else if $btn-color == "success" {
+          @include buttonDefaultState(
+            map-get($colors, success),
+            map-get($colors, success),
+            $white,
+            $green-400,
+            $green-400,
+            $green-600,
+            $green-600,
+            $gray-200,
+            $gray-200,
+            $gray-500
+          );
+        } @else if $btn-color == "outline-success" {
+          @include buttonDefaultState(
+            $white,
+            map-get($colors, success),
+            map-get($colors, success),
+            $green-100,
+            map-get($colors, success),
+            $green-200,
+            map-get($colors, success),
+            $white,
+            $gray-400,
+            $gray-400
+          );
+        } @else if $btn-color == "danger" {
+          @include buttonDefaultState(
+            map-get($colors, danger),
+            map-get($colors, danger),
+            $white,
+            $red-400,
+            $red-400,
+            $red-600,
+            $red-600,
+            $gray-200,
+            $gray-200,
+            $gray-500
+          );
+        } @else if $btn-color == "outline-danger" {
+          @include buttonDefaultState(
+            $white,
+            map-get($colors, danger),
+            map-get($colors, danger),
+            $red-100,
+            map-get($colors, danger),
+            $red-200,
+            map-get($colors, danger),
+            $white,
+            $gray-400,
+            $gray-400
+          );
+        } @else if $btn-color == "light" {
+          @include buttonDefaultState(
+            map-get($colors, light),
+            map-get($colors, light),
+            $black,
+            $gray-100,
+            $gray-100,
+            $gray-300,
+            $gray-300,
+            $gray-200,
+            $gray-200,
+            $gray-500
+          );
+        } @else if $btn-color == "dark" {
+          @include buttonDefaultState(
+                          map-get($colors, secondary),
+                          map-get($colors, secondary),
+                          $white,
+                          $gray-500,
+                          $gray-500,
+                          $gray-700,
+                          $gray-700,
+                          $gray-200,
+                          $gray-200,
+                          $gray-400
+          );
+        } @else if $btn-color == "outline-dark" {
+          @include buttonDefaultState(
+                          $gray-150,
+                          map-get($colors, secondary),
+                          $body-text,
+                          $gray-250,
+                          map-get($colors, secondary),
+                          $gray-350,
+                          map-get($colors, secondary),
+                          $white,
+                          $gray-400,
+                          $gray-400
+          );
+        }
+      }
+
+      &.colors-link {
+        &:hover:not(:disabled, :active, :focus-visible) {
+          .button-default__label {
+            // color: $teal-500;
+            text-decoration: none;
+          }
+        }
+
+        &:active,
+        &:focus-visible {
+          color: $teal-700;
+        }
+      }
+
+      &.colors-link-dark {
+        &:hover:not(:disabled, :active, :focus-visible) {
+          .button-default__label {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    &__label {
+      @include buttonLabelReset;
+    }
+  }
+
+  &-default-ico-only {
+    @include buttonReset;
+
+    .ico-svg {
+      @include sizeWH(16px);
+    }
+
+    @each $size in $btn-sizes {
+      &.size-#{$size} {
+        width: map-get($sizes, $size);
+
+        @if $size == "es" {
+          .ico-svg {
+            @include sizeWH(12px);
+          }
+        }
+      }
+    }
+
+    @each $btn-color in $btn-colors {
+      &.colors-#{$btn-color} {
+        @if $btn-color == "primary" {
+          @include buttonDefaultState(
+            map-get($colors, primary),
+            map-get($colors, primary),
+            $white,
+            $teal-500,
+            $teal-500,
+            $teal-700,
+            $teal-700,
+            $gray-200,
+            $gray-200,
+            $gray-500
+          );
+        } @else if $btn-color == "outline-primary" {
+          @include buttonDefaultState(
+            $white,
+            map-get($colors, primary),
+            map-get($colors, primary),
+            $teal-100,
+            map-get($colors, primary),
+            $teal-200,
+            map-get($colors, primary),
+            $white,
+            $gray-400,
+            $gray-400
+          );
+        } @else if $btn-color == "invisible-primary" {
+          @include buttonDefaultState(
+            $white,
+            $white,
+            map-get($colors, primary),
+            $teal-100,
+            $teal-100,
+            $teal-200,
+            $teal-200,
+            $white,
+            $white,
+            $gray-400
+          );
+        } @else if $btn-color == "secondary" {
+          @include buttonDefaultState(
+            map-get($colors, secondary),
+            map-get($colors, secondary),
+            $white,
+            $gray-500,
+            $gray-500,
+            $gray-700,
+            $gray-700,
+            $gray-200,
+            $gray-200,
+            $gray-500
+          );
+        } @else if $btn-color == "outline-secondary" {
+          @include buttonDefaultState(
+            $white,
+            map-get($colors, secondary),
+            map-get($colors, dark),
+            $gray-150,
+            map-get($colors, secondary),
+            $gray-250,
+            map-get($colors, secondary),
+            $white,
+            $gray-400,
+            $gray-400
+          );
+        } @else if $btn-color == "invisible-secondary" {
+          @include buttonDefaultState(
+            $white,
+            $white,
+            map-get($colors, dark),
+            $gray-150,
+            $gray-150,
+            $gray-250,
+            $gray-250,
+            $white,
+            $white,
+            $gray-400
+          );
+        } @else if $btn-color == "light" {
+          @include buttonDefaultState(
+            map-get($colors, light),
+            map-get($colors, light),
+            $black,
+            $gray-100,
+            $gray-100,
+            $gray-300,
+            $gray-300,
+            $gray-200,
+            $gray-200,
+            $gray-500
+          );
+        } @else if $btn-color == "dark" {
+          @include buttonDefaultState(
+            map-get($colors, dark),
+            map-get($colors, dark),
+            $white,
+            $gray-700,
+            $gray-700,
+            $black,
+            $black,
+            $gray-200,
+            $gray-200,
+            $gray-500
+          );
+        } @else if $btn-color == "outline-form" {
+          @include buttonDefaultState(
+            $white,
+            // $gray-400,
+            $form-border,
+            map-get($colors, secondary),
+            $gray-100,
+            $gray-400,
+            $gray-200,
+            $gray-400,
+            $white,
+            $gray-400,
+            $gray-400
+          );
+        }
+      }
+    }
+
+    &__label {
+      @include screenOut;
+    }
+  }
+
+  &-default-ico-text {
+    @include buttonReset;
+
+    .ico-svg {
+      @include sizeWH(16px);
+    }
+
+    @each $size in $btn-sizes {
+      &.size-#{$size} {
+        @if $size == "m" {
+          padding: 0 20px;
+
+          .button__ico-left {
+            margin-right: 8px;
+          }
+
+          .button__ico-right {
+            margin-left: 8px;
+          }
+        } @else if $size == "l" {
+          padding: 0 24px;
+
+          .button__ico-left {
+            margin-right: 8px;
+          }
+
+          .button__ico-right {
+            margin-left: 8px;
+          }
+        } @else if $size == "s" {
+          padding: 0 8px;
+
+          .button__ico-left {
+            margin-right: 6px;
+          }
+
+          .button__ico-right {
+            margin-left: 6px;
+          }
+        } @else if $size == "es" {
+          padding: 0 6px;
+
+          .button__ico-left {
+            margin-right: 4px;
+          }
+
+          .ico-svg {
+            @include sizeWH(12px);
+          }
+
+          .button__ico-right {
+            margin-left: 4px;
+          }
+        }
+      }
+    }
+
+    @each $btn-color in $btn-colors {
+      @if $btn-color == "primary" {
+        &.colors-#{$btn-color} {
+          @include buttonDefaultState(
+            map-get($colors, primary),
+            map-get($colors, primary),
+            $white,
+            $teal-500,
+            $teal-500,
+            $teal-700,
+            $teal-700,
+            $gray-200,
+            $gray-200,
+            $gray-500
+          );
+        }
+      } @else if $btn-color == "outline-secondary" {
+        &.colors-#{$btn-color} {
+          @include buttonDefaultState(
+            $gray-150,
+            map-get($colors, secondary),
+            $body-text,
+            $gray-250,
+            map-get($colors, secondary),
+            $gray-350,
+            map-get($colors, secondary),
+            $white,
+            $gray-400,
+            $gray-400
+            // $bg,
+            // $bd,
+            // $ft,
+            // $hover-bg,
+            // $hover-bd,
+            // $focus-bg,
+            // $focus-bd,
+            // $dis-bg,
+            // $dis-bd,
+            // $dis-ft
+          );
+        }
+      } @else if $btn-color == "tertiary" {
+        &.colors-#{$btn-color} {
+          @include buttonDefaultState(
+            map-get($colors, tertiary),
+            map-get($colors, tertiary),
+            $gray-900,
+            $gray-400,
+            $gray-400,
+            $gray-450,
+            $gray-450,
+            $gray-200,
+            $gray-200,
+            $gray-450
+            // $bg,
+            // $bd,
+            // $ft,
+            // $hover-bg,
+            // $hover-bd,
+            // $focus-bg,
+            // $focus-bd,
+            // $dis-bg,
+            // $dis-bd,
+            // $dis-ft
+          );
+        }
+      }
+    }
+
+    &__label {
+      @include buttonLabelReset;
+    }
+  }
+
+  &-check-number {
+    @include buttonReset;
+
+    .button__ico-left {
+      margin-right: 8px;
+    }
+
+    .ico-svg {
+      @include sizeWH(16px);
+    }
+
+    .button__count {
+      margin-left: 5px;
+      padding: 2px 6px 4px;
+      font-weight: 500;
+      font-size: 1.2rem;
+      font-size: 12px;
+      line-height: 1;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    @each $size in $btn-sizes {
+      &.size-#{$size} {
+        @if $size == "m" {
+          padding: 0 20px;
+        }
+      }
+    }
+
+    @each $btn-color in $btn-colors {
+      &.colors-#{$btn-color} {
+        @if $btn-color == "primary" {
+          @include buttonDefaultState(
+            map-get($colors, primary),
+            map-get($colors, primary),
+            $white,
+            $teal-700,
+            $teal-700,
+            $teal-800,
+            $teal-800,
+            $gray-200,
+            $gray-200,
+            $gray-500
+            // $bg,
+            // $bd,
+            // $ft,
+            // $hover-bg,
+            // $hover-bd,
+            // $focus-bg,
+            // $focus-bd,
+            // $dis-bg,
+            // $dis-bd,
+            // $dis-ft
+          );
+
+          /* stylelint-disable */
+          .button__count {
+            // background: rgba(19, 108, 120, 0.5);
+            // background: rgba(256, 256, 256, 0.85);
+            background: rgba(256, 256, 256, 0.90);
+            color: $teal-700;
+          }
+
+          &:active,
+          &:focus-visible {
+            .button__count {
+              // background: rgba(0, 148, 168, 0.7);
+              background: rgba(256, 256, 256, 0.7);
+              color: $teal-700;
+            }
+          }
+
+          &:disabled {
+            .button__count {
+              background: $gray-100;
+              color: $gray-500;
+            }
+          }
+          /* stylelint-enable */
+        } @else if $btn-color == "secondary" {
+          @include buttonDefaultState(
+            $white,
+            map-get($colors, secondary),
+            map-get($colors, secondary),
+            $gray-100,
+            map-get($colors, secondary),
+            $gray-300,
+            map-get($colors, secondary),
+            $white,
+            $gray-400,
+            $gray-400
+          );
+
+          .button__label {
+            color: $body-text;
+          }
+
+          /* stylelint-disable */
+          .button__count {
+            background: $gray-200;
+            color: $body-text;
+          }
+
+          &:disabled {
+            .button__count {
+              background: $gray-100;
+              color: $gray-400;
+            }
+          }
+          /* stylelint-enable */
+        } @else if $btn-color == "outline-secondary" {
+          @include buttonDefaultState(
+            $white,
+            map-get($colors, secondary),
+            map-get($colors, secondary),
+            $gray-100,
+            map-get($colors, secondary),
+            $gray-200,
+            map-get($colors, secondary),
+            $white,
+            $gray-400,
+            $gray-400
+          );
+
+          .button__label {
+            color: $body-text;
+          }
+
+          /* stylelint-disable */
+          .button__count {
+            background: $gray-200;
+            color: $body-text;
+          }
+
+          &:disabled {
+            .button__count {
+              background: $gray-100;
+              color: $gray-400;
+            }
+          }
+          /* stylelint-enable */
+        }
+      }
+    }
+
+    &__label {
+      @include buttonLabelReset;
+
+      &.size-m {
+        font-weight: 400;
+      }
+    }
+  }
+
+  &-gray {
+    @include buttonReset;
+
+    @each $size in $btn-sizes {
+      &.size-#{$size} {
+        @if $size == "s" {
+          padding: 0 8px;
+        } @else if $size == "es" {
+          padding: 0 6px;
+        }
+      }
+    }
+
+    @each $btn-color in $btn-colors {
+      &.colors-#{$btn-color} {
+        @if $btn-color == gray {
+          @include buttonDefaultState(
+            // $bg,
+            // $bd,
+            // $ft,
+            // $hover-bg,
+            // $hover-bd,
+            // $focus-bg,
+            // $focus-bd,
+            // $dis-bg,
+            // $dis-bd,
+            // $dis-ft
+
+            // $gray-100,
+            // $gray-400,
+            // $body-text,
+            // $white,
+            // $gray-400,
+            // $gray-200,
+            // $gray-400,
+            // $white,
+            // $gray-400,
+            // $gray-400
+            $gray-700,
+            $gray-700,
+            $white,
+            $gray-800,
+            $gray-800,
+            $gray-900,
+            $gray-900,
+            $gray-200,
+            $gray-200,
+            $gray-500
+          );
+        }
+      }
+    }
+
+    &__label {
+      @include buttonLabelReset;
+    }
+    &__ico-right {
+      .ico-svg {
+        margin-left: 4px;
+        @include sizeWH(8px);
+      }
+    }
+  }
+
+  &-ico-only {
+    @include buttonReset;
+    border: none;
+    border-radius: 4px;
+
+    .ico-svg {
+      @include sizeWH(16px);
+    }
+
+    @each $size in $btn-sizes {
+      &.size-#{$size} {
+        width: map-get($sizes, $size);
+      }
+    }
+
+    @each $btn-color in $btn-colors {
+      &.colors-#{$btn-color} {
+        @if $btn-color == "body-text" {
+          @include buttonDefaultState(
+            $white,
+            $white,
+            $body-text,
+            $gray-250,
+            $gray-250,
+            $gray-350,
+            $gray-350,
+            $white,
+            $white,
+            $gray-400
+          );
+        } @else if $btn-color == "alert" {
+          background: transparent;
+          border-color: transparent;
+
+          .ico-svg {
+            color: rgba($white, 0.5);
+          }
+
+          &:hover:not(:disabled, :active) {
+            .ico-svg {
+              color: rgba($white, 0.75);
+            }
+          }
+
+          &:active,
+          &:focus-visible {
+            .ico-svg {
+              color: $white;
+            }
+          }
+
+          &:disabled {
+            .ico-svg {
+              color: rgba($white, 0.25);
+            }
+          }
+        } @else if $btn-color == "secondary" {
+          @include buttonDefaultState(
+            transparent,
+            transparent,
+            map-get($colors, secondary),
+            $gray-200,
+            $gray-200,
+            $gray-300,
+            $gray-300,
+            transparent,
+            transparent,
+            $gray-400
+          );
+        } @else if $btn-color == "gray-500" {
+          @include buttonDefaultState(
+            transparent,
+            transparent,
+            $gray-500,
+            $gray-200,
+            $gray-200,
+            $gray-300,
+            $gray-300,
+            transparent,
+            transparent,
+            $gray-400
+          );
+        } @else if $btn-color == white {
+          @include buttonDefaultState(
+            transparent,
+            transparent,
+            $white,
+            transparent,
+            transparent,
+            transparent,
+            transparent,
+            transparent,
+            transparent,
+            $gray-400
+          );
+        } @else if $btn-color == transparent {
+          @include buttonDefaultState(
+            transparent,
+            transparent,
+            $body-text,
+            $gray-200,
+            $gray-200,
+            $gray-300,
+            $gray-300,
+            transparent,
+            transparent,
+            $gray-400
+          );
+        } @else if $btn-color == "dark" {
+          @include buttonDefaultState(
+            $white,
+            $white,
+            map-get($colors, dark),
+            $white,
+            $white,
+            $white,
+            $white,
+            $white,
+            $white,
+            $gray-400
+          );
+        }
+      }
+    }
+
+    &__label {
+      @include screenOut;
+    }
+
+    &__ico-left {
+      @each $size in $btn-icoSize {
+        @if $size != 16 {
+          &.icoSize-#{$size} {
+            .ico-svg {
+              @include sizeWH(#{$size}px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-link-ico {
+    @include mouseEffect {
+      background: $body-selected;
+    }
+
+    @include inlineFlexCenter;
+    position: relative;
+    height: $navbar-height;
+    padding: 0 10px;
+
+    &__label {
+      @include screenOut;
+    }
+
+    &__ico-left {
+      .ico-svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &-link-ico-text {
+    @include inlineFlexCenter;
+
+    @each $btn-color in $btn-colors {
+      &.colors-#{$btn-color} {
+        .button__ico-left,
+        .button__ico-right {
+          .ico-svg {
+            color: map-get($colors, #{$btn-color});
+          }
+        }
+
+        .button__label {
+          color: map-get($colors, #{$btn-color});
+        }
+      }
+    }
+
+    &__ico-left {
+      .ico-svg {
+        @include sizeWH(16px);
+        margin-right: 2px;
+      }
+    }
+    
+    &__ico-right {
+      @each $size in $btn-icoSize {
+        @if $size != 14 {
+          &.icoSize-#{$size} {
+            .ico-svg {
+              @include sizeWH(#{$size}px);
+            }
+          }
+        }
+      }
+    }
+
+    &__label {
+      /* stylelint-disable */
+      &[class*="size-"] {
+        @include fontBodyRegular(400);
+      }
+      /* stylelint-enable */
+
+      @each $size in $btn-sizes {
+        &.size-#{$size} {
+          @if $size == h3 {
+            @include fontHeadings(h3);
+          }
+        }
+      }
+    }
+
+    @include mouseEffect(false) {
+      .button__label {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &-link-ico-text-sns {
+    @include inlineFlexCenter;
+
+    &__ico-left {
+      .ico-svg {
+        @include sizeWH(16px);
+        margin-right: 8px;
+      }
+    }
+
+    &__label {
+      @include fontBodyRegular(400, $body-link);
+    }
+
+    @include mouseEffect(false) {
+      .button__label {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &-link-text {
+    @include mouseEffect(false) {
+      .button__label {
+        text-decoration: underline;
+      }
+    }
+
+    @include inlineFlexAlignCen;
+    
+    justify-content: flex-start;
+    text-align: left;
+
+    @each $btn-color in $btn-colors {
+      &.colors-#{$btn-color} {
+        @if $btn-color != "body-text" {
+          .button__label {
+            color: map-get($colors, #{$btn-color});
+          }
+        }
+        
+        &:disabled,
+        &.disabled {
+          .button__label {
+            @if $btn-color == "body-text" {
+              // opacity: 0.2;
+              color: $gray-400;
+            } @else if $btn-color == "body-link" {
+              color: $gray-400;  
+            }
+          }
+        }
+      }
+    }
+
+    &__label {
+      @each $size in $btn-sizes {
+        &.size-#{$size} {
+          @if $size == "m" {
+            @include fontBodyRegular(400);
+          } @else if $size == "s" {
+            @include fontBodySmall(400);
+          }
+        }
+      }
+    }
+  }
+
+  &-link-text-arrow {
+    @include inlineFlexCenter;
+
+    [class*="__ico-"] {
+      .ico-svg {
+        width: 10px;
+        height: 10px;
+      }
+    }
+
+    @include mouseEffect(false) {
+      .button__label {
+        text-decoration: underline;
+      }
+    }
+
+    @each $btn-color in $btn-colors {
+      &.colors-#{$btn-color} {
+        @if $btn-color == "primary" {
+          .button__label {
+            color: map-get($colors, primary);
+          }
+
+          .ico-svg {
+            color: map-get($colors, primary);
+          }
+        } @else if $btn-color == "secondary" {
+          .ico-svg {
+            color: map-get($colors, dark);
+          }
+        } @else if $btn-color == "body-text" {
+          .ico-svg {
+            color: map-get($colors, $btn-color);
+          }
+        }
+      }
+    }
+
+    &__label {
+      @each $size in $btn-sizes {
+        &.size-#{$size} {
+          @if $size == "m" {
+            @include fontBodyRegular(400);
+          } @else if $size == "l" {
+            @include fontBodySemiLarge(400);
+          } @else if $size == "s" {
+            @include fontBodySmall(400);
+          }
+        }
+      }
+    }
+  }
+}
+
+// 목록 위 기능 액션 버튼 Disabled
+.header-sort__action {
+  .button-link-text {
+    &:disabled,
+    &.disabled {
+      .button__label {
+        color: $gray-500;
+      }
+    }
+  }
+}
+
+// 셀렉트박스형태의 버튼
+.button-select-style {
+  &__section {
+    @include formPaddingBottom;
+  }
+
+  &__button {
+    @include sizeWH(100%, 35px);
+    @include borderStyle("multi", $form-border);
+
+    justify-content: flex-start;
+    padding: 6px 12px;
+    border-radius: 4px;
+
+    &-txt {
+      @include fontBodyRegular(400, map-get($colors, secondary));
+    }
+
+    &-ico {
+      margin-left: auto;
+
+      .ico-svg {
+        @include sizeWH(12px);
+        color: $body-text;
+      }
+    }
+
+    @include mouseActive {
+      @include shadowStyle(focus);
+    }
+
+    @include mouseDisable {
+      background: $gray-200;
+      pointer-events: none;
+
+      .button-select-style__button-txt {
+        color: $gray-500;
+      }
+    }
+  }
+}
+
+// 추가 버튼
+.button-add {
+  &__section {
+    @include flexAlignCen;
+  }
+
+  &__button {
+    @include sizeWH(194px, 136px);
+    @include borderStyle("multi");
+
+    flex-direction: column;
+    background: $white;
+    border-radius: 4px;
+
+    &:not(:last-of-type) {
+      margin-right: 24px;
+    }
+    &:disabled {
+      opacity: .5;
+      .ico-svg {
+        opacity: .5;
+      }
+    }
+
+    @include mouseEffect {
+      background: $gray-150;
+
+      // .button-add__button-ico {
+      //   background: $teal-300;
+
+      //   &::after {
+      //     @include backgroundImg("svg/plus-circle-fill-primary.svg");
+      //   }
+      // }
+    }
+
+    &-ico {
+      @include flexCenter;
+      @include sizeWH(54px);
+
+      position: relative;
+      // background: $gray-300;
+      // border-radius: 50%;
+      transition: background 0.3s;
+
+      .ico-svg {
+        // @include sizeWH(24px);
+        @include sizeWH(54px);
+        color: $white;
+      }
+
+      // &::after {
+      //   @include sizeWH(16px);
+      //   @include backgroundStyle("svg/plus-circle-fill.svg");
+
+      //   position: absolute;
+      //   right: 0;
+      //   bottom: 0;
+      //   content: "";
+      // }
+    }
+
+    &-text {
+      @include fontBodyRegular(400);
+      margin-top: 7px;
+    }
+  }
+}

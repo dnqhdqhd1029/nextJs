@@ -1,0 +1,196 @@
+/* stylelint-disable */
+// drag drop
+// $setting-title-width: 87px;
+$setting-title-width: 100px;
+
+@mixin dragDropContainer {
+  width: min(calc((100% - 96px) / 2), 872px);
+  margin: 24px;
+}
+
+@mixin dragDropContentsSection {
+  @include borderStyle("multi");
+  @include shadowStyle(s);
+
+  background: $white;
+  border-top: 0;
+  border-radius: 0 0 4px 4px;
+}
+/* stylelint-enable */
+
+.drag-drop {
+  &__section {
+    @include flexColumn;
+    padding: 12px 48px 24px;
+  }
+
+  &__header {
+    @include flexJustEnd;
+    padding-bottom: 12px;
+  }
+
+  &__area {
+    width: 100%;
+  }
+
+  &__group {
+    @include flexWrap;
+    margin: -24px;
+  }
+}
+
+.draggable {
+  &__container {
+    @include dragDropContainer; 
+  }
+
+  &__header {
+    @include flexAlignCen;
+
+    height: 30px;
+    padding: 4px 12px 4px 24px;
+    // background: map-get($colors, block-header);
+    background: map-get($colors, $white);
+    border-radius: 4px 4px 0 0; 
+    @include borderStyle("left", $gray-300);
+    @include borderStyle("top", $gray-300);
+    @include borderStyle("right", $gray-300);
+  }
+
+  &-header {
+    &__title {
+      // @include fontHeadings(h6, $white);
+      @include fontSize(14);
+      @include ellipsis;
+      color: $gray-900;
+      font-weight: 500;
+    }
+
+    &__buttons {
+      @include flexAlignCen;
+
+      margin-left: auto;
+
+      .ico-arrow-move {
+        // pointer-events: none;
+        @include mouseHover {
+          background: transparent;
+          opacity: 1;
+        }
+        
+        @include mouseActive {
+          background: transparent;
+          opacity: 1;
+        }
+
+        @include sizeWH(16px);
+        margin: 0 4px 0 16px;
+        background: transparent;
+        transform: translateY(-1px);
+        color: map-get($colors, gray-900);
+        opacity: 0.45;
+      }
+
+      .select__section {
+        &.is-show {
+          .select__label .ico-svg {  
+            opacity: 1;
+          }
+        }
+
+        .select__label {
+          background: transparent !important;
+
+          .ico-svg {
+            @include mouseHover {
+              opacity: 1;
+            }
+            
+            @include mouseActive {
+              opacity: 1;
+            }
+
+            color: map-get($colors, gray-900);
+            opacity: 0.55;
+          }
+        }
+      }
+    }
+  }
+
+  &-table {
+    &__section {
+      @include dragDropContentsSection;
+    }
+  }
+
+  &-select {
+    &__section {
+      @include dragDropContentsSection;
+      padding: 40px;
+    }
+
+    &__group {
+      @include flexAlignCen;
+      padding-bottom: 14px;
+      z-index: 1;
+    }
+
+    &__title {
+      @include fontBodyRegular(400);
+
+      flex-shrink: 0;
+      width: $setting-title-width;
+      padding-right: 7px;
+      text-align: right;
+    }
+
+    &__select {
+      width: 380px;
+
+      .select-form__section {
+        padding-bottom: 0;
+      }
+    }
+
+    &__save{
+      padding-left: $setting-title-width;
+    }
+  }
+
+  &-graph {
+    &__section {
+      @include dragDropContentsSection;
+    }
+    
+    &__area {
+      padding: 24px 24px 0;
+    }
+
+    &__group {
+      min-height: 250px;
+    }
+    
+    &__footer {
+      @include flexJustEnd;
+      padding: 8px;
+    }
+  }
+}
+
+.drop-zone {
+  &__container {
+    @include flexCenter;
+    @include dragDropContainer;
+    @include borderStyle("multi", $gray-400, 2px, dashed);
+    
+    min-height: 206px;
+    background: $white;
+    border-radius: 4px;
+  }
+
+  &__text {
+    @include fontBodyRegular(400);
+    padding: 12px;
+  }
+}

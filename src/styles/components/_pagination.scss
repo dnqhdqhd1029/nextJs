@@ -1,0 +1,264 @@
+/* stylelint-disable */
+// pagination에서만 사용
+
+@mixin paginationButtonState(
+  $bg,
+  $hover-bg,
+  $focus-bg,
+  $dis-bg,
+) {
+  background: $bg;
+  transition: 0.3s;
+
+  &:not(.is-active) {
+    &:hover:not(:disabled, :active) {
+      background: $hover-bg;
+    }
+  
+    &:active,
+    &:focus-visible {
+      background: $focus-bg;
+    }
+  }
+
+
+  &:disabled {
+    display: none;// 클릭할 수 없는 요소 숨김 처리
+    background: $dis-bg;
+
+    .ico-svg {
+      @content;
+    }
+
+    .pagination-txt {
+      @content;
+    }
+  }
+}
+/* stylelint-enable */
+
+.pagination {
+  &__group {
+    @include flexAlignCen;
+  }
+}
+
+// cate-n1
+.pagination__group.cate-n1 {
+  @include borderStyle("multi");
+
+  position: relative;
+  display: inline-flex;
+  height: 26px;
+  overflow: hidden;
+  border-radius: 4px;
+  
+  button {
+    height: 100%;
+    padding: 0 12px;
+
+    .ico-svg {
+      @include sizeWH(12px);
+    }
+
+    @include paginationButtonState(
+      $white,
+      $gray-150,
+      $gray-250,
+      $white,
+    ) {
+      color: $gray-300;
+    }
+  }
+
+  .pagination {
+    &-prev {
+      .ico-svg {
+        margin-right: 2px
+      }
+    }
+
+    &-next {
+      @include borderStyle(left);
+
+      .ico-svg {
+        margin-left: 2px
+      }
+    }
+
+    &-txt {
+      @include fontBodySmall(400);
+    }
+  }
+}
+
+.pagination__group.cate-n2 {
+  @include borderStyle("multi");
+
+  position: relative;
+  display: inline-flex;
+  height: 26px;
+  overflow: hidden;
+  border-radius: 4px;
+  
+  button {
+    height: 100%;
+
+    .ico-svg {
+      @include sizeWH(12px);
+    }
+
+    @include paginationButtonState(
+      $white,
+      $gray-150,
+      $gray-250,
+      $white,
+    ) {
+      color: $gray-300;
+    }
+  }
+
+  .pagination {
+    &-prev {
+      padding: 0 20px 0 18px
+    }
+
+    &-next {
+      @include borderStyle(left);
+      padding: 0 18px 0 20px;
+    }
+
+    &-txt {
+      @include screenOut;
+    }
+  }
+}
+
+// cate-n3
+.pagination__group.cate-n3 {
+  button {
+    height: map-get($sizes, s30);
+    border-radius: 3px;
+
+    .ico-svg {
+      @include sizeWH(12px);
+      color: map-get($colors, gray-800);
+    }
+
+    @include paginationButtonState(
+      $white,
+      $gray-200,
+      $gray-300,
+      $white,
+    ) {
+      color: $gray-400;
+    }
+  }
+
+  .pagination {
+    &-prev,
+    &-next {
+      padding: 0 13px;
+    }
+
+    &-prev {
+      .ico-svg {
+        margin-right: 4px;
+      }
+    }
+
+    &-next {
+      .ico-svg {
+        margin-left: 4px;
+      }
+    }
+
+    &-txt {
+      @include fontBodyRegular(400, map-get($colors, gray-800));
+    }
+
+    &-list {
+      @include flexAlignCen;
+
+      > li + li {
+        margin-left: 2px;
+      }
+
+      &__group {
+        padding: 0 2px;
+      }
+
+      &__number {
+        position: relative;
+        padding: 0 5px;
+        min-width: 30px;
+
+        &.is-active {
+          background: $gray-300;
+        }
+
+        &.is-active:not(:disabled) {
+          &::after {
+            @include absoluteFull;
+            @include borderStyle("multi", $gray-300);
+
+            border-radius: 4px;
+            content: "";
+            pointer-events: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// cate-n4
+.pagination__group.cate-n4 {
+  width: 86px;
+
+  .select__section.is-show {
+    .select__label {
+      @include borderStyle("multi", $focused);
+      @include shadowStyle(focus);
+
+      background: $white;
+    }
+  }
+
+  .select {
+    &__section {
+      width: 100%;
+    }
+
+    &__label {
+      justify-content: flex-start;
+      width: 100%;
+      box-shadow: inset 0 0 0 1px $gray-400;
+
+      .ico-svg {
+        margin-left: auto;
+      }
+    }
+
+    &-option {
+      &__section {
+        top: 35px;
+        width: 100%;
+      }
+
+      &__item {
+        &-text {
+          padding-right: 0;
+        }
+
+        &.is-selected {
+          background: $gray-200;
+          
+          .select-option__item-text {
+            color: $body-link;
+          }
+        }
+      }
+    }
+  }
+}

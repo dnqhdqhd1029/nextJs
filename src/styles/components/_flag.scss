@@ -1,0 +1,62 @@
+/* stylelint-disable */
+// tag에서만 사용
+$flag-color: gray-500;
+$flag-size: s, es;
+
+@mixin tagGroup($bd, $bg) {
+  @include borderStyle("multi", $color: $bd);
+  background: $bg;
+}
+/* stylelint-enable */
+
+.flag {
+  &__group {
+    @include inlineFlexAlignCen;
+
+    height: 20px;
+    border-radius: 3px;
+
+    @each $color in $flag-color {
+      &.colors-#{$color} {
+        @if $color == "gray-500" {
+          background: $gray-500;
+
+          .flag__label {
+            white-space: nowrap;
+            color: $white;
+          }
+        } @else if $color == "red-500" {
+          background: $red-500;
+
+          .flag__label {
+            color: $white;
+          }
+        }
+      }
+    }
+   
+    @each $size in $flag-size {
+      &.size-#{$size} {
+        height: map-get($sizes, $size);
+
+        @if $size == "s" {
+          padding: 0 9px
+        } @else if $size == "es" {
+          padding: 0 7px
+        }
+      }
+    }
+  }
+
+  &__label {
+    @each $size in $flag-size {
+      &.size-#{$size} {
+        @if $size == "s" {
+          @include fontBodyRegular(400, $white);
+        } @else if $size == "es" {
+          @include fontBodySemiSmall($white);
+        }
+      }
+    }
+  }
+}

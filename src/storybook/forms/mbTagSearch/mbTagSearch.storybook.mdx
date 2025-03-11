@@ -1,0 +1,156 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+<Meta title="Forms/MbTagSearch/0. MbTagSearch" />
+
+# MbTagSearch
+태그를 표시하기 위해 사용되는 컴포넌트.<br />
+여러가지 조합을 이용하여 다양한 형태로 표현할 수 있다.
+
+## Code
+```jsx
+
+import { useTagSearchApi } from '~/utils/hooks/common/useTagSearchApi'
+
+interface MbTagSearchResultItem {
+  /** MbTagSearchTagItem과 매치할 고유 ID */
+  id: string
+
+  /** 아이템 이름 */
+  label: string
+
+  /** 아이템 추가 정보 */
+  subLabel?: string | number
+
+  /** 체크 상태 여부 */
+  checked: boolean
+}
+
+interface MbTagSearchTagItem {
+  /** MbTagSearchResultItem과 매치할 고유 ID */
+  id: string
+
+  /** 태그 이름 */
+  label: string
+
+  className?: string
+
+  deleteDisabled?: boolean
+
+  type?: string
+}
+
+
+interface MbTagSearchProps {
+  /** 제목 */
+  title?: string
+
+  /** 
+   * 모든 태그 아이템을 삭제하기 위해 useEffect에 사용할 랜덤 텍스트
+   * 이전 값과 다르게 하기 위해 new Date().getTime().toString()를 이용한다.
+   */
+  randomTextForRemovingAllTagItems?: string
+
+  /**
+   * 태그 아이템이 변경될 때 호출되는 콜백 함수
+   * @param {MbTagSearchTagItem[]} tagItems 태그 아이템 목록
+   */
+  onTagListChange: (tagItems: MbTagSearchTagItem[]) => void
+
+  /** 시작할 때 표시되는 태그 아이템 */
+  storedTagItems?: MbTagSearchTagItem[]
+
+  /** 
+   * 목록 리스트에 사용할 아이템을 불러올 api의 이름
+   * fixedDataList가 존재할 경우 이 값은 무시된다.
+   * 별도로 설정되어 있다. (@see useTagSearchApi)
+   */
+  apiTitle?: string
+
+  /** TagSearch 조합의 기능 이름(ex. searchInput, buttonSearch 등등) */
+  functionType: MbSearchTagFunctionTypes
+
+  /** 제목에 툴팁이 필요할 경우 사용할 ReactNode */
+  tooltipNode?: ReactNode
+
+  /** 목록 아이템을 API가 아닌 고정 데이터로 사용할 경우 이용 */
+  fixedDataList?: MbTagSearchResultItem[]
+
+  /** 제목에 required 마크 표시 */
+  required?: boolean
+
+  /** input에 입력할 내용을 validate해야 할 경우. (ex. email 타입) */
+  validateType?: string
+
+  /** 태그 갯수를 제한해야 할 경우 */
+  maxTagLimit?: number
+
+  /** maxTagLimit와 같이 사용. 현재 태그 갯수 */
+  currentSetTagItemLength?: number
+
+  /** maxTagLimit와 같이 사용 가능. 
+   * "이메일"은 5개까지 추가 가능합니다. 
+   * 위와 같은 문구에 쓰일 아이템 이름(이메일) 
+   */
+  maxTagLimitTitle?: string
+
+  /** input에 에러 메시지 표시가 필요할 경우 사용 */
+  errorMessage?: string
+
+  /** input의 ref */
+  getInputRef?: (ref: RefObject<HTMLInputElement>) => void
+
+  /** 
+   * input의 change event의 value 값을 알아야 할 때 사용.
+   * @param {string} value input의 value 값
+   */
+  onDeliverChangeEventToExternal?: (value: string) => void
+
+  /**
+   * 태그 아이템을 삭제 시도할 때 호출되는 middleware hook 함수
+   * @param {MbTagSearchTagItem} tagItem 삭제할 태그 아이템
+   */
+  tagDeleteHook?: (tagItem: MbTagSearchTagItem) => Promise<boolean>
+
+  /** 모든 태그 삭제 기능을 사용하지 않을 경우 true로 설정 */
+  preventDeletingAllTags?: boolean
+}
+
+type MbSearchTagFunctionTypes =
+  | 'inputSearch'         // 검색어 입력 input, checkbox가 포함된 검색 결과 리스트, tag 표시
+  | 'inputOnly'           // tag로 표시할 값을 입력할 input, tag 표시
+  | 'inputSearchPopup'    // 검색어 입력 input, checkbox가 포함된 검색 결과 리스트, 모든 결과를 표시할 popup 띄우는 버튼, tag 표시
+  | 'buttonSelect'        // 목록 리스트를 보여주는 버튼, checkbox가 포함된 결과 검색 결과 리스트, tag 표시
+  | 'buttonSelectList'    // 목록 리스트를 보여주는 버튼, select 타입의 1개만 선택할 수 있는 결과 리스트, tag 표시
+  | 'buttonSelectSearch'  // 목록 리스트를 보여주는 버튼, 결과 목록을 검색할 수 있는 input, checkbox가 포함된 검색 결과 리스트, tag 표시
+  | 'buttonSelectPopup'   // 목록 리스트를 보여주는 버튼, checkbox가 포함된 검색 결과 리스트, 모든 결과를 표시할 popup 띄우는 버튼, tag 표시
+  | 'inputTagAdd'         // tag로 표시할 값을 입력할 input, tag 추가 버튼, tag 표시
+
+<MbTagSearch
+  title={'그룹'}
+  randomTextForRemovingAllTagItems={new Date().getTime().toString()}
+  storedTagItems={[{ id: '1', name: '그룹1' }, { id: '2', name: '그룹2' }]}
+  onTagListChange={(tagItems: MbTagSearchTagItem[]) => console.log(tagItems)}
+  apiTitle={'mediaName'}
+  functionType={'inputSearch'}
+  tooltipNode={
+    <Tooltips
+      tooltipId={'tt10-4'}
+      tooltipPlace={'top'}
+      tooltipHtml={'미디어에서 보도한 뉴스에 기자명 <br />정보가 있는지 여부를 확인할 수 <br />있습니다.'}
+      tooltipComponent={<IcoTooltip />}
+    />
+  }
+  fixedDataList={[{ id: '1', name: '그룹1', checked: false }, { id: '2', name: '그룹2', checked: false }]}
+  required={true}
+  validateType={'email'}
+  maxTagLimit={5}
+  currentSetTagItemLength={2}
+  errorMessage={'그룹은 1개 이상 입력해야 합니다.'}
+  getInputRef={ref => inputRef.current = ref.current}
+  onDeliverChangeEventToExternal={value => console.log(value)}
+  tagDeleteHook={tagItem => new Promise(resolve => resolve(true))}
+  randomTextForRemovingAllTagItems={randomTextForRemovingAllTagItems}
+  preventDeletingAllTags={true}
+/>
+
+```

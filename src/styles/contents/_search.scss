@@ -1,0 +1,259 @@
+.search {
+  .mb-contents {
+    // background: $body-background;
+    background: $white;
+    &.conditions {
+      background: $body-background;
+    }
+  }
+
+  .header-breadcrumb__section .tabs-menu__group {
+    margin: 0 36px !important;
+  }
+}
+
+.search-result {
+  &__header {
+    @include borderStyle(bottom);
+    padding: 14px 12px 10px;
+    background: $white;
+
+    &-title {
+      @include flexAlignCen;
+      min-height: 28px;
+
+      h2 {
+        margin-right: 10px;
+      }
+
+      .tooltips__group {
+        position: relative;
+        z-index: 1;
+      }
+    }
+
+    &-buttons {
+      display: flex;
+      margin-left: auto;
+
+      button {
+        &.button-default-ico-text {
+          .button__ico-left {
+            margin-right: 4px;
+          }
+        }
+
+        &:not(:last-of-type) {
+          margin-right: 7px;
+        }
+      }
+    }
+
+    &-tags {
+      @include borderStyle("multi", $gray-200);
+
+      position: relative;
+      padding: 10px 36px 10px 14px;
+      background: $gray-100;
+      border-radius: 4px;
+
+      &.is-only {
+        padding-right: 14px;
+      }
+
+      .header-tags {
+        &__group {
+          margin: -4px -3px;
+        }
+
+        &__tit,
+        &__tag {
+          display: inline-flex;
+        }
+
+        &__tit {
+          @include fontBodySmall(400);
+          padding-right: 4px;
+        }
+
+        &__tag {
+          max-width: 100%;
+          margin: 4px 3px;
+
+          &.is-finished {
+            margin-right: 21px;
+          }
+
+          .tag__group.cate-n2 {
+            background: $white;
+          }
+        }
+
+        &__button {
+          position: absolute;
+          top: 1.5px;
+          right: 0;
+
+          button {
+            @include sizeWH(36px);
+
+            .ico-svg {
+              @include sizeWH(12px);
+            }
+          }
+        }
+      }
+    }
+
+    &-sort {
+      @include flexAlignCen;
+
+      // &.type-pl-14 {
+      //   padding-left: 14px;
+      // }
+
+      .header-sort {
+        &__action {
+          margin-left: 28px;
+
+          .button-link-text {
+            &:not(:last-child) {
+              margin-right: 14px;
+            }
+          }
+
+          .select__section {
+            .select__label {
+              &:disabled {
+                box-shadow: none;
+              }
+            }
+
+            &:not(:last-child) {
+              margin: 0 -8px 0 -11px;
+              padding-right: 14px;
+            }
+          }
+
+          .select__label:disabled {
+            box-shadow: none;
+          }
+        }
+
+        &__filter {
+          display: flex;
+          margin-left: auto;
+
+          .select__section {
+            margin-left: 7px;
+          }
+
+          .s-header__control .select__section {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
+    .s-header {
+      &__title {
+        @include fontBodySemiLarge(400);
+        flex-grow: 1;
+      }
+
+      &__control {
+        @include flexAlignCen;
+        flex-shrink: 0;
+
+        > li {
+          .ipt-btn__section {
+            padding-bottom: 0;
+          }
+
+          &.filter {
+            @include flexAlignCen;
+
+            .button-ico-only {
+              margin-right: 7px;
+            }
+          }
+
+          &:not(:last-of-type) {
+            margin-right: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  &__contents {
+    // padding: 12px;
+    // background: $body-background;
+    background: $white;
+    // overflow-y: auto;
+  }
+
+  &__toggle {
+    @include flexJustEnd;
+    @include borderStyle("bottom", $gray-300 );
+    padding: 12px;
+    .ipt-btn__section {
+      padding-bottom: 0;
+    }
+  }
+
+  &__search {
+    @include flexAlignCen;
+    @include borderStyle("bottom", $gray-300 );
+    padding: 12px;
+
+    .ipt-search {
+      &__area {
+        flex-grow: 1;
+        padding-right: 4px;
+      }
+
+      // &__group {
+      //   background: $white;
+      // }
+    }
+
+    .button-ico-only {
+      flex-shrink: 0;
+    }
+  }
+
+  &__footer {
+    @include flexJustEnd;
+    @include borderStyle(top);
+
+    padding: 12px 12px 18px;
+    background: $white;
+
+    .pagination__group.cate-n4 .select-option__section {
+      top: 0;
+      transform: translateY(-100%);
+    }
+  }
+
+  &__nodata {
+    @include flexColumn;
+
+    align-items: center;
+    padding-top: 68px;
+
+    p + button {
+      margin-top: 14px;
+    }
+  }
+
+  &-type2 {
+    &__header {
+      @include flexAlignCen;
+
+      .hidden + .s-header__control {
+        margin-left: auto;
+      }
+    }
+  }
+}

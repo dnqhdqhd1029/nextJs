@@ -1,0 +1,23 @@
+$spinner-size: s24, s36, s48;
+
+@keyframes spinner-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  &__group {
+    animation: spinner-rotate 0.7s linear infinite;
+
+    @each $size in $spinner-size {
+      &.#{$size} {
+        @include sizeWH(map-get($sizes, #{$size}));
+      }
+    }
+
+    > img {
+      @include objFitCover;
+    }
+  }
+}

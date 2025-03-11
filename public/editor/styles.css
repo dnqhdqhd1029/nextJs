@@ -1,0 +1,173 @@
+html,
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-size: 14px;
+}
+
+li {
+  font-size: 14px;
+}
+
+::-webkit-scrollbar {
+  height: 12px;
+  width: 4px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #d2d4d4;
+}
+
+.ck.ck-powered-by {
+  display: none !important;
+}
+
+.ck.ck-toolbar {
+  border: 0 none !important;
+}
+/* .ck.ck-sticky-panel {
+
+} */
+.ck.ck-editor__main {
+  border-top: 1px solid #d4d7d7;
+}
+.ck.ck-editor {
+  border: 0 none !important;
+}
+
+.ck-source-editing-area,
+.ck.ck-content {
+  height: 600px;
+  border: 0 none !important;
+}
+.ck-source-editing-area textarea {
+  overflow-y: auto !important;
+}
+
+.ck-content figure.image img {
+  display: inline !important;
+}
+
+.ck-content .image-style-align-left {
+  float: left;
+  margin-left: auto;
+}
+
+.ck-content .image-style-align-left,
+.ck-content .image-style-align-right {
+  clear: both !important;
+}
+
+.ck-content figure.image + * {
+  clear: both;
+}
+
+.ck.ck-color-grid {
+  grid-gap: 2px !important;
+  padding: 8px !important;
+}
+button.ck.ck-button.ck-on.ck-color-grid__tile {
+  width: 16px !important;
+  height: 16px !important;
+}
+.ck-content hr {
+  background: #aaaaaa !important;
+  height: 1px !important;
+  margin: 15px 0 !important;
+}
+.media.ck-widget,
+.media.ck-widget.ck-widget_selected,
+.ck-media__wrapper {
+  /* width: 500px !important; */
+  display: none;
+}
+.ck.ck-reset.ck-dropdown__panel.ck-dropdown__panel_se {
+  max-height: 328px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+.ck.ck-dropdown.ck-font-family-dropdown
+  .ck-button.ck-dropdown__button
+  .ck-button__label {
+  width: 6em !important;
+}
+.ck.ck-dropdown.ck-font-size-dropdown
+  .ck-button.ck-dropdown__button
+  .ck-button__label {
+  width: 2.3em !important;
+}
+
+.ck.ck-editor__top.ck-reset_all {
+  position: relative;
+  height: 39px;
+  border: 1px solid #d4d7d7;
+  border-radius: 4px;
+}
+/* .ck.ck-toolbar.ck-toolbar_grouping {
+  position: absolute;
+  left: -30px;
+}
+.ck.ck-toolbar > .ck-toolbar__items {
+  transform: scale(0.92);
+} */
+.ck.ck-editor__editable.ck-focused:not(.ck-editor__netste-editable) {
+  box-shadow: none !important;
+}
+.ck-toolbar__nested-toolbar-dropdown
+  .ck.ck-reset.ck-dropdown__panel.ck-dropdown__panel_se {
+  overflow: inherit !important;
+  overflow-x: inherit !important;
+}
+.ck-toolbar__nested-toolbar-dropdown .ck.ck-dropdown.ck-dropdown__arrow {
+  display: none;
+}
+
+/* grouping items dropdown arrow hide */
+.ck.ck-dropdown.ck-toolbar__nested-toolbar-dropdown.ck-toolbar-dropdown
+  .ck-dropdown__arrow {
+  display: none;
+}
+
+/* image dropdown arrow hide */
+.ck-dropdown .ck-button.ck-splitbutton__arrow {
+  /* display: none; */
+}
+
+/* all dropdown arrow hide */
+.ck-dropdown__arrow {
+  /* display: none; */
+}
+
+/* icon size control */
+.ck-toolbar .ck-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* label size control */
+.ck-toolbar .ck-button .ck-button__label {
+  font-size: 12px !important;
+}
+
+.ck-content .image > figcaption {
+  font-size: 14px !important;
+  font-family: "Malgun Gothic";
+}
+
+/* 버튼 사이 여백 */
+@media screen and (max-width: 750px) {
+  .ck-toolbar .ck-button {
+    flex: 1 1 auto;
+  }
+}
+
+/* 마크다운 문자/제목 드롭다운 크기 */
+.ck.ck-dropdown.ck-heading-dropdown .ck-dropdown__panel .ck-list__item {
+  min-width: 8em !important;
+}

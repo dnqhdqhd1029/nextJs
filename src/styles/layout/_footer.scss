@@ -1,0 +1,174 @@
+.footer-button {
+  &__group {
+    @include flexJustBet;
+    @include borderStyle(top);
+
+    position: relative;
+    padding: 12px 24px;
+  }
+
+  &__list {
+    @include flexAlignCen;
+
+    > li {
+      &:not(:last-of-type) {
+        margin-right: 7px;
+      }
+    }
+
+    &.type {
+      &-center {
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &-right {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+footer{
+  @include borderStyle(top);
+}
+.footer-section{
+  max-width: 960px;
+  margin:0 auto;
+  @include flexJustBet;
+  padding: 24px 0;
+  gap: 20px;
+  @include breakpointMax(l){
+    flex-direction: column;
+    padding: 24px 10px;
+  }
+  &__group{
+    position: relative;
+    &:first-child {
+      width: 40%;
+    }
+    &:last-child{
+      flex: 1;
+    }
+  }
+
+
+  @include breakpointMax(l){
+    &__group:first-child {
+      width: 100%;
+    }
+    &__group:last-child{
+      flex: 1;
+      width: 100%;
+    }
+
+  }
+
+
+
+  .footer-descriptions{
+    margin: 20px 0;
+    line-height: 1.5;
+  }
+
+  .footer-help{
+    @include flexJustStart;
+    align-items: center;
+    margin-bottom: 20px;
+    .button__ico-left{
+      .ico-svg {
+        margin-right:3px;
+        width: 14px !important;
+        height: 14px !important;;
+      }
+    }
+
+    @include breakpointMax(l){
+      display: none;
+    }
+
+  }
+
+  .footer-sns{
+    @include flexJustStart;
+    align-items: center;
+    @include breakpointMax(l){
+      display: none;
+    }
+  }
+
+  .footer-demo{
+    margin-bottom: 70px;
+
+    @include breakpointMax(l){
+     position: absolute;
+      top: 0;
+      right: 10px;
+
+    }
+  }
+
+
+
+  .footer-lnb{
+      @include flexJustBet;
+      margin-bottom: 40px;
+
+      @include breakpointMax(l){
+        @include flexJustStart;
+
+        gap: 10px;
+        margin-bottom: 0px;
+
+      }
+
+    dl{
+      dt{
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+      dd{
+        font-weight: 400;
+        margin-bottom: 10px;
+        @include breakpointMax(l){
+          display: none;
+        }
+      }
+    }
+  }
+
+  .footer-etcs{
+    @include flexJustBet;
+    margin-bottom: 20px;
+
+    @include breakpointMax(l){
+      display: none;
+    }
+
+    &__group{
+      @include flexJustStart;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+  .footer-address{
+    address{
+      font-style: normal;
+      line-height: 1.5;
+
+      @include breakpointMax(l){
+        display: none;
+      }
+    }
+    .copy{
+      @include breakpointMax(l){
+        display: block;
+        text-align: center;
+      }
+
+    }
+
+  }
+}

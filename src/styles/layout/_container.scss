@@ -1,0 +1,1066 @@
+/* stylelint-disable */
+// container
+%header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: $white;
+}
+
+@mixin mbContainerXxl {
+  flex-grow: 1;
+
+  @include breakpointMin(xxl) {
+    overflow: hidden;
+  }
+
+  @include breakpointMax(xxl) {
+    overflow: auto;
+  }
+}
+@mixin mbContainerXl {
+  flex-grow: 1;
+
+  @include breakpointMin(xl) {
+    overflow: hidden;
+  }
+
+  @include breakpointMax(xl) {
+    overflow: auto;
+  }
+}
+
+/* stylelint-enable */
+
+.mb {
+  &-wrap {
+    @include flexColumn;
+    //contain: paint;
+    contain: none;
+    height: calc(var(--vh, 1vh)* 100);
+
+    &.layout {
+      //overflow: hidden;
+
+      .mb {
+        &-container {
+          display: flex;
+          @include mbContainerXxl;
+
+
+
+        }
+
+        &-common-inner {
+
+          width: 100%;
+          height: 100%;
+
+
+          @include breakpointMax(l) {
+            padding:0 20px ;
+            height: 100vh;
+          }
+
+          &.loader-container {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 2;
+            pointer-events: none;
+          }
+
+
+        }
+
+        &-contents {
+          //height: 100%;
+          background-color: #fff;
+          padding: 24px 0;
+
+          @include breakpointMax(l){
+            width: auto;
+            //padding: 10px;
+
+          }
+
+        }
+        // Layout horizontal column ratio: 2
+        &-lnb {
+          &__section {
+            @include borderStyle(right);
+
+            flex-shrink: 0;
+            overflow: hidden;
+            overflow-y: auto !important;
+
+            &.type-w1 {
+              @include breakpointMin(xxl) {
+                width: 320px;
+              }
+
+              @include breakpointMax(xxl) {
+                width: min(85vw, 320px);
+              }
+            }
+
+            &.type-w2 {
+              @include breakpointMin(xxl) {
+                width: 310px;
+              }
+
+              @include breakpointMax(xxl) {
+                width: min(85vw, 310px);
+              }
+            }
+          }
+        }
+
+        &-aside {
+          &__section {
+            @include breakpointMin(xxl) {
+              // Layout horizontal column ratio: 3
+              &.type-w1 {
+                width: min(25%, 480px);
+              }
+              // Layout horizontal column ratio: 5
+              &.type-w2 {
+                // width: min(32.71%, 628px);
+                // width: min(41.66666666%, 800px);
+                // width: 41.66666666%;
+                width: calc(50% - 160px);
+              }
+              // Layout horizontal column ratio: 5.5
+              &.type-w3 {
+                // width: min(45%, 864px);
+                // width: min(45.83333333%, 880px);
+                // width: 45.83333333%;
+                width: calc(55% - 160px);
+              }
+            }
+            @include breakpointMax(xxl) {
+              // &.type-w1 {
+              //   width: max(25%, 360px);
+              // }
+              &.type-w2 {
+                width: max(calc(50% - 160px), 540px);
+              }
+              &.type-w3 {
+                width: max(calc(55% - 160px), 600px);
+              }
+            }
+          }
+        }
+      }
+
+      @include breakpointMax(xxl) {
+        .mb-lnb__section.type-w1 + .mb-contents {
+          width: calc(map-get($breakpoint, xxl) - min(85vw, 320px));
+        }
+
+        .mb-lnb__section.type-w2 + .mb-contents {
+          width: calc(map-get($breakpoint, xxl) - min(85vw, 310px));
+        }
+      }
+
+
+    }
+
+    &.layout1 {
+      overflow: hidden;
+
+      .mb {
+        &-container {
+          @include mbContainerXxl;
+        }
+
+        &-common-inner {
+          display: flex;
+
+          @include breakpointMin(xxl) {
+            @include sizeWH(100%);
+          }
+
+          @include breakpointMax(xxl) {
+            height: 100%;
+          }
+
+          &.loader-container {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 2;
+            pointer-events: none;
+          }
+
+          // &.search {
+          //   .mb-contents {
+          //     @include breakpointMax(xxl) {
+          //       flex-shrink: 0;
+          //       width: map-get($breakpoint, xxl);
+          //     }
+          //   }
+          // }
+        }
+
+        &-contents {
+          // 검색 결과 목록 가로폭 최소값 설정
+          min-width: 540px;
+          &.activity {
+            min-width: 486px;
+          }
+          @include breakpointMin(xxl) {
+            flex-grow: 1;
+            overflow: hidden;
+          }
+
+          @include breakpointMax(xxl) {
+            flex-shrink: 0;
+            width: map-get($breakpoint, xxl);
+            // &.conditions {
+            //   flex-shrink: 0;
+            //   width: map-get($breakpoint, xxl);
+            // }
+
+            // &.manage {
+            //   flex-shrink: 0;
+            //   width: map-get($breakpoint, xxl);
+            // }
+            &.search-result {
+              flex-shrink: inherit;
+              width: inherit;
+            }
+
+            &.overflow-y {
+              -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+            }
+          }
+        }
+        // Layout horizontal column ratio: 2
+        &-lnb {
+          &__section {
+            @include borderStyle(right);
+
+            flex-shrink: 0;
+            overflow: hidden;
+            overflow-y: auto !important;
+
+            &.type-w1 {
+              @include breakpointMin(xxl) {
+                width: 320px;
+              }
+
+              @include breakpointMax(xxl) {
+                width: min(85vw, 320px);
+              }
+            }
+
+            &.type-w2 {
+              @include breakpointMin(xxl) {
+                width: 310px;
+              }
+
+              @include breakpointMax(xxl) {
+                width: min(85vw, 310px);
+              }
+            }
+          }
+        }
+
+        &-aside {
+          &__section {
+            @include breakpointMin(xxl) {
+              // Layout horizontal column ratio: 3
+              &.type-w1 {
+                width: min(25%, 480px);
+              }
+              // Layout horizontal column ratio: 5
+              &.type-w2 {
+                // width: min(32.71%, 628px);
+                // width: min(41.66666666%, 800px);
+                // width: 41.66666666%;
+                width: calc(50% - 160px);
+              }
+              // Layout horizontal column ratio: 5.5
+              &.type-w3 {
+                // width: min(45%, 864px);
+                // width: min(45.83333333%, 880px);
+                // width: 45.83333333%;
+                width: calc(55% - 160px);
+              }
+            }
+            @include breakpointMax(xxl) {
+              // &.type-w1 {
+              //   width: max(25%, 360px);
+              // }
+              &.type-w2 {
+                width: max(calc(50% - 160px), 540px);
+              }
+              &.type-w3 {
+                width: max(calc(55% - 160px), 600px);
+              }
+            }
+          }
+        }
+      }
+
+      @include breakpointMax(xxl) {
+        .mb-lnb__section.type-w1 + .mb-contents {
+          width: calc(map-get($breakpoint, xxl) - min(85vw, 320px));
+        }
+
+        .mb-lnb__section.type-w2 + .mb-contents {
+          width: calc(map-get($breakpoint, xxl) - min(85vw, 310px));
+        }
+      }
+
+      // @include breakpointMax(xxl) {
+      //   .mb-lnb__section.type-w1 + .mb-contents {
+      //     width: calc(100vw - min(85vw, 320px));
+      //     min-width: calc(map-get($breakpoint, xl) - min(85vw, 320px));
+      //   }
+
+      //   .mb-lnb__section.type-w2 + .mb-contents {
+      //     width: calc(100vw - min(85vw, 320px));
+      //     min-width: calc(map-get($breakpoint, xl) - min(85vw, 310px));
+      //   }
+      // }
+    }
+
+    &.layout2 {
+      overflow: hidden;
+
+      .mb {
+        &-container {
+          @include mbContainerXxl;
+        }
+
+        &-common-inner {
+          display: flex;
+
+          @include breakpointMin(xxl) {
+            @include sizeWH(100%);
+
+            > div {
+              overflow-y: auto;
+            }
+          }
+
+          @include breakpointMax(xxl) {
+            height: 100%;
+          }
+        }
+
+        &-contents {
+          flex-grow: 1;
+
+          .search-result__contents {
+            height: 100%;
+          }
+        }
+        // Layout horizontal column ratio: 2
+        &-lnb {
+          &__section {
+            @include borderStyle(right);
+            flex-shrink: 0;
+
+            &.type-w1 {
+              width: 320px;
+              overflow: hidden;
+            }
+          }
+        }
+
+        &-aside {
+          &__section {
+            @include breakpointMin(xxl) {
+              // Layout horizontal column ratio: 3
+              &.type-w1 {
+                width: min(25%, 480px);
+              }
+              // Layout horizontal column ratio: 5
+              &.type-w2 {
+                // width: min(32.71%, 628px);
+                // width: min(41.66666666%, 800px);
+                width: 41.66666666%;
+              }
+              // Layout horizontal column ratio: 5.5
+              &.type-w3 {
+                // width: min(45%, 864px);
+                // width: min(45.83333333%, 880px);
+                width: 45.83333333%;
+              }
+            }
+          }
+        }
+      }
+
+      @include breakpointMax(xxl) {
+        .mb-lnb__section.type-w1 + .mb-contents .mb-contents-layout__section {
+          width: calc(map-get($breakpoint, xxl) - min(85vw, 320px));
+        }
+      }
+    }
+
+    &.layout3 {
+      min-height: 100vh;
+      min-height: calc(var(--vh, 1vh) * 100);
+
+      &.layout6 {
+        contain: none;
+      }
+
+      .mb {
+        &-container {
+          flex-grow: 1;
+          padding-bottom: 80px;
+          background: $white;
+
+          @include breakpointMax1008 {
+            overflow: auto;
+          }
+
+          &.bg-body {
+            padding-bottom: 24px;
+          }
+
+          &.type2,
+          &.type3 {
+            padding-bottom: 0;
+          }
+
+          &.type2 {
+            background: $body-background;
+          }
+        }
+
+        &-common-inner {
+          @include breakpointMax1008 {
+            width: $breakpoint-fix-width;
+          }
+        }
+      }
+    }
+
+    &.layout4 {
+      &.layout6 {
+        contain: none;
+      }
+
+      .mb {
+        &-container {
+          flex-grow: 1;
+          overflow: auto;
+
+          &.responsive-type1 {
+            &:not(.type-pb24, .type-drag-drop) {
+              padding-bottom: 80px;
+            }
+
+            &.type-pb24 {
+              padding-bottom: 24px;
+            }
+
+            &:not(.type-project, .bg-body, .type-drag-drop) {
+              background: $white;
+            }
+
+            &.type-project,
+            &.type-drag-drop,
+            &.type-max-w1400 {
+              .mb-common-inner {
+                @include breakpointMax(xxl) {
+                  width: map-get($breakpoint, xxl);
+                }
+              }
+            }
+
+            &.customer-type1 {
+              .customer-center {
+                &__header {
+                  //@include breakpointMax1008 {
+                  //  width: $breakpoint-fix-width;
+                  //}
+                }
+
+                &__contents.max-w960 {
+                  //@include breakpointMax1008 {
+                  //  width: $breakpoint-fix-width;
+                  //  max-width: none !important;
+                  //  padding: 0 $breakpoint-fix-pd;
+                  //}
+                }
+              }
+            }
+
+            &.customer-type2 {
+              .mb-common-inner {
+                //@include breakpointMax1008 {
+                //  width: $breakpoint-fix-width;
+                //  padding: 0 $breakpoint-fix-pd;
+                //}
+              }
+            }
+
+            .mb {
+              &-contents {
+                @include sizeWH(100%, auto);
+              }
+
+              &-common-inner {
+                height: auto;
+
+                @include breakpointMax1008 {
+                  &.max-w960 {
+                    width: $breakpoint-fix-width;
+                    max-width: none !important;
+                    padding: 0 $breakpoint-fix-pd;
+                  }
+                }
+              }
+            }
+          }
+
+          &.responsive-type2 {
+
+
+            .mb {
+              &-common-inner {
+                height: 100%;
+              }
+
+              &-contents {
+                width: 100%;
+
+              }
+            }
+          }
+        }
+
+        &-common-inner {
+          @include breakpointMin(xxl) {
+            height: 100%;
+          }
+
+          @include breakpointMax(xxl) {
+            display: flex;
+          }
+
+          &.type-w1 {
+            @include breakpointMax(xxl) {
+              min-height: 100%;
+            }
+
+            .mb {
+              &-lnb__section {
+                height: -webkit-fill-available;
+
+                @include breakpointMin(xxl) {
+                  width: min(25%, 480px);
+                }
+
+                @include breakpointMax(xxl) {
+                  @include sizeWH(300px, auto !important);
+                  flex-shrink: 0;
+
+                  .profile {
+                    &__area {
+                      flex-direction: column;
+                    }
+
+                    &__group {
+                      margin-top: 28px;
+                    }
+
+                    &-img__group {
+                      margin-right: 0;
+                    }
+                  }
+                }
+              }
+
+              &-contents {
+                @include breakpointMin(xxl) {
+                  padding-left: min(25%, 480px);
+                }
+
+                @include breakpointMax(xxl) {
+                  flex-shrink: 0;
+                  width: map-get($breakpoint, xxl);
+
+                  @at-root .mb-wrap.layout4 .mb-common-inner.type-w1 .mb-lnb__section + .mb-contents {
+                    width: auto;
+                    max-width: 1100px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &-lnb__section {
+          @include borderStyle(right);
+          background: $white;
+
+          @include breakpointMin(xxl) {
+            position: fixed;
+            left: 0;
+            overflow-y: auto;
+          }
+        }
+
+        &-contents {
+          height: 100%;
+
+        }
+      }
+
+
+    }
+  }
+
+  &-container {
+    background: $body-background;
+    -webkit-overflow-scrolling: touch;
+
+    @include iosOnly {
+      -webkit-transform: translateZ(0);
+    }
+  }
+
+  &-lnb {
+    &__section {
+      background: $white;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+
+      .react-datepicker-popper {
+        z-index: 10;
+      }
+    }
+  }
+
+  &-aside {
+    &__section {
+      @include borderStyle(left);
+
+      flex-shrink: 0;
+      overflow-y: auto;
+      background: $white;
+
+      @include breakpointMax(xxl) {
+        &.type-w1 {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.mb-contents {
+  &-layout {
+    &__section {
+      @include flexColumn;
+      height: 100%;
+    }
+
+    &__contents {
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    &__header,
+    &__footer {
+      flex-shrink: 0;
+    }
+
+    &__footer {
+      margin-top: auto;
+    }
+  }
+
+  &-footer__section {
+    &:not(.type-pagination) {
+      margin-top: 106px;
+    }
+
+    &.type-pagination {
+      @include flexJustCen;
+      margin-top: 24px;
+
+      .pagination__group.cate-n3 button {
+        &:not(.is-active) {
+          background: transparent;
+        }
+      }
+    }
+
+    .button-default-ico-text {
+      .button__ico {
+        &-left {
+          margin-right: 4px !important;
+        }
+
+        &-right {
+          margin-left: 4px !important;
+        }
+      }
+    }
+  }
+
+  &-header__section {
+    &.type-sticky {
+      @extend %header-sticky;
+    }
+
+    &.type-control {
+      @extend %header-sticky;
+      padding: 12px 24px;
+
+      .common-title__group {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.flexible {
+  &__section {
+    display: flex;
+    //padding: 12px;
+
+    @include breakpointMax(l) {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &.type-n1 {
+      .flexible__group {
+        &:only-of-type {
+          width: 100%;
+        }
+
+        &:not(:only-of-type):nth-of-type(1) {
+          width: calc((100% - 12px) * 0.6);
+
+
+          @include breakpointMax(xxl) {
+            flex-grow: 1;
+          }
+        }
+
+        &:nth-of-type(2) {
+          width: calc((100% - 12px) * 0.4);
+
+          @include breakpointMax(xxl) {
+           // width: min(calc((100% - 12px) * 0.4), 400px);
+          }
+        }
+
+        @include breakpointMax(l) {
+          width:100% !important;
+          margin-left: 0;
+        }
+
+      }
+
+    }
+
+    &.type-n2 {
+      .flexible__group {
+        &:only-of-type {
+          width: calc((100% - 12px) / 2);
+        }
+
+        &:not(:only-of-type):nth-of-type(1) {
+          width: calc((100% - 12px) * 0.66)
+        }
+
+        &:nth-of-type(2) {
+          width: calc((100% - 12px) * 0.34);
+        }
+      }
+    }
+  }
+
+  &__group {
+    &:nth-of-type(2) {
+      margin-left: 12px;
+    }
+  }
+
+  &-item {
+    &__group {
+      background: $white;
+      border-radius: 4px;
+
+      &.type-pb1 {
+        padding-bottom: 10px;
+      }
+
+      &:not(.type-project) {
+        @include borderStyle("multi");
+        @include shadowStyle(s);
+
+        padding: 24px;
+      }
+
+      &.type-project {
+        padding: 24px 12px;
+      }
+
+      &:not(:first-of-type) {
+        margin-top: 12px;
+      }
+
+      .profile__section {
+        padding: 0;
+      }
+
+      .font-heading--h5 + .font-body__small {
+        margin-top: 4px;
+      }
+
+      .font-heading--h5 + .font-body__regular {
+        margin-top: 14px;
+      }
+
+      $after: "and", "or", "not";
+
+      @each $txt in $after {
+        .after-#{$txt} {
+          .form-title__group::after {
+            color: $gray-500;
+            text-transform: uppercase;
+            content: "#{$txt}";
+          }
+        }
+      }
+    }
+
+    &__header {
+      @include flexAlignCen;
+      padding-bottom: 10px;
+
+      h4 {
+        @include ellipsis;
+        flex-grow: 1;
+      }
+
+      .select__section,
+      button,
+      a {
+        flex-shrink: 0;
+      }
+    }
+
+    &__pagination {
+      @include flexJustEnd;
+      margin-top: 10px;
+    }
+
+    &__keywords {
+      @include flexWrap;
+
+      align-items: center;
+      margin: -5px -10px;
+      overflow: hidden;
+    }
+
+    // &__keyword {
+    //   &-s1 {
+    //     @include fontBodySmall(400, map-get($colors, secondary));
+    //   }
+
+    //   &-s2 {
+    //     @include fontBodySemiLarge(400);
+    //   }
+
+    //   &-s3 {
+    //     @include fontBodySemiLead;
+    //   }
+
+    //   &-s4 {
+    //     @include fontBodyLead(400);
+    //   }
+
+    //   &-s5 {
+    //     @include fontBodyRegular(400, map-get($colors, secondary));
+    //   }
+
+    //   &-s6 {
+    //     @include fontBodyRegular(400);
+    //   }
+    // }
+  }
+
+  &-search {
+    &__button {
+      @include flexCenter;
+      position: relative;
+
+      &-reset {
+        position: absolute;
+        top: 7px;
+        left: 0;
+      }
+
+      &-search {
+        button {
+          width: 160px;
+        }
+      }
+
+      &-save {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+[class*="flexible-item__keyword-"] {
+  margin: 5px 10px;
+}
+
+.keywords {
+  &__group {
+    @include borderStyle("multi");
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 14px 14px 7px;
+    background: $gray-100;
+    border-radius: 4px;
+  }
+
+  &__line {
+    display: flex;
+    padding-bottom: 10px;
+  }
+
+  &__item {
+
+    &.type-title {
+      flex-shrink: 0;
+      margin-right: 8px;
+      padding-bottom: 0;
+      font-weight: 500;
+      width: 100px;
+    }
+
+    .type-operator {
+      color: $gray-500;
+    }
+  }
+
+  &__button {
+    @include flexJustEnd;
+    margin-top: 7px;
+  }
+
+  &__tag {
+    margin-right: 8px;
+  }
+}
+
+.import-info {
+  &__group {
+    width: 100%;
+    max-width: 960px;
+
+    .import-info__title + .import-info__contents {
+      margin-top: 4px;
+    }
+  }
+
+  &__title {
+    @include fontHeadings(h6);
+  }
+
+  &__contents {
+    @include fontBodyRegular(400);
+  }
+
+  &__contents-title {
+    @include fontHeadings(h6);
+    padding-bottom: 16px;
+  }
+}
+
+.aside-wrap{
+
+  width: 220px;
+
+  @include breakpointMax(l){
+    width: 100%;
+  }
+
+  &-card{
+    @include borderStyle("multi");
+    @include shadowStyle(s);
+    padding: 24px;
+    width: 220px;
+    min-height: 200px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    background-color: #fff;
+    @include flexColumn;
+    justify-content: center;
+
+    @include breakpointMax(l){
+      width: 100%;
+    }
+
+    dl{
+
+      dt{
+        margin-bottom: 10px;
+      }
+
+      dd{
+        margin-bottom: 10px;
+        line-height: 1.5;
+        &:last-of-type{
+          margin-bottom: 0;
+        }
+        &.percent{
+          @include fontSize(36);
+          font-weight: 600;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+
+}
+
+@each $space in $white-space {
+  .mb-contents-pb#{$space}__group {
+    padding-bottom: #{$space}px;
+
+    @extend %padding-b0;
+  }
+}
+
+[class*="mb-contents-pb"] {
+  [class*=ipt-][class*="__section"] {
+    &.add-pb10 {
+      padding-bottom: 10px !important;
+    }
+  }
+}
+
+@each $space in $white-space {
+  .mb-contents-pt#{$space}__group {
+    padding-top: #{$space}px;
+  }
+}

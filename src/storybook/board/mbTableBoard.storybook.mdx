@@ -1,0 +1,377 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+<Meta title="Board/MbTableBoard" />
+
+# MbTableBoard
+테이블 형식으로 된 게시판 컴포넌트 패턴.
+
+## Code
+```jsx
+import type { SelectListOptionItem } from '~/types/common'
+import type { SortFilterOptionItem } from '~/types/common'
+import SettingLayer from '~/components/contents/common/board/MbTableBoard/SettingLayer'
+import type { TableProps, TableRow } from '~/types/contents/Common'
+import TableBoardContent from '~/components/contents/common/board/MbTableBoard/TableBoardContent'
+import TableBoardHeader from '~/components/contents/common/board/MbTableBoard/TableBoardHeader'
+import MbPagination from '~/components/contents/common/forms/MbPagination'
+import PageHeaderWithButton from '~/components/contents/common/header/PageHeaderWithButton'
+
+const defaultTableData: TableProps = {
+  header: [
+    {
+      id: 'name',
+      title: '이름',
+      width: '15%',
+    },
+    {
+      id: 'displayName',
+      title: '표시이름',
+    },
+
+    {
+      id: 'email',
+      title: '이메일',
+      width: '20%',
+    },
+    {
+      id: 'role',
+      title: '권한',
+      width: '10%',
+    },
+    {
+      id: 'status',
+      title: '상태',
+      width: '10%',
+    },
+    {
+      id: 'regisAt',
+      title: '등록일',
+      width: '20%',
+    },
+    {
+      id: 'manage',
+      title: '관리',
+      width: '80px',
+    },
+  ],
+  rows: [],
+}
+
+const authorityOptions: SelectListOptionItem[] = [
+  {
+    id: '',
+    name: '전체',
+  },
+  {
+    id: 'ADMIN',
+    name: '관리자',
+  },
+  {
+    id: 'USER',
+    name: '사용자',
+  },
+]
+
+const defaultSortOptionsByData: SortFilterOptionItem[] = [
+  {
+    id: 'name',
+    name: '이름',
+  },
+  {
+    id: 'regisAt',
+    name: '등록일',
+  },
+]
+
+const filterList = ['name!desc', 'name!asc', 'regisAt!desc', 'regisAt!asc']
+const defaultSort = [filterList[0]]
+
+const sizeOptions = [10, 20, 30, 50, 100]
+
+const TableBoard = () => {
+  const [isPageLoadCompleted, setIsPageLoadComplete] = useState(false)
+  const [tableData, setTableData] = useState<TableProps>(defaultTableData)
+  const [currentPageIndex, setCurrentPageIndex] = useState(1)
+  const [keyword, setKeyword] = useState('')
+  const [sort, setSort] = useState<string[]>(defaultSort)
+  const [totalPageCount, setTotalPageCount] = useState(0)
+  const [totalCount, setTotalCount] = useState(0)
+  const [viewCount, setViewCount] = useState(10)
+
+  const handleRouterParameterChange = (parameters: UseGetAllUserParams, shallow = true) => {
+    console.log('>> handleRouterParameterChange : ', parameters)
+    let sortQuery = sort
+    let keywordQuery = ''
+    if (parameters.sort) {
+      sortQuery = parameters.sort
+    }
+    if (parameters.keyword) {
+      keywordQuery = encodeURIComponent(parameters.keyword)
+    }
+
+    router.push(
+      {
+        pathname: '/admin/user-list',
+        query: {
+          ...parameters,
+          sort: sortQuery,
+          keyword: keywordQuery,
+        },
+      },
+      undefined,
+      { shallow }
+    )
+  }
+
+  const handleChangeSize = (size: number) => {
+    handleRouterParameterChange({
+      page: currentPageIndex,
+      size,
+      role,
+      sort,
+      keyword,
+    })
+  }
+
+  const handlePaginationChange = (index: number) => {
+    handleRouterParameterChange({
+      page: index,
+      size: viewCount,
+      role,
+      sort,
+      keyword,
+    })
+  }
+
+  const handleFilteringChange = (option: SelectListOptionItem) => {
+    const params: UseGetAllUserParams = {
+      page: currentPageIndex,
+      size: viewCount,
+      role: option.id,
+      sort,
+      keyword,
+    }
+
+    handleRouterParameterChange(params)
+  }
+
+  const handleSortChange = (dataItem: SelectListOptionItem, orderItem: SelectListOptionItem) => {
+    const sortItem = [`${dataItem.id}!${orderItem.id}`]
+    const params: UseGetAllUserParams = {
+      page: currentPageIndex,
+      size: viewCount,
+      role,
+      sort: sortItem,
+      keyword,
+    }
+
+    handleRouterParameterChange(params)
+  }
+
+  const handleSearchTermChange = debounce(250, (e: ChangeEvent<HTMLInputElement>) => {
+    const searchTerm = e.target.value.trim()
+    const params: UseGetAllUserParams = {
+      page: currentPageIndex,
+      size: viewCount,
+      role,
+      sort,
+      keyword: searchTerm,
+    }
+
+    handleRouterParameterChange(params)
+  })
+
+  const settingLayerItems = [
+    {
+      title: '회원 정보 수정',
+      setFunc: handleUserModify,
+    },
+    {
+      title: '비밀번호 재설정',
+      setFunc: handlePasswordReset,
+    },
+    {
+      title: '회원 상태 변경',
+      setFunc: handleUserStatusChange,
+    },
+  ]
+
+  // router Query 처리
+  useEffect(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current)
+    }
+    timerRef.current = setTimeout(() => {
+      const { page, size } = router.query
+      let pageNum = Number(page)
+      let sizeNum = Number(size)
+      const role = getRole(router.query.role as string)
+      const sort = getSort(router.query.sort as string)
+      const keyword = router.query.keyword ? decodeURIComponent(router.query.keyword as string) : ''
+
+      if (isNaN(pageNum) || isNaN(sizeNum)) {
+        handleRouterParameterChange(
+          {
+            page: 1,
+            size: 10,
+            role,
+            sort,
+            keyword,
+          },
+          true
+        )
+      } else {
+        pageNum = parseInt(pageNum.toString(), 10)
+        sizeNum = parseInt(sizeNum.toString(), 10)
+
+        if (pageNum < 1) {
+          pageNum = 1
+        }
+        if (sizeNum < sizeOptions[0]) {
+          sizeNum = sizeOptions[0]
+        }
+        setCurrentPageIndex(pageNum)
+        setViewCount(sizeNum)
+        setRole(role)
+        setSort(sort)
+        setKeyword(keyword)
+
+        setTimeout(() => {
+          refetchUserListData()
+        }, 10)
+      }
+    }, 50)
+  }, [router.query])
+
+  // 목록 api 호출 이후 table 생성
+  useEffect(() => {
+    const newRows: TableRow[] = []
+    userList.map(user => {
+      const row: TableRow = [
+        {
+          thId: 'name',
+          td: (
+            <Button
+              label={getApiStringDataFormat(user.name)}
+              cate={'link-text'}
+              size={'m'}
+              color={'body-link'}
+              onClick={() => handleViewUserInfo(user)}
+            />
+          ),
+        },
+        {
+          thId: 'displayName',
+          td: getApiStringDataFormat(user.nickname),
+        },
+        {
+          thId: 'email',
+          td: (
+            <a
+              href={`mailto:${user.email}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button-link-text colors-body-link "
+            >
+              <span className="button__label button-link-text__label size-m">{user.email}</span>
+            </a>
+          ),
+        },
+        {
+          thId: 'role',
+          td: getUserRoleName(user),
+        },
+        {
+          thId: 'status',
+          td: getUserStatus(user),
+        },
+        {
+          thId: 'regisAt',
+          td: user.regisAt ? moment(user.regisAt).format('YYYY-MM-DD') : '',
+        },
+        {
+          thId: 'manage',
+          td: (
+            <>
+              {user.stateCode !== USER_STATE_CODE.UNCERTIFIED ? (
+                <SettingLayer
+                  info={user}
+                  items={settingLayerItems}
+                />
+              ) : (
+                <SettingLayer
+                  info={user}
+                  items={settingLayerItemsForUncertified}
+                />
+              )}
+            </>
+          ),
+        },
+      ]
+
+      newRows.push(row)
+    })
+
+    setTableData(prev => {
+      return {
+        ...prev,
+        rows: newRows,
+      }
+    })
+  }, [userList])
+
+  return (
+    <div className="setting__contents">
+      <PageHeaderWithButton
+        title="사용자 관리"
+        addButtonTitlte="새 회원 추가"
+        addFunc={handleAddNewUser}
+      />
+
+      <div className="setting-contents__section">
+        <ul className="interval-mt16">
+          <li>
+            <TableBoardHeader
+              isPageLoadCompleted={isPageLoadCompleted}
+              totalCount={totalCount}
+              onFilteringChange={handleFilteringChange}
+              selectedFilteringItem={role}
+              onSortChange={handleSortChange}
+              selectedSortItem={sort}
+              keyword={keyword}
+              onSearchTermChange={handleSearchTermChange}
+              filteringOptions={authorityOptions}
+              sortOptionsByData={defaultSortOptionsByData}
+            />
+          </li>
+          <li>
+            <div className="setting-contents-list__section type-table">
+              <TableBoardContent
+                tableData={tableData}
+                isPageLoadCompleted={isPageLoadCompleted}
+              />
+              {isPageLoadCompleted && (
+                <div className="setting-contents-list__footer">
+                  <MbPagination
+                    totalCount={totalCount}
+                    currentPageIndex={currentPageIndex}
+                    viewCount={viewCount}
+                    totalPageCount={totalPageCount}
+                    onSelectSize={handleChangeSize}
+                    onPaginationChange={handlePaginationChange}
+                    sizeOptions={SIZE_OPTIONS}
+                    isPageLoadCompleted={isPageLoadCompleted}
+                  />
+                </div>
+              )}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+export default TableBoard
+
+```

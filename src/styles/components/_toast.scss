@@ -1,0 +1,116 @@
+/* stylelint-disable */
+// button에서만 사용
+$toast-bg: (
+  "success" $alert-success-bg $alert-common-text $alert-success-border $alert-success-text,
+  "danger" $alert-danger-bg $alert-common-text $alert-danger-border $alert-danger-text,
+  "warning" $alert-warning-bg $alert-common-text $alert-warning-border $alert-warning-text,
+  "info" $alert-info-bg $alert-common-text $alert-info-border $alert-info-text
+);
+$toast-text: success, danger, warning, info;
+$toast-border: success, danger, warning, info;
+
+@mixin toastSectionStyle {
+  @each $name, $bg, $text, $border, $icon in $toast-bg {
+    .toast-#{$name}__section {
+      background: $bg;
+      border-color: $border;
+      color: $text;
+
+      .Toastify__toast-icon {
+        .ico-svg {
+          color: $icon;
+        }
+      }
+
+      .toast-body {
+        &__title,
+        &__text {
+          // color: $text;
+          color: $gray-800;
+        }
+      }
+    }
+  }
+}
+
+/* stylelint-enable */
+
+.toast {
+  &__section {
+    min-height: auto;
+    padding: 14px;
+    border: 1px solid;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+    // 라이브러리 커스텀
+    /* stylelint-disable */
+    .Toastify__toast-body {
+      @include flexAlignStart;
+      margin: 0;
+      padding: 0;
+    }
+
+    .Toastify__close-button {
+      @include sizeWH(48px);
+      @include backgroundStyle("svg/icon-close-button2.svg", $size: 16px);
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 1;
+      z-index: 10;
+
+      > svg {
+        display: none;
+      }
+    }
+
+    .Toastify__toast-icon {
+      width: auto;
+      margin-inline-end: 0;
+      padding-top: 1px;
+
+      .ico-svg {
+        @include sizeWH(16px);
+        margin: 2px 7px 0 0;
+      }
+    }
+    /* stylelint-enable */
+  }
+
+  &-body {
+    &__title {
+      // @include fontHeadings(h5);
+      @include fontBodySemiLarge(500);
+      padding-bottom: 7px;
+    }
+
+    &__text {
+      @include fontBodyRegular(400);
+
+      .toast-body__title + & {
+        padding-bottom: 7px;
+      }
+    }
+  }
+
+  &-box1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 300px;
+    margin: 5px 0 0;
+    color: $body-link;
+  
+    button {
+      color: map-get($colors, primary);
+    }
+  }
+
+  &-box1 + &-box1 {
+    margin-top: 2px;
+  }
+  
+}
+
+@include toastSectionStyle;

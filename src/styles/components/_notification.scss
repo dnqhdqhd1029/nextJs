@@ -1,0 +1,276 @@
+.notification {
+  &-header {
+    &__section {
+      @include flexCenter;
+      position: relative;
+
+      &.colors {
+        &-blue-700 {
+          background: #333F50;
+
+          .notification-header__contents {
+            a {
+              text-decoration: underline;
+            }
+          }
+        }
+
+        &-error {
+          background: $alert-danger-bg;
+          border: 1px solid $alert-danger-text;
+
+          .notification-header__contents {
+            @include flexAlignCen;
+
+            p {
+              color: $alert-danger-text;
+            }
+
+            a {
+              color: $alert-danger-text;
+              text-decoration: underline;
+            }
+          }
+        }
+
+        &-info {
+          background: $alert-info-bg;
+          border-bottom: 1px solid $gray-200;
+
+          .notification-header__contents {
+            @include flexAlignCen;
+
+            p {
+              // color: $alert-info-text;
+              @include fontBodyRegular(400, $body-text);
+            }
+
+            a {
+              // color: $alert-info-text;
+              color: $body-link !important;
+              text-decoration: underline;
+            }
+          }
+        }
+
+        &-warning {
+          background: $alert-warning-bg;
+
+          .notification-header__contents {
+            @include flexAlignCen;
+
+            p {
+              color: $alert-warning-text;
+            }
+
+            a {
+              color: $alert-warning-text;
+              text-decoration: underline;
+            }
+          }
+        }
+
+        &-alert-border {
+          background: $alert-info-bg;
+
+          .notification-header__contents {
+            @include flexAlignCen;
+
+            p {
+              // color: $alert-info-bg;
+              @include fontBodyRegular(400, $body-text);
+            }
+
+            a {
+              // color: $alert-info-bg;
+              color: $body-link !important;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    &__contents {
+      @include flexWrap;
+
+      justify-content: center;
+      text-align: center;
+
+      &.type-flex-end {
+        @include flexAlignEnd;
+        justify-content: flex-start;
+        
+        p {
+          &.link {
+            flex-shrink: 0;
+          }
+
+          &:not(.link):first-of-type {
+            padding-right: 4px;
+          }
+        }
+      }
+
+      p,
+      a {
+        @include fontBodyRegular(400, $gray-100);
+      }
+
+      p,
+      button {
+        .notification-header__section:not(.button-type2) & {
+          margin: 0 5px;
+        }
+      }
+
+      .tooltip__title {
+        @include flexAlignCen;
+        margin-right: 12px;
+
+        p {
+          font-weight: 500;
+        }
+
+        .tooltips__group {
+          margin-left: 4px;
+          text-align: left;
+          transform: translateY(0);
+
+          .ico-svg {
+            color: $white;
+          }
+        }
+      }
+    }
+
+    &__btn {
+      .notification-header__section:not(.button-type2) & {
+        @include absoluteTopCen;
+        right: 14px;
+      }
+
+      &-link {
+        padding: 0 4px;
+      }
+    }
+  }
+
+  &-toast {
+    &__section {
+      @include borderStyle("multi", $alert-info-border);
+      
+      position: relative;
+      display: flex;
+      padding-left: 14px;
+      background: $alert-info-bg;
+    }
+
+    &__group {
+      @include clearBoth;
+      flex-grow: 1;
+    }
+
+    &__ico {
+      flex-shrink: 0;
+      padding-top: 14px;
+
+      .ico-svg {
+        @include sizeWH(16px);
+        margin: 3px 7px 0 0;
+        color: $alert-info-text;
+      }
+    }
+
+    &__title {
+      // @include fontHeadings(h4, $alert-info-text);
+      @include fontBodySemiLarge(500, $gray-900);
+      padding-top: 14px;
+    }
+
+    &__contents {
+      // @include fontBodyRegular(400, $alert-info-text);
+      @include fontBodyRegular(400);
+      padding: 14px 14px 14px 0;
+
+      .notification-toast__title + & {
+        padding: 8px 14px 22px 0;
+      }
+    }
+
+    &__btn {
+      float: right;
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &-alert {
+    &__section {
+      @include borderStyle("multi", $alert-info-border);
+
+      position: relative;
+      padding: 14px;
+      background: $alert-info-bg;
+    }
+
+    &__title {
+      @include fontHeadings(h4);
+
+      margin-bottom: 7px;
+      padding-right: 32px;
+    }
+
+    &__contents {
+      p {
+        @include fontBodyRegular(400);
+      }
+
+      a {
+        color: $body-link;
+      }
+
+      .flex-wrap {
+        align-items: center;
+
+        p {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    &__btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
+.notification-header__section.button-type1 {
+  padding: 14px 38px;
+}
+
+.notification-header__section.button-type2 {
+  @include breakpointMin(xl) {
+    padding: 21px 200px;
+  }
+  
+  @include breakpointMax(xl) {
+    flex-direction: column;
+    padding: 14px 24px;
+  }
+  
+  .notification-header {
+    &__btn {
+      @include breakpointMin(xl) {
+        @include absoluteTopCen;
+        right: 14px;
+      }
+    }
+  }
+}
+
+.notification-header__section.button-type3 {
+  padding: 14px 24px;
+}

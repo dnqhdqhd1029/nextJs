@@ -1,0 +1,287 @@
+{
+  "_comment": "state => 0:대기 / 1:진행 / 2:수정 / 3:완료 / 4:취소",
+  "data": [
+    {
+      "depth1": "로그인",
+      "depth2": "로그인",
+      "pageId": "L01",
+      "url": "/publishing/login",
+      "date": "2025-02-25",
+      "state": 3,
+      "etc": "기존개발 사용"
+    },
+    {
+      "depth1": "",
+      "depth2": "비밀번호 찾기",
+      "pageId": "L02",
+      "url": "/publishing/login/password-find",
+      "date": "2025-02-25",
+      "state": 3,
+      "etc": "기존개발 사용"
+    },
+    {
+      "depth1": "",
+      "depth2": "비밀번호 찾기 이메일",
+      "pageId": "L02",
+      "url": "/publishing/login/send-email",
+      "date": "2025-02-25",
+      "state": 3,
+      "etc": "기존개발 사용"
+    },
+
+    {
+      "depth1": "회원가입",
+      "depth2": "프로필 등록 (step1)",
+      "pageId": "R01",
+      "url": "/publishing/join",
+      "date": "2025-02-26",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "가입 신청 완료",
+      "pageId": "R01-2",
+      "url": "/publishing/join/complete",
+      "date": "2025-02-26",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "프로필 등록 (step2)",
+      "pageId": "R02",
+      "url": "/publishing/join/join1",
+      "date": "2025-02-26",
+      "state": 3,
+      "etc": ""
+    },
+
+    {
+      "depth1": "",
+      "depth2": "프로필 등록 완료",
+      "pageId": "R02-1",
+      "url": "/publishing/join/profileComplete",
+      "date": "2025-02-26",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "비밀번호 재설정",
+      "pageId": "R03",
+      "url": "/publishing/join/passwordReset",
+      "date": "2025-02-26",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "회원정보",
+      "depth2": "회원정보",
+      "pageId": "USER01",
+      "url": "/publishing/member",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "회원정보 수정",
+      "pageId": "USER02",
+      "url": "/publishing/member/modify",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "비밀번호 변경(팝업)",
+      "pageId": "USER01",
+      "url": "(팝업)",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": "회원정보 > 비밀번호 변경 버튼 클릭 시 팝업"
+    },
+    {
+      "depth1": "",
+      "depth2": "이메일 수정하기(팝업)",
+      "pageId": "USER02",
+      "url": "(팝업)",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": "회원정보 수정 > 이메일 펜 버튼 클릭 시 팝업"
+    },
+    {
+      "depth1": "",
+      "depth2": "비밀번호 확인(팝업)",
+      "pageId": "USER03",
+      "url": "(팝업)",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": "회원정보 > 회원탈퇴 버튼 클릭 시 팝업"
+    },
+    {
+      "depth1": "",
+      "depth2": "회원탈퇴",
+      "pageId": "USER03-1",
+      "url": "/publishing/member/withdrawal",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "내프로필",
+      "depth2": "내프로필",
+      "pageId": "J01",
+      "url": "/publishing/reporter",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "내프로필 수정",
+      "pageId": "M02",
+      "url": "/publishing/reporter/modify",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "기타(팝업)",
+      "pageId": "M03",
+      "url": "(팝업)",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "소셜(팝업)",
+      "pageId": "M04",
+      "url": "(팝업)",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "연락처(팝업)",
+      "pageId": "M05",
+      "url": "(팝업)",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "설정(팝업)",
+      "pageId": "M06",
+      "url": "(팝업)",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "알림(컨펌창)",
+      "pageId": "M06-1",
+      "url": "(팝업)",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "매체명(팝업)",
+      "pageId": "M07",
+      "url": "(팝업)",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "이메일(팝업)",
+      "pageId": "M07",
+      "url": "(팝업)",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "항목별 수정 UI\n(팝업)",
+      "pageId": "M08",
+      "url": "(팝업)",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "수상,저서,경력,학교(팝업)",
+      "pageId": "M09",
+      "url": "(팝업)",
+      "date": "2025-02-21",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "미디어 소식",
+      "depth2": "목록",
+      "pageId": "M01",
+      "url": "/publishing/media",
+      "date": "2025-03-10",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "검색 결과",
+      "pageId": "M03",
+      "url": "/publishing/media/result",
+      "date": "2025-03-10",
+      "state": 3,
+      "etc": ""
+    },
+
+    {
+      "depth1": "",
+      "depth2": "상세",
+      "pageId": "M06",
+      "url": "/publishing/media/detail",
+      "date": "2025-03-10",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "이메일 양식",
+      "depth2": "서비스 가입 이메일 인증",
+      "pageId": "EM01",
+      "url": "email/EM83.html",
+      "date": "2025-02-27",
+      "state": 3,
+      "etc": "기존 사용"
+    },
+    {
+      "depth1": "",
+      "depth2": "비밀번호 재설정",
+      "pageId": "EM02",
+      "url": "email/EM51.html",
+      "date": "2025-02-27",
+      "state": 3,
+      "etc": "기존 사용"
+    },
+    {
+      "depth1": "",
+      "depth2": "OTP 인증",
+      "pageId": "EM03",
+      "url": "email/EM57.html",
+      "date": "2025-02-27",
+      "state": 3,
+      "etc": "기존 사용"
+    }
+  ]
+}

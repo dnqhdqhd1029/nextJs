@@ -1,0 +1,205 @@
+{
+  "_comment": "state => 0:대기 / 1:진행 / 2:수정 / 3:완료 / 4:취소",
+  "data": [
+    {
+      "depth1": "Header",
+      "depth2": "gnb",
+      "url": "header1",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "gnb + 콘텐츠 알림박스(notification)",
+      "url": "header2",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "Header > search - 검색 팝업",
+      "url": "header-search",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "고객센터 header",
+      "url": "header-cs",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "결제하기 header",
+      "url": "header-pay",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "레이아웃",
+      "depth2": "컨텐츠 내 스크롤 (header)",
+      "url": "layout1",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "컨텐츠 내 스크롤 (header + breadcrumb)",
+      "url": "layout2",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "브라우저 스크롤1",
+      "url": "layout3",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "브라우저 스크롤2",
+      "url": "layout4",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "결제하기 Layout",
+      "url": "layout5",
+      "date": "",
+      "state": 3,
+      "etc": "Layout4 동일, Header만 다름"
+    },
+    {
+      "depth1": "",
+      "depth2": "고객센터 Layout",
+      "url": "layout6",
+      "date": "",
+      "state": 3,
+      "etc": "Layout3과 동일, 고객센터 header"
+    },
+    {
+      "depth1": "컨텐츠",
+      "depth2": "title bar",
+      "url": "title-bar",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "리스트",
+      "depth2": "",
+      "url": "list",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "카드형",
+      "url": "list-card",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "table",
+      "depth2": "",
+      "url": "table",
+      "date": "",
+      "state": 1,
+      "etc": "기획 미확정 -> 보류"
+    },
+    {
+      "depth1": "accordion",
+      "depth2": "",
+      "url": "accordion",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "popup",
+      "depth2": "bottom",
+      "url": "popup-bottom",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "type1",
+      "url": "popup-type1",
+      "date": "",
+      "state": 3,
+      "etc": "내 비밀번호 수정, 회원 정보 수정, 미디어비 수신 거부 해제 요청, 언론인 맞춤 검색 수정, 언론인 목록 만들기, 공유 설정 수정, 4개 활동의 프로젝트 수정, 전체 태그, 활동 만들기, 4개 활동의 프로젝트 수정, 모니터링 분석 공유하기, 클립북 만들기, 회원 정보 수정, 회원 상태 변경, 가젯 추가, 삼성전자 모니터링 분석"
+    },
+    {
+      "depth1": "",
+      "depth2": "type2",
+      "url": "popup-type2",
+      "date": "",
+      "state": 3,
+      "etc": "비밀번호 확인, 정보 업데이트 요청, 개인적 연락처 추가, 회원 탈퇴, 그룹 추가, 연관도 분석 수정"
+    },
+    {
+      "depth1": "",
+      "depth2": "type3",
+      "url": "popup-type3",
+      "date": "",
+      "state": 3,
+      "etc": "개인 추가 언론인 수정, 매체 유형, 개인 추가 미디어 수정, 이메일 수정, 개인 추가 뉴스 수정, 문의하기"
+    },
+    {
+      "depth1": "",
+      "depth2": "type4",
+      "url": "popup-type4",
+      "date": "",
+      "state": 3,
+      "etc": "회원 정보, 회사 선택, 이메일 발송 차단, 개인 추가 언론인 사진 등록, 뉴스와이어 배포 보도자료 초안, 뉴스와이어 클라우드 기반 통합 회사 홍보 서비스 '미디어비' 출시, "
+    },
+    {
+      "depth1": "",
+      "depth2": "type5",
+      "url": "popup-type5",
+      "date": "",
+      "state": 3,
+      "etc": "(step, tabs 형태) 모니터링 만들기, 보고서 만들기, 미디어 자료실"
+    },
+    {
+      "depth1": "",
+      "depth2": "반응형 처리",
+      "url": "popup-breakpoint",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "Form",
+      "depth2": "input, select, tag",
+      "url": "form-application",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "activity",
+      "depth2": "",
+      "url": "activity",
+      "date": "",
+      "state": 3,
+      "etc": ""
+    }
+  ]
+}

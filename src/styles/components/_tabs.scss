@@ -1,0 +1,271 @@
+[class*="type1-"].tabs__section {
+  & {
+    position: relative;
+    // overflow-x: auto;
+  }
+
+  &::-webkit-scrollbar {
+    height: 6px;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    // background-color: #aaa;
+    background-color: $gray-450;
+  }
+
+  &.type1-medium {
+    @include borderStyle(bottom);
+
+    .tabs-menu__group {
+      border-bottom: 0 none;
+    }
+  }
+
+  &.border-none {
+    .tabs-menu__group {
+      border-bottom: 0;
+    }
+  }
+
+  .tabs-menu {
+    &__group {
+      position: relative;
+      //@include borderStyle(bottom);
+    }
+
+    &__list {
+      @include flexAlignCen;
+      @include scrollNone;
+      // width: 1000px;
+      display: inline-flex;
+
+      overflow-x: auto;
+      &.contacts-profile__tabs {
+        overflow-x: unset;
+        li:nth-child(8) {
+          position: relative;
+          margin-left: 32px;
+          &::before {
+            display: inline-block;
+            clear: both;
+            content: '';
+            width: 1px;
+            height: 16px;
+            background-color: $gray-450;
+            position: absolute;
+            left: -16px;
+            top: 6px;
+          }
+        }
+      }
+
+
+      > li {
+        position: relative;
+        flex-shrink: 0;
+
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          z-index: 10;
+          width: 0;
+          background: map-get($colors, primary);
+          transform: translateX(-50%);
+          content: "";
+        }
+
+        &.is-active {
+          &::after {
+            width: 100%;
+            background: map-get($colors, primary);
+            transition: width 0.3s;
+          }
+
+          .tabs-menu__btn:hover {
+            .tabs-menu__name {
+              color: currentColor;
+            }
+          }
+        }
+      }
+
+      > li + li {
+        margin-left: 6px;
+      }
+    }
+
+    &__btn {
+      &:hover {
+        .tabs-menu__name {
+          color: map-get($colors, secondary);
+        }
+      }
+    }
+
+    &__name {
+      transition: color 0.3s;
+    }
+  }
+}
+
+.tabs__section.type1-small {
+  .tabs-menu {
+    &__list {
+      > li {
+        &::after {
+          height: 3px;
+        }
+      }
+
+      > li + li {
+        margin-left: 15px;
+      }
+    }
+
+    &__btn {
+      padding: 3px 0 6px;
+    }
+
+    &__name {
+      @include fontBodyRegular(400);
+    }
+
+    &__number {
+      @include fontBodyRegular(400, map-get($colors, secondary));
+      margin-left: 4px;
+    }
+
+    &__arrow {
+      @include sizeWH(54px, 30px);
+      position: absolute;
+      top: 0;
+      z-index: 11;
+
+      .ico-svg {
+        color: $body-text;
+      }
+
+      &.arrow-prev {
+        left: 0;
+        background: linear-gradient(270deg, rgba($white, 0) 0%, $white 40%);
+      }
+      
+      &.arrow-next {
+        right: 0;
+        background: linear-gradient(270deg, $white 40%, rgba($white, 0) 100%);
+      }
+    }
+  }
+
+  .tabs-panel {
+    &__section {
+      padding-top: 10px;
+
+      .ipt-search__area  {
+        padding-bottom: 10px;
+      }
+
+      .list-type1__section {
+        padding-bottom: 24px;
+      }
+    }
+  }
+}
+
+.tabs__section.type1-medium {
+  .tabs-menu {
+    &__list {
+      > li {
+        &::after {
+          height: 4px;
+        }
+      }
+
+      > li + li {
+        margin-left: 30px;
+      }
+    }
+
+    &__btn {
+      padding: 12px 0 16px;
+    }
+
+    &__name {
+      @include fontBodySemiLarge(400);
+    }
+  }
+}
+
+.tabs__section.type2 {
+  .tabs-menu {
+    &__group {
+      @include borderStyle("multi");
+      position: relative;
+      display: inline-flex;
+      overflow: hidden;
+      border-bottom: 0;
+      border-radius: 4px 4px 0 0
+    }
+
+    &__list {
+      @include flexAlignCen;
+      @include scrollNone;
+
+      overflow-x: auto;
+
+      > li {
+        position: relative;
+        flex-shrink: 0;
+
+        &:not(:first-of-type) {
+          @include borderStyle(left);
+        }
+
+        &::after {
+          @include sizeWH(100%, 1px);
+
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: 10;
+          background: $gray-300;
+          content: "";
+        }
+
+        &.is-active {
+          .tabs-menu__btn {
+            background: $white;
+
+            &:hover {
+              .tabs-menu__name {
+                color: currentColor;
+              }
+            }
+          }
+
+          &::after {
+            background: $white;
+          }
+        }
+      }
+    }
+
+    &__btn {
+      padding: 9px 20px 10px;
+      background: $gray-100;
+
+      &:hover {
+        .tabs-menu__name {
+          color: map-get($colors, secondary);
+        }
+      }
+    }
+
+    &__name {
+      @include fontBodyRegular(400);
+    }
+  }
+}

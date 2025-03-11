@@ -1,0 +1,332 @@
+/* stylelint-disable */
+// accordion 용
+@mixin accordionType1ButtonArea {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+  margin: -8px;
+  padding: 8px;
+}
+/* stylelint-enable */
+
+.accordion-type1 {
+  &__group {
+    &.is-opened {
+      .accordion-type1 {
+        &__btn-ico {
+          transform: rotate(180deg);
+        }
+        
+        &-panel__group {
+          display: block
+        }
+      }
+    }
+
+    &.type-open {
+      position: relative;
+
+      .accordion-type1 {
+        &__btn {
+          @include screenOut;
+        }
+        
+        &-panel__group {
+          display: block;
+          padding-top: 4px;
+        }
+      }
+    }
+  }
+
+  &__btn {
+    @include flexAlignCen;
+    width: 100%;
+
+    &-txt {
+      @include fontBodyRegular(400)
+    }
+
+    &-ico {
+      margin-left: auto;
+      will-change: transform;
+    }
+  }
+
+  &-panel {
+    &__group {
+      display: none;
+      padding: 7px 0 4px;
+    }
+
+    &__search {
+      padding-bottom: 7px;
+    }
+
+    &__option {
+      &-list {
+        > li {
+          position: relative;
+
+          &:not(:first-of-type) {
+            margin-top: 2px;
+          }
+
+          @include mouseEffect {
+            .accordion-type1-panel__option {
+              &-item {
+                background: $gray-150;
+              }
+
+              &-delete {
+                display: block;
+              }
+
+              &-bell {
+                display: none;
+              }
+            }
+
+            .accordion-type1-panel__option-delete + .accordion-type1-panel__option-item {
+              padding-right: 32px;
+            }
+          }
+
+          .accordion-type1-panel__option-bell + .accordion-type1-panel__option-delete + .accordion-type1-panel__option-item  {
+            padding-right: 32px;
+          }
+
+          &.is-selected {
+            .accordion-type1-panel__option {
+              &-item {
+                background: $gray-200;
+                // @include mouseHover {
+                //   background: $white;
+                // }
+            
+                // @include mouseActive {
+                //   background: $white;
+                // }
+
+                > span {
+                  color: map-get($colors, $body-text);
+                  // font-weight: 500;
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      &-item {
+        @include mouseHover {
+          background: $gray-150;
+        }
+    
+        @include mouseActive {
+          background: $gray-150;
+        }
+
+        width: 100%;
+        padding: 5px 14px;
+        text-align: left;
+        border-radius: 4px;
+        transition: background 0.3s;
+
+        > span {
+          @include fontBodyRegular(400);
+          @include ellipsis;
+
+          width: 100%;
+        }
+
+        &.is-selected {
+          background: $gray-200;
+
+          > span {
+            color: map-get($colors, primary);
+          }
+        }
+
+        .accordion-type1-panel__option-alarm + & {
+          padding-right: 32px;
+        }
+      }
+
+      &-delete {
+        @include accordionType1ButtonArea;
+        @include sizeWH(31px);
+        display: none;
+        @include mouseEffect {
+          // background: $gray-250;
+          .ico-svg {
+            color: $gray-900;
+          }
+        }
+
+        .ico-svg {
+          @include sizeWH(16px);
+          color: $gray-600;
+        }
+      }
+
+      &-bell {
+        @include accordionType1ButtonArea;
+        @include sizeWH(31px);
+
+        .ico-svg {
+          @include sizeWH(16px);
+          color: $gray-600;
+        }
+      }
+
+      &-alarm {
+        @include accordionType1ButtonArea;
+
+        .ico-svg {
+          @include sizeWH(16px);
+          color: $body-text;
+        }
+      }
+    }
+  }
+}
+
+.accordion-type2 {
+  &__group {
+    &.is-opened {
+      .accordion-type2 {
+        &__btn-ico {
+          transform: rotate(180deg);
+        }
+        
+        &-panel__group {
+          display: block
+        }
+      }
+    }
+  }
+
+  &__btn {
+    @include flexAlignCen;
+    @include mouseEffect;
+    // @include borderStyle("multi", map-get($colors, secondary));
+    
+    max-width: 100%;
+    height: 28px;
+    padding: 0 8px;
+    // background: $white;
+    background: map-get($colors, tertiary);
+    border-radius: 3px;
+    
+    @include mouseHover {
+      background: map-get($colors, gray-400);
+    }
+    @include mouseActive {
+      background: map-get($colors, gray-450);
+    }
+
+    &.is-show {
+      background: map-get($colors, gray-450);
+      @include mouseHover {
+        background: map-get($colors, gray-450);
+      }
+    }
+
+    &-txt {
+      @include fontBodySmall(400);
+      @include ellipsis;
+      margin-right: 8px;
+    }
+
+    &-ico {
+      flex-shrink: 0;
+      will-change: transform;
+
+      .ico-svg {
+        color: $body-text;
+      }
+    }
+  }
+
+  &-panel {
+    &__group {
+      display: none;
+      padding-top: 14px;
+
+      .list-type1__section {
+        padding-top: 0;
+      }
+    }
+  }
+}
+
+.accordion-type3 {
+  &__group {
+    &.is-opened {
+      .accordion-type3 {
+        &__button-ico {
+          .ico-svg {
+            transform: rotate(180deg);
+          }
+        }
+
+        &-panel__group {
+          display: block;
+        }
+      }
+
+    }
+  }
+
+  &__label {
+    @include fontBodyRegular(400);
+    padding-right: 8px;
+  }
+
+  &__button {
+    display: inline-flex;
+    flex-shrink: 0;
+
+    &-txt {
+      @include fontBodyRegular(400, map-get($colors, primary));
+    }
+
+    &-ico {
+      .ico-svg {
+        @include sizeWH(10px);
+        color: map-get($colors, primary);
+      }
+    }
+
+    @include mouseHover {
+      .accordion-type3__button-txt {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &-panel {
+    &__group {
+      display: none;
+      padding: 3px 0;
+    }
+
+    &__list {
+      padding: 2px 0;
+
+      a {
+        @include mouseHover {
+          text-decoration: underline;
+        }
+
+        @include mouseActive {
+          text-decoration: underline;
+        }
+
+        color: map-get($colors, primary);
+      }
+    }
+  }
+}

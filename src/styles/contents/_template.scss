@@ -1,0 +1,230 @@
+.template-ipt-btn {
+  &__section {
+    padding-bottom: 14px;
+
+    &.type-paragraph {
+      .template-ipt-btn__list {
+        > li {
+          .template-ipt-btn__item {
+            input + label {
+              .item-thumb__img {
+                aspect-ratio: 110 / 76;
+                background-position: bottom center;
+              }
+            }
+          }
+        }
+      }
+
+      @for $i from 1 through 2 {
+        .template-ipt-btn__list {
+          > li:nth-of-type(#{$i}) {
+            .template-ipt-btn__item {
+              input + label {
+                .item-thumb__img {
+                  @include backgroundImg("svg/template-paragraph0#{$i}.svg");
+                }
+              }
+      
+              input:checked + label {
+                .item-thumb__img {
+                  @include backgroundImg("svg/template-paragraph0#{$i}_checked.svg");
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.type-icon {
+      input + label {
+        .item-thumb__img {
+          @include flexCenter;
+          margin: -3px 0;
+  
+          .ico-svg {
+            @include sizeWH(48px);
+          }
+        }
+      }
+
+      input:checked + label {
+        .item-thumb__img {
+          .ico-svg {
+            color: $white;
+          }
+        }
+      }
+    }
+
+    &:not([class*="type-layout"]) {
+      .template-ipt-btn__list {
+        margin: -14px -12px;
+
+        > li {
+          width: calc((100% - (24px * 6)) / 6);
+          margin: 14px 12px;
+        }
+      }
+    }
+
+    &[class*="type-layout"] {
+      .template-ipt-btn__list {
+        margin: -7px -12px;
+
+        > li {
+          position: relative;
+          width: calc((100% - (24px * 4)) / 4);
+          margin: 7px 12px;
+          padding-top: 28px;
+        }
+      }
+
+      input + label {
+        .item__thumb {
+          padding: 12px;
+        }
+
+        .item-thumb__img {
+          aspect-ratio: 198/122;
+        }
+      }
+    }
+
+    &.type-layout {
+      .template-ipt-btn__list {
+        > li {
+          @for $i from 1 through 10 {
+            &:nth-of-type(#{$i}) {
+              input + label {
+                .item-thumb__img {
+                  // @include backgroundImg("svg/layout#{$i}.svg");
+                  @include backgroundImg("svg/layout1.svg");
+                }
+              }
+
+              input:checked + label {
+                .item-thumb__img {
+                  // @include backgroundImg("svg/layout#{$i}_checked.svg");
+                  @include backgroundImg("svg/layout1_checked.svg");
+                }
+              }
+            }
+          }
+        }
+      }
+
+      input + label {
+        .item-thumb__img {
+          background: no-repeat center / contain;
+        }
+      }
+    }
+
+    &.type-layout-thumb {
+      .item-thumb__img {
+        border-radius: 4px;
+        contain: paint;
+      }
+    }
+  }
+
+  &__list {
+    @include flexWrap;
+  }
+
+  &__item {
+    position: relative;
+
+    input {
+      @include screenOut;
+    }
+
+    input + label {
+      @include flexColumn;
+      text-align: center;
+
+      .item {
+        &__thumb {
+          @include flexColumn;
+          @include borderStyle("multi");
+  
+          position: relative;
+          width: 100%;
+          padding: 24px 14px;
+          overflow: hidden;
+          border-radius: 4px;
+
+          &::after {
+            @include absoluteFull;
+            @include flexCenter;
+            @include backgroundStyle("svg/template-ipt-btn-checked.svg", $size: 28px);
+
+            display: none;
+            content: "";
+          }
+        }
+
+        &__label {
+          @include fontBodyRegular(400);
+          margin-top: 8px;
+        }
+
+        &-thumb {
+          &__txt {
+            @include fontBodyRegular(400);
+            padding-bottom: 18px;
+          }
+
+          &__img {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    input:checked + label {
+      .item {
+        &__thumb {
+          background: $teal-200;
+          border-color: $teal-300;
+
+          &::after {
+            display: flex;
+          }
+        }
+      }
+    }
+
+    &-delete {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 10;
+    }
+  }
+}
+
+.template-news {
+  &__header {
+    display: flex;
+    height: 21px;
+
+    .ipt-btn__section {
+      padding-bottom: 0;
+
+      .ipt-toggle__group {
+        input + label {
+          .label {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+
+  &__title {
+    @include fontBodyRegular(500);
+  }
+}

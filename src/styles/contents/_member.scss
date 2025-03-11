@@ -1,0 +1,262 @@
+.profile {
+  &__section {
+    padding: 0 24px;
+
+    .type-email .select__label {
+      @include selectLabelCustom("button");
+    }
+  }
+
+  &__area {
+    display: flex;
+  }
+
+  &-img {
+    &__group {
+      @include flexCenter;
+      @include sizeWH(112px);
+      
+      position: relative;
+      flex-shrink: 0;
+      margin-right: 28px;
+
+      .select {
+        &__section {
+          position: relative;
+          z-index: 10;
+          display: none;
+        }
+
+        &-option {
+          &__section {
+            top: 37px !important;
+            left: -6px;
+          }
+
+          &__group > li:not(:last-of-type) {
+            border-bottom: 0;
+          }
+        }
+      }
+
+      &::after {
+        @include absoluteFull;
+
+        background: rgba(78, 80, 80, 0.5);
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.5s;
+        content: "";
+      }
+
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+
+        &.no-edit::after {
+          opacity: 0;
+        }
+
+        .select__section {
+          display: block;
+        }
+      }
+
+      &.type-corp {
+        .profile__img {
+          @include borderStyle("multi");
+
+          // img {
+          //   object-fit: contain;
+          // }
+          img {
+            @include objFitContain;
+            &.ratio-vertical {
+              @include objFitCover;
+            }
+          }
+        }
+      }
+
+      &.type-person {
+        .profile__img {
+          @include borderStyle("multi");
+
+          img {
+            @include objFitCover;
+            &.ratio-vertical {
+              @include objFitCover;
+            }
+          }
+        }
+      }
+    }
+
+    &__ico {
+      @include sizeWH(28px);
+      @include backgroundStyle("png/icon-lock-fill.png", $size: 16px);
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      background-color: $teal-300;
+      border-radius: 50%;
+    }
+  }
+
+  &__img {
+    @include absoluteFull;
+
+    overflow: hidden;
+    background: $white;
+    border-radius: 50%;
+
+    &-ratio {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    // img {
+    //   @include objFitContain;
+    //   &.ratio-vertical {
+    //     @include objFitCover;
+    //   }
+    // }
+  }
+
+  &__group {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &__name {
+    @include flexAlignCen;
+    padding-bottom: 8px;
+
+    &:not(.type-arrow) {
+      strong {
+        @include fontHeadings(h3);
+        @include ellipsis;
+      }
+
+      .ico-svg {
+        @include sizeWH(18px);
+
+        flex-shrink: 0;
+        margin-left: 8px;
+        color: map-get($colors, primary);
+      }
+    }
+  }
+
+  &__team {
+    a,
+    button,
+    > span {
+      margin-right: 5px;
+    }
+
+    > span {
+      @include fontBodyRegular(400);
+
+      &.point {
+        color: map-get($colors, primary);
+      }
+    }
+  }
+
+  &__btn {
+    margin-top: 16px;
+  }
+
+  &__footer {
+    padding: 20px 24px 24px;
+
+    &-writer {
+      .button-link-text {
+        margin-right: 8px;
+      }
+
+      .button-link-text + span {
+        @include fontBodyRegular(400);
+      }
+    }
+  }
+}
+
+
+/*회원가입*/
+.member-wrap{
+  width: min(100%, 600px);
+  margin: 60px auto 0 auto;
+
+  &.bg-gray--150{
+    @include breakpointMax(l){
+      padding: 20px;
+    }
+  }
+  @include breakpointMax(l){
+    margin-top: 0;
+  }
+  &__inner{
+    padding: 30px 70px;
+
+    @include breakpointMax(l){
+      padding: 0 0;
+    }
+
+    &__title{
+      @include fontBodyLead(700);
+      margin-bottom: 20px;
+    }
+    &__txt{
+      @include fontBodyLarge(400);
+      margin-bottom: 20px;
+    }
+
+    ul.txt{
+      li{
+        padding:8px 0;
+        @include flexJustStart;
+        .ico-svg{
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .form-group{
+      ul{
+        ul{
+          margin-left: 24px;
+        }
+      }
+    }
+  }
+}
+
+/*aside 같이 있는 레이아웃*/
+.member-section{
+  @include flexJustBet;
+  max-width: 960px;
+  gap: 30px;
+
+  @include breakpointMax(m){
+    flex-direction: column;
+    max-width: 100%;
+  }
+
+  .member__section{
+    width: 600px;
+
+    @include breakpointMax(l){
+      width: 100%;
+    }
+
+  }
+
+
+}

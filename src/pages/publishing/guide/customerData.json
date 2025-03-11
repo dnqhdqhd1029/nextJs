@@ -1,0 +1,69 @@
+{
+  "_comment": "state => 0:대기 / 1:진행 / 2:수정 / 3:완료 / 4:취소",
+  "data": [
+    {
+      "depth1": "고객센터",
+      "depth2": "",
+      "url": "help",
+      "date": "2025.02.12",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "검색결과",
+      "url": "/help/search-detail",
+      "date": "2025.02.12",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "도움말",
+      "url": "/help/help/",
+      "date": "2025.02.12",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "도움말 상세보기",
+      "url": "/help/help/detail",
+      "date": "2025.02.12",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "소식",
+      "url": "/help/notice/",
+      "date": "2025.02.12",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "소식 상세보기",
+      "url": "/help/notice/detail",
+      "date": "2025.02.12",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "내문의",
+      "url": "/help/my-inquiry",
+      "date": "2025.02.12",
+      "state": 3,
+      "etc": ""
+    },
+    {
+      "depth1": "",
+      "depth2": "내문의 상세보기",
+      "url": "/help/my-inquiry/143",
+      "date": "2025.02.12",
+      "state": 3,
+      "etc": ""
+    }
+  ]
+}

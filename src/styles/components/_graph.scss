@@ -1,0 +1,42 @@
+.graph {
+  &__list {
+    @include flexWrap;
+    margin: -12px;
+
+    > li {
+      width: calc((100% - 48px) / 2);
+      margin: 12px;
+    }
+  }
+
+  &__group {
+    @include sizeWH(100%);
+    @include borderStyle("multi");
+
+    padding: 12px;
+    border-radius: 4px;
+  }
+
+  &__title {
+    @include fontHeadings(h6);
+    padding-bottom: 15px;
+  }
+}
+
+.charts {
+  &__group {
+    width: 100%;
+    
+    &.type-pie {
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+
+      .apexcharts-legend {
+        width: 140px;
+        right: 5px !important;
+        top: 15px !important;
+      }
+    }
+  }
+}

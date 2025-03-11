@@ -1,0 +1,34 @@
+stages:
+  - development
+  - production
+
+dev_server_deploy:
+  image: node:16.20-buster
+  stage: development
+  only:
+    - dev
+  script:
+    #    - docker compose down --rmi all || true
+    #    - docker compose -f "docker-compose.yaml" build
+    #    - docker compose -f "docker-compose.yaml" up -d
+    - docker login repo-01.cns.mediabee.kr -u $USER_NAME -p $USER_PASSWORD
+    - docker build --build-arg ENV_TYPE=dev -t mediabee.www.front.dev .
+    - docker tag mediabee.www.front.dev:latest repo-01.cns.mediabee.kr/mediabee/frontend/mediabee-website/mediabee.www.front.dev:latest
+    - docker push repo-01.cns.mediabee.kr/mediabee/frontend/mediabee-website/mediabee.www.front.dev:latest
+    - kubectl --kubeconfig ~/.kube/dev-config rollout restart --namespace mediabee deployment/www
+#    - kubectl --kubeconfig ~/.kube/dev-config get pod -l appname=mediabee.app.www.dev --namespace=mediabee
+#    - kubectl --kubeconfig ~/.kube/dev-config logs -l appname=mediabee.app.www.dev --namespace=mediabee
+
+
+prod_server_deploy:
+  stage: production
+  only:
+    - main
+  script:
+    #    - docker compose down --rmi all || true
+    #    - docker compose -f "docker-compose.yaml" build
+    #    - docker compose -f "docker-compose.yaml" up -d
+    - docker login mbee-reg.kr.ncr.ntruss.com -u 131D686651B67589F5E2 -p F8D037C33934193435046103BA0A98A785FDA446
+    - docker build --build-arg ENV_TYPE=prod -t mediabee.www.front.prod .
+    - docker tag mediabee.www.front.prod:latest mbee-reg.kr.ncr.ntruss.com/mediabee.www.front.prod:latest
+    - docker push mbee-reg.kr.ncr.ntruss.com/mediabee.www.front.prod:latest
