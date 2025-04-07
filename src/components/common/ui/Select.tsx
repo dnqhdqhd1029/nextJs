@@ -8,8 +8,8 @@ import { useOuterClick } from 'react-outer-click'
 import cn from 'classnames'
 
 import FormMsg from '~/components/common/ui/FormMsg'
-import icoSvgData from '~/components/common/ui/icon/icoSvgData.json'
 import IcoSvg from '~/components/common/ui/IcoSvg'
+import icoSvgData from '~/components/common/ui/json/icoSvgData.json'
 import Loader from '~/components/common/ui/Loader'
 import type { SelectListOptionItem } from '~/types/common'
 import { getCurrencyFormat } from '~/utils/common/number'
@@ -42,24 +42,27 @@ interface Props {
   msg?: string
   isCheckBox?: boolean
   onClickList?: (e: boolean) => void
+
+  hideExtra?: boolean
 }
 
 const Select = ({
-  value,
-  onChange,
-  options,
-  children,
-  disabled,
-  failed = false,
-  msg = '',
-  isLoadingForm = false,
-  isCheckBox = false,
-  // listMaxHeight = 406,
-  listMaxHeight = 254,
-  // listMaxHeight = 318,
-  listDirection,
-  onClickList,
-}: Props) => {
+                  value,
+                  onChange,
+                  options,
+                  children,
+                  disabled,
+                  failed = false,
+                  msg = '',
+                  isLoadingForm = false,
+                  isCheckBox = false,
+                  // listMaxHeight = 406,
+                  listMaxHeight = 254,
+                  // listMaxHeight = 318,
+                  listDirection,
+                  onClickList,
+                  hideExtra = false,
+                }: Props) => {
   const container = useRef<HTMLDivElement>(null)
   const optionLayer = useRef<HTMLDivElement>(null)
   const [listOptions, setListOptions] = useState<SelectListOptionItem[]>([])
@@ -127,104 +130,102 @@ const Select = ({
   }
 
   return (
-    <>
-      {isLoadingForm ? (
-        <>
-          <div
-            className={'select-form__section select-form-btn'}
-            ref={container}
-          >
-            <div className="select-form__group">
-              <button
-                className="select-form__label loading-form"
-                onClick={handleClick}
-                disabled={buttonDisabled}
+      <>
+        {isLoadingForm ? (
+            <>
+              <div
+                  className={'select-form__section select-form-btn'}
+                  ref={container}
               >
-                <Loader size={'s18'} />
-                <IcoSvg data={icoSvgData.chevronDown} />
-              </button>
-            </div>
-          </div>
-        </>
-      ) : (
-        <div className={'select-form__section select-form-btn'}>
-          <div
-            className={cn('select-form__group', {
-              'is-show': isOpen,
-              'is-danger': failed,
-              'is-selected': !failed,
-            })}
-            ref={container}
-          >
-            {/* <div className="select-form__group"> */}
-            <button
-              className="select-form__label"
-              onClick={handleClick}
-              disabled={buttonDisabled}
+                <div className="select-form__group">
+                  <button
+                      className="select-form__label loading-form"
+                      onClick={handleClick}
+                      disabled={buttonDisabled}
+                  >
+                    <Loader size={'s18'} />
+                    <IcoSvg data={icoSvgData.chevronDown} />
+                  </button>
+                </div>
+              </div>
+            </>
+        ) : (
+            <div
+                className={cn('select-form__group', {
+                  'is-show': isOpen,
+                  'is-danger': failed,
+                  'is-selected': !failed,
+                })}
+                ref={container}
             >
-              <span
+              {/* <div className="select-form__group"> */}
+              <button
+                  className="select-form__label"
+                  onClick={handleClick}
+                  disabled={buttonDisabled}
+              >
+            <span
                 className={cn('select-form__label-text', {
                   'not-selected': selectedOption.id === '',
                 })}
-              >
-                {selectedOption.name}
-              </span>
-              <IcoSvg data={icoSvgData.chevronDown} />
-            </button>
-
-            <div
-              className={cn(
-                'select-form-option__section',
-                isOptionAbove ? 'select-list__direction-up' : 'select-list__direction-down'
-              )}
-              style={{ display: 'block', visibility: isOpen && !isAnimating ? 'visible' : 'hidden' }}
-              ref={optionLayer}
             >
-              {children ? (
-                <>{children}</>
-              ) : (
-                <>
-                  {listOptions && listOptions.length > 0 && (
-                    <div
-                      className="select-form-option__area"
-                      // className="select-form-option__area auto-complete__max-height"
-                      style={{ maxHeight: listMaxHeight }}
-                    >
-                      <ul className="select-form-option__group">
-                        {listOptions.map((option, index) => (
-                          <li key={index}>
-                            <button
-                              className={cn('select-form-option__item', {
-                                'is-selected': option.id === selectedOption.id,
-                              })}
-                              onClick={e => handleChange(e, option)}
-                            >
-                              <span className="select-form-option__item-text">
-                                {option.name}
-                                {option.extra && option.extra !== '' && (
-                                  <span
-                                    className="count-font__small-gray"
-                                    style={{ paddingLeft: 5 }}
-                                  >
-                                    {getCurrencyFormat(option.extra)}
-                                  </span>
-                                )}
-                              </span>
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+              {selectedOption.name}
+            </span>
+                <IcoSvg data={icoSvgData.chevronDown} />
+              </button>
+
+              <div
+                  className={cn(
+                      'select-form-option__section',
+                      isOptionAbove ? 'select-list__direction-up' : 'select-list__direction-down'
                   )}
-                </>
-              )}
+                  style={{ display: 'block', visibility: isOpen && !isAnimating ? 'visible' : 'hidden' }}
+                  ref={optionLayer}
+              >
+                {children ? (
+                    <>{children}</>
+                ) : (
+                    <>
+                      {listOptions && listOptions.length > 0 && (
+                          <div
+                              className="select-form-option__area"
+                              // className="select-form-option__area auto-complete__max-height"
+                              style={{ maxHeight: listMaxHeight }}
+                          >
+                            <ul className="select-form-option__group">
+                              {listOptions.map((option, index) => (
+                                  <li key={index}>
+                                    <button
+                                        className={cn('select-form-option__item', {
+                                          'is-selected': option.id === selectedOption.id,
+                                        })}
+                                        onClick={e => handleChange(e, option)}
+                                    >
+                            <span className="select-form-option__item-text">
+                              {option.name}
+                              {!hideExtra && option.extra && option.extra !== '' && (
+                                  <span
+                                      className="count-font__small-gray"
+                                      style={{ paddingLeft: 5 }}
+                                  >
+                                  {getCurrencyFormat(option.extra)}
+                                </span>
+                              )}
+                            </span>
+                                    </button>
+                                  </li>
+                              ))}
+                            </ul>
+                          </div>
+                      )}
+                    </>
+                )}
+              </div>
+              {/* </div> */}
+              {msg !== '' && <FormMsg msg={msg} />}
             </div>
-          </div>
-          {/* </div> */}
-          {msg !== '' && <FormMsg msg={msg} />}
-        </div>
-      )}
-    </>
+        )}
+      </>
   )
 }
 
